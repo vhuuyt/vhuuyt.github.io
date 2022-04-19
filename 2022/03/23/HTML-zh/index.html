@@ -1,0 +1,534 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+     
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+<title>HTML入门笔记（暂鸽中） | 殊约的小本本</title>
+<meta name="author" content="殊约">
+<meta name="copyright" content="殊约">
+
+<link rel="shortcut icon" href="http://vhuuyt.gitee.io/img/favicon.png"> 
+
+
+    <meta name="keywords" content="HTML,前端入门">
+
+
+
+     
+    <meta name="description" content="HTML 课程：mozilla  HTML文档剖析(anotomy)1234567891011&lt;!DOCTYPE html&gt;&lt;!--最短有效的文档声明--&gt;&lt;html&gt;  &lt;head&gt;&lt;!--容器container，不会外显，内容包括你想在搜索结果中出现的关键字和页面描述，CSS样式，字符集声明等--&gt;    &lt;meta char">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML入门笔记（暂鸽中）">
+<meta property="og:url" content="http://vhuuyt.gitee.io/2022/03/23/HTML-zh/">
+<meta property="og:site_name" content="殊约的小本本">
+<meta property="og:description" content="HTML 课程：mozilla  HTML文档剖析(anotomy)1234567891011&lt;!DOCTYPE html&gt;&lt;!--最短有效的文档声明--&gt;&lt;html&gt;  &lt;head&gt;&lt;!--容器container，不会外显，内容包括你想在搜索结果中出现的关键字和页面描述，CSS样式，字符集声明等--&gt;    &lt;meta char">
+<meta property="og:locale">
+<meta property="og:image" content="http://vhuuyt.gitee.io/img/kano.webp">
+<meta property="article:published_time" content="2022-03-23T09:27:10.000Z">
+<meta property="article:modified_time" content="2022-04-13T02:31:42.807Z">
+<meta property="article:author" content="殊约">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="前端入门">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://vhuuyt.gitee.io/img/kano.webp">
+ 
+
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<link href="//cdn.jsdelivr.net" rel="preconnect">
+<link href="http://vhuuyt.gitee.io" rel="prefetch">
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css " rel="stylesheet">
+<link href="/css/main.css " rel="stylesheet">
+<script src="/js/utlis.js"></script>
+ 
+    
+ 
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+     
+    
+ 
+     
+
+<script>
+    var $config = {
+        tocStyle: "visible",
+        CDN:{
+            fancyboxJs: "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js",
+            fancyboxCss: "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"
+        },
+        
+        
+    }
+</script>
+    
+
+
+
+
+  
+
+
+    <div id="body-wrap">
+        <nav id="nav-wrap">
+  <div class="navbar">
+    <div class="bar">
+      <a href="/" class="title">殊约的小本本</a>
+
+      
+      <ul class="menu">
+         
+        <li><a href="/">首页</a></li>
+          
+        <li>
+          <a class="menu-child-hover" href="javascript:void(0);">找文章</a>
+          <ul class="menu-child">
+            
+            <li><a href='/tags'>标签</a></li>
+            
+            <li><a href='/categories'>分类</a></li>
+            
+            <li><a href='/archives'>归档</a></li>
+            
+          </ul>
+        </li>
+          
+        <li><a href="/404">关于我</a></li>
+         
+      </ul>
+      <i class="fas fa-bars open-nav"></i>
+    </div>
+  </div>
+  <div id="mobile-nav">
+    <ul>
+       
+      <li><a href="/">首页</a></li>
+         
+      <li><a href='/tags'>标签</a></li>
+      
+      <li><a href='/categories'>分类</a></li>
+      
+      <li><a href='/archives'>归档</a></li>
+         
+      <li><a href="/404">关于我</a></li>
+       
+    </ul>
+  </div>
+</nav>
+
+
+        <main id="main">
+            
+
+<article id="post">
+  <div class="post-info">
+    <div class="post-title">
+      <h1>HTML入门笔记（暂鸽中）</h1>
+    </div>
+    <div class="post-meta">
+      <div class="post-date">
+        <i class="far fa-calendar-alt fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">
+          发表于
+            2022-03-23 |
+        </span>
+        
+        <i class="fas fa-history fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">
+          更新于
+            2022-04-19
+        </span>
+      </div>
+      <div class="post-meta-wordcount">
+        <i class="far fa-file-word fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">总字数:</span>
+        <span class="word-count">2.6k | </span>
+        <i class="far fa-clock fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">阅读时长:</span>
+        <span>14分钟</span>
+        
+      </div>
+    </div>
+  </div>
+  <div class="post-content">
+    <blockquote>
+<p>HTML 课程：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started">mozilla</a></p>
+</blockquote>
+<h1 id="HTML文档剖析-anotomy"><a href="#HTML文档剖析-anotomy" class="headerlink" title="HTML文档剖析(anotomy)"></a>HTML文档剖析(anotomy)</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span><span class="comment">&lt;!--最短有效的文档声明--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="comment">&lt;!--容器container，不会外显，内容包括你想在搜索结果中出现的关键字和页面描述，CSS样式，字符集声明等--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span><span class="comment">&lt;!--metadata(元数据)表示无法由其他 HTML 元相关元素（如 &lt;base&gt;、&lt;link&gt;、&lt;script&gt;、&lt;style&gt;或&lt;title&gt;）表示的元数据。字符集属性将文档的字符集设置为 UTF-8--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">title</span>&gt;</span><span class="comment">&lt;!--出现在标签tab页、或作为书签bookmarked的标题--&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!--展示在页面的所有内容：文图、视频、图像、游戏、可播放的音轨等--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="主要语言-primary-language"><a href="#主要语言-primary-language" class="headerlink" title="主要语言 primary language"></a>主要语言 primary language</h2><p>全局设置</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en-US&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>局部设置</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Japanese example: <span class="tag">&lt;<span class="name">span</span> <span class="attr">lang</span>=<span class="string">&quot;ja&quot;</span>&gt;</span>ご飯が熱い。<span class="tag">&lt;/<span class="name">span</span>&gt;</span>.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>标准来自： <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a>    更多查看： <a target="_blank" rel="noopener" href="https://www.w3.org/International/articles/language-tags/">Language tags in HTML and XML</a>.</p>
+<h2 id="lt-head-gt-里有啥"><a href="#lt-head-gt-里有啥" class="headerlink" title="&lt;head&gt; 里有啥"></a>&lt;head&gt; 里有啥</h2><h3 id="lt-title-gt-标题"><a href="#lt-title-gt-标题" class="headerlink" title="&lt;title&gt; 标题"></a>&lt;title&gt; 标题</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>My test page<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> <code>&lt;title&gt;</code>用于搜索结果、标签页描述和默认书签名</p>
+<h3 id="lt-meta-gt-元数据"><a href="#lt-meta-gt-元数据" class="headerlink" title="&lt;meta&gt; 元数据"></a>&lt;meta&gt; 元数据</h3><h4 id="字符编码"><a href="#字符编码" class="headerlink" title="字符编码"></a>字符编码</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="作者和描述"><a href="#作者和描述" class="headerlink" title="作者和描述"></a>作者和描述</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;specifies the type of meta element it is; what type of information it contains.&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">content</span>=<span class="string">&quot;specifies the actual meta content.&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;author&quot;</span> <span class="attr">content</span>=<span class="string">&quot;Chris Mills&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;description&quot;</span> <span class="attr">content</span>=<span class="string">&quot;The MDN Web Docs Learning Area aims to providecomplete beginners to the Web with all they need to know to get started with developing web sites and applications.&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Note:</strong> In Google, you will see some relevant subpages of MDN Web Docs listed below the main homepage link — these are called sitelinks, and are configurable in <a target="_blank" rel="noopener" href="https://www.google.com/webmasters/tools/">Google’s webmaster tools</a> — a way to make your site’s search results better in the Google search engine.</p>
+<p><strong>Note:</strong> Many <code>&lt;meta&gt;</code> features just aren’t used any more. For example, the keyword <code>&lt;meta&gt;</code> element (<code>&lt;meta name=&quot;keywords&quot; content=&quot;fill, in, your, keywords, here&quot;&gt;</code>) — which is supposed to provide keywords for search engines to determine relevance of that page for different search terms — is ignored by search engines, because spammers were just filling the keyword list with hundreds of keywords, biasing results.</p>
+<h4 id="外链优化显示-proprietary-metadata"><a href="#外链优化显示-proprietary-metadata" class="headerlink" title="外链优化显示 proprietary metadata"></a>外链优化显示 proprietary metadata</h4><p>For example, <a target="_blank" rel="noopener" href="https://ogp.me/">Open Graph Data</a> is a metadata protocol that Facebook invented to provide richer metadata for websites. In the MDN Web Docs sourcecode, you’ll find this:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">&quot;og:image&quot;</span> <span class="attr">content</span>=<span class="string">&quot;https://developer.mozilla.org/static/img/opengraph-logo.png&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">&quot;og:description&quot;</span> <span class="attr">content</span>=<span class="string">&quot;The Mozilla Developer Network (MDN) provides</span></span></span><br><span class="line"><span class="string"><span class="tag">information about Open Web technologies including HTML, CSS, and APIs for both Web sites</span></span></span><br><span class="line"><span class="string"><span class="tag">and HTML5 Apps. It also documents Mozilla products, like Firefox OS.&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">&quot;og:title&quot;</span> <span class="attr">content</span>=<span class="string">&quot;Mozilla Developer Network&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>One effect of this is that when you link to MDN Web Docs on facebook, the link appears along with an image and description: a richer experience for users.</p>
+<h3 id="custom-icons"><a href="#custom-icons" class="headerlink" title="custom icons"></a>custom icons</h3><p>You may see (depending on the browser) favicons(favorites icon) displayed in the browser tab containing each open page, and next to bookmarked pages in the bookmarks panel.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;icon&quot;</span> <span class="attr">href</span>=<span class="string">&quot;favicon.ico&quot;</span> <span class="attr">type</span>=<span class="string">&quot;image/x-icon&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- third-generation iPad with high-resolution Retina display: --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;apple-touch-icon-precomposed&quot;</span> <span class="attr">sizes</span>=<span class="string">&quot;144x144&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://developer.mozilla.org/static/img/favicon144.png&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- iPhone with high-resolution Retina display: --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;apple-touch-icon-precomposed&quot;</span> <span class="attr">sizes</span>=<span class="string">&quot;114x114&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://developer.mozilla.org/static/img/favicon114.png&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- basic favicon --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;icon&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://developer.mozilla.org/static/img/favicon32.png&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>The comments explain what each icon is used for — these elements cover things like providing a nice high resolution icon to use when the website is saved to an iPad’s home screen.</p>
+<p><strong>Note:</strong> If your site uses a Content Security Policy (CSP) to enhance its security, the policy applies to the favicon. If you encounter problems with the favicon not loading, verify that the <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy"><code>Content-Security-Policy</code></a> header’s <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/img-src"><code>img-src</code> directive</a> is not preventing access to it.</p>
+<h3 id="Applying-CSS-and-JavaScript-to-HTML"><a href="#Applying-CSS-and-JavaScript-to-HTML" class="headerlink" title="Applying CSS and JavaScript to HTML"></a>Applying CSS and JavaScript to HTML</h3><h4 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;my-css-file.css&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>The <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link"><code>&lt;link&gt;</code></a> element should always go inside the head of your document. This takes two attributes, <code>rel=&quot;stylesheet&quot;</code>, which indicates that it is the document’s stylesheet, and <code>href</code>.</p>
+<h4 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h4><h5 id="放头部"><a href="#放头部" class="headerlink" title="放头部"></a>放头部</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;my-js-file.js&quot;</span> <span class="attr">defer</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>The <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script"><code>&lt;script&gt;</code></a> element should also go into the head, and should include a <code>src</code> attribute containing the path to the JavaScript you want to load, and <code>defer</code>, which basically instructs the browser to load the JavaScript after the page has finished parsing the HTML. This is useful as it makes sure that the HTML is all loaded before the JavaScript runs, so that you don’t get errors resulting from JavaScript trying to access an HTML element that doesn’t exist on the page yet. </p>
+<p>There are actually a number of ways to handle loading JavaScript on your page, but this is the most reliable one to use for modern browsers (for others, read <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript#script_loading_strategies">Script loading strategies</a>).</p>
+<h5 id="放尾部"><a href="#放尾部" class="headerlink" title="放尾部"></a>放尾部</h5><p><code>&lt;script&gt;</code> 部分没必要非要放在文档头部；实际上，把它放在文档的尾部（在 <code>&lt;/body&gt;</code>标签之前）是一个更好的选择，这样可以确保在加载脚本之前浏览器已经解析了HTML内容（如果脚本加载某个不存在的元素，浏览器会报错）。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;my-js-file.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Note:</strong> The <code>&lt;script&gt;</code> element may look like an empty element, but it’s not, and so needs a closing tag. Instead of pointing to an external script file, you can also choose to put your script inside the <code>&lt;script&gt;</code> element.</p>
+<h1 id="Element"><a href="#Element" class="headerlink" title="Element"></a>Element</h1><p>The terms <em>block</em> and <em>inline</em>, as used in this article, should not be confused with <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model#types_of_css_boxes">the types of CSS boxes</a> that have the same names. While the names correlate by default, changing the CSS display type doesn’t change the category of the element, and doesn’t affect which elements it can contain and which elements it can be contained in. One reason HTML5 dropped these terms was to prevent this rather common confusion.</p>
+<h2 id="block-level-element-块级元素"><a href="#block-level-element-块级元素" class="headerlink" title="block-level element 块级元素"></a>block-level element 块级元素</h2><p>it can not be nested inside an inline element ! It will cause a new line to appear in the document. (default CSS styling)</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>I am the title of the story.<span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="comment">&lt;!--支持到&lt;h6&gt;--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>I am a paragraph, oh yes I am.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>unordered lists<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>ordered lists<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">li</span>&gt;</span>nesting lists<span class="tag">&lt;/<span class="name">li</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span>unordered lists<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="inline-element-内联元素"><a href="#inline-element-内联元素" class="headerlink" title="inline element 内联元素"></a>inline element 内联元素</h2><h3 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h3><p>They are surround only small parts of the document’s content. It will not cause a new line to appear in the document.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span>&gt;</span>anchor: 锚，使成为超链接 hyper link<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">strong</span>&gt;</span>非常重要 strong importance<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">em</span>&gt;</span>强调 emphasis<span class="tag">&lt;/<span class="name">em</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="详述"><a href="#详述" class="headerlink" title="详述"></a>详述</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">em</span>&gt;</span>emphasis: Browsers style this as italic by default, but you shouldn&#x27;t use this tag purely to get italic styling.<span class="tag">&lt;/<span class="name">em</span>&gt;</span></span><br><span class="line">To do that, you&#x27;d use a <span class="tag">&lt;<span class="name">span</span>&gt;</span> element and some CSS, or perhaps an <span class="tag">&lt;<span class="name">i</span>&gt;</span> element.</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Browsers style <span class="tag">&lt;<span class="name">strong</span>&gt;</span>strong importance<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> as bold text by default.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">but you shouldn&#x27;t use this tag purely to get bold styling. To do that, you&#x27;d use a <span class="tag">&lt;<span class="name">span</span>&gt;</span> element and some CSS, or perhaps a <span class="tag">&lt;<span class="name">b</span>&gt;</span> element.</span><br><span class="line">    </span><br><span class="line">You can nest strong and emphasis inside one another if desired:</span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>This liquid is <span class="tag">&lt;<span class="name">strong</span>&gt;</span>highly toxic<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> —</span><br><span class="line">if you drink it, <span class="tag">&lt;<span class="name">strong</span>&gt;</span>you may <span class="tag">&lt;<span class="name">em</span>&gt;</span>die<span class="tag">&lt;/<span class="name">em</span>&gt;</span><span class="tag">&lt;/<span class="name">strong</span>&gt;</span>.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="italic-bold-underline…"><a href="#italic-bold-underline…" class="headerlink" title="italic, bold, underline…"></a>italic, bold, underline…</h4><p>They came about so people could write bold, italics, or underlined text in an era when CSS was still supported poorly or not at all. Elements like this, which only affect presentation and not semantics, are known as <strong>presentational elements</strong> and should no longer be used because, as we’ve seen before, semantics is so important to accessibility, SEO(搜索引擎优化), etc.</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/i"><code>&lt;i&gt;</code></a> 被用来传达传统上用斜体表达的意义：外国文字，分类名称，技术术语，一种思想……<br>  is used to convey a meaning traditionally conveyed by italic: foreign words, taxonomic designation, technical terms, a thought…</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/b"><code>&lt;b&gt;</code></a> 被用来传达传统上用粗体表达的意义：关键字，产品名称，引导句……<br>  is used to convey a meaning traditionally conveyed by bold: key words, product names, lead sentence…</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/u"><code>&lt;u&gt;</code></a> 被用来传达传统上用下划线表达的意义：专有名词，拼写错误……<br>  is used to convey a meaning traditionally conveyed by underline: proper name, misspelling…</li>
+</ul>
+<p><strong>Note:</strong> People strongly associate underlining with hyperlinks. Therefore, on the web, it’s best to underline only links. Use the <code>&lt;u&gt;</code> element when it’s semantically appropriate, but consider using CSS to change the default underline to something more appropriate on the web. The example below illustrates how it can be done.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- scientific names --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">  The Ruby-throated Hummingbird (<span class="tag">&lt;<span class="name">i</span>&gt;</span>Archilochus colubris<span class="tag">&lt;/<span class="name">i</span>&gt;</span>)</span><br><span class="line">  is the most common hummingbird in Eastern North America.</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- foreign words --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">  The menu was a sea of exotic words like <span class="tag">&lt;<span class="name">i</span> <span class="attr">lang</span>=<span class="string">&quot;uk-latn&quot;</span>&gt;</span>vatrushka<span class="tag">&lt;/<span class="name">i</span>&gt;</span>,</span><br><span class="line">  <span class="tag">&lt;<span class="name">i</span> <span class="attr">lang</span>=<span class="string">&quot;id&quot;</span>&gt;</span>nasi goreng<span class="tag">&lt;/<span class="name">i</span>&gt;</span> and <span class="tag">&lt;<span class="name">i</span> <span class="attr">lang</span>=<span class="string">&quot;fr&quot;</span>&gt;</span>soupe à l&#x27;oignon<span class="tag">&lt;/<span class="name">i</span>&gt;</span>.</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- a known misspelling --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="comment">&lt;!--看这里的格式--&gt;</span></span><br><span class="line">  Someday I&#x27;ll learn how to <span class="tag">&lt;<span class="name">u</span> <span class="attr">style</span>=<span class="string">&quot;text-decoration-line: underline; text-decoration-style: wavy;&quot;</span>&gt;</span>spel<span class="tag">&lt;/<span class="name">u</span>&gt;</span> better.</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Highlight keywords in a set of instructions --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">b</span>&gt;</span>Slice<span class="tag">&lt;/<span class="name">b</span>&gt;</span> two pieces of bread off the loaf.</span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">b</span>&gt;</span>Insert<span class="tag">&lt;/<span class="name">b</span>&gt;</span> a tomato slice and a leaf of</span><br><span class="line">    lettuce between the slices of bread.</span><br><span class="line">  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="Empty-elements-空元素只有-Single-Tag"><a href="#Empty-elements-空元素只有-Single-Tag" class="headerlink" title="Empty elements 空元素只有 Single Tag"></a>Empty elements 空元素只有 Single Tag</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;alter:更改、改变&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;images/cat.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;cat&quot;</span> /&gt;</span> 后面加/(backslash)来适配XML</span><br></pre></td></tr></table></figure>
+
+<h1 id="Attributes-属性"><a href="#Attributes-属性" class="headerlink" title="Attributes 属性"></a>Attributes 属性</h1><p>Elements can alse have attributes. 属性始终要<strong>添加引号</strong>，单双都行，但不能混用，双引号里的单引号可以显示出来（反之同理）。如果要把同类型引号当作文本显示，得使用<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started#entity_references_including_special_characters_in_html">实体引用 HTML entities</a>:<code>&lt;a href=&#39;https://www.example.com&#39; title=&#39;Isn&amp;apos;t this fun?&#39;&gt;A link to my example.&lt;/a&gt;</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class: <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">&quot;editor-nots&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="anchors-可添加的-attributes"><a href="#anchors-可添加的-attributes" class="headerlink" title="anchors 可添加的 attributes"></a>anchors 可添加的 attributes</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;web address&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span> here reference somewhere?</span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">title</span>=<span class="string">&quot;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span> description of the page being linked to. when cursor(鼠标) hovers(盘旋、彷徨、靠近), it appears.</span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span> : open in a new tags(标签页)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Boolean-attributes-布尔属性"><a href="#Boolean-attributes-布尔属性" class="headerlink" title="Boolean attributes 布尔属性"></a>Boolean attributes 布尔属性</h2><p>布尔属性的值和属性名称是一样的</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">disabled</span>=<span class="string">&quot;disabled&quot;</span>&gt;</span>标记表单输入使之变为不可用(变灰色)</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">disabled</span>&gt;</span><span class="comment">&lt;!-- using the disabled attribute prevents the end user from entering text into the input box --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span>&gt;</span><span class="comment">&lt;!-- text input is allowed, as it doesn&#x27;t contain the disabled attribute --&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="syntax-规则"><a href="#syntax-规则" class="headerlink" title="syntax 规则"></a>syntax 规则</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nesting: elements can be placed within other elements</span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    This is called <span class="tag">&lt;<span class="name">strong</span>&gt;</span>nesting(嵌套)<span class="tag">&lt;/<span class="name">strong</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">overlap 交叠：<span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Witespace-in-HTML"><a href="#Witespace-in-HTML" class="headerlink" title="Witespace in HTML"></a>Witespace in HTML</h2><p>the HTML parser reduces each sequence of whitespace to a single space when rendering the code.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Dogs are silly.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Dogs        are</span><br><span class="line">         silly.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Entity-references-实体引用"><a href="#Entity-references-实体引用" class="headerlink" title="Entity references 实体引用"></a>Entity references 实体引用</h2><p><code>&lt;</code>less than,<code>&gt;</code>,<code>&quot;</code>,<code>&#39;</code>,<code>&amp;</code>ampersand他们都是特殊字符，使用的时候需要特殊引用。Each character reference starts with an ampersand (&amp;), and ends with a semicolon (;).</p>
+<table>
+<thead>
+<tr>
+<th align="center">Literal character <br />原义字符</th>
+<th align="center">Character reference equivalent<br />等价字符引用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">&lt;</td>
+<td align="center">&amp;lt ; less than</td>
+</tr>
+<tr>
+<td align="center">&gt;</td>
+<td align="center">&amp;gt ;</td>
+</tr>
+<tr>
+<td align="center">“</td>
+<td align="center">&amp;quot ; quotation</td>
+</tr>
+<tr>
+<td align="center">‘</td>
+<td align="center">&amp;apos ;</td>
+</tr>
+<tr>
+<td align="center">&amp;</td>
+<td align="center">&amp;amp ;</td>
+</tr>
+</tbody></table>
+<h2 id="HTML-comments-注释"><a href="#HTML-comments-注释" class="headerlink" title="HTML comments 注释"></a>HTML comments 注释</h2><p>Browsers ignore comments, effectively making comments invisible to the user.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--&lt;p&gt;I am!&lt;/p&gt;This is very useful if you return to a code base after being away for long enough that you don&#x27;t completely remember it.</span></span><br><span class="line"><span class="comment">Likewise, comments are invaluable as different people are making changes and updates.--&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+  </div>
+   
+   
+
+  
+  <div class="post-copyright">
+    <div class="post-copyright-icon"></div>
+      <div class="post-copyright-author">
+          <span class="post-copyright-meta">文章作者: </span>
+            <span class="post-copyright-info">
+              <a href="mailto:vhuuyt@foxmail.com" >殊约</a>
+            </span>
+      </div>
+      <div class="post-copyright-type">
+          <span class="post-copyright-meta">文章链接: </span>
+            <span class="post-copyright-info">
+              <a href="http://vhuuyt.gitee.io/2022/03/23/HTML-zh/" >http://vhuuyt.gitee.io/2022/03/23/HTML-zh/</a>
+            </span>
+      </div><div class="post-copyright-notice">
+          <span class="post-copyright-meta">版权声明: </span>
+            <span class="post-copyright-info">本博客所有文章除特别声明外，均采用
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/ " target="_blank" >
+                  CC BY-NC-SA 4.0 </a> 许可协议。转载请注明来自
+              <a href="http://vhuuyt.gitee.io/2022/03/23/HTML-zh/" target="_blank" >殊约</a>
+              ！</span>
+      </div>
+  </div>
+  
+
+
+ 
+
+  
+    <div class="post-tag">
+        <span>
+            <i class="fa fa-tag"></i>
+             
+            <a href="tags/HTML/"><span>HTML</span></a>
+                
+                    <i class="fas fa-angle-right"></i>
+                
+             
+            <a href="tags/前端入门/"><span>前端入门</span></a>
+                
+            
+        </span>
+    </div>
+  
+
+
+
+
+<div class="pagination-post">
+    
+    <a href="/2022/03/23/HTML-en/">
+      <div class="prev-title"><i class="fas fa-chevron-left"></i>HTML英文笔记（暂鸽中）</div>
+      <div class="prev-desc">
+The web coures is mozilla.
+
+HTML anotomy1234567891011&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;!--the shortest st...</div>
+    </a>
+    
+    
+    <a href="/2022/03/20/start/">
+      <div class="next-title">第一天，就记录一下吧<i class="fas fa-chevron-right"></i></div>
+      <div class="next-desc">综合结论就是：我真的是好笨啊从前天开始鼓捣 Hugo，但是一 push 上去就丢失格式了，看官方文档也是乱如麻，今天干脆放弃它了（对 go 语言的好感度降低了
+Hexo 虽然也玩不明白，但好歹还...</div>
+    </a>
+    
+</div>
+
+</article>
+ 
+
+
+  <div id="toc-wrap">
+    <div id="toc">
+      <div class="toc-title">
+        <div>
+          目录
+            <span class="num">0%</span>
+        </div>
+        <progress class="progress" value="0" max="100"></progress>
+      </div>
+      <div class="toc-list">
+         
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HTML%E6%96%87%E6%A1%A3%E5%89%96%E6%9E%90-anotomy"><span class="toc-text">HTML文档剖析(anotomy)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E8%AF%AD%E8%A8%80-primary-language"><span class="toc-text">主要语言 primary language</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lt-head-gt-%E9%87%8C%E6%9C%89%E5%95%A5"><span class="toc-text">&lt;head&gt; 里有啥</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lt-title-gt-%E6%A0%87%E9%A2%98"><span class="toc-text">&lt;title&gt; 标题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lt-meta-gt-%E5%85%83%E6%95%B0%E6%8D%AE"><span class="toc-text">&lt;meta&gt; 元数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81"><span class="toc-text">字符编码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%9C%E8%80%85%E5%92%8C%E6%8F%8F%E8%BF%B0"><span class="toc-text">作者和描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%96%E9%93%BE%E4%BC%98%E5%8C%96%E6%98%BE%E7%A4%BA-proprietary-metadata"><span class="toc-text">外链优化显示 proprietary metadata</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#custom-icons"><span class="toc-text">custom icons</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Applying-CSS-and-JavaScript-to-HTML"><span class="toc-text">Applying CSS and JavaScript to HTML</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS"><span class="toc-text">CSS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JavaScript"><span class="toc-text">JavaScript</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%94%BE%E5%A4%B4%E9%83%A8"><span class="toc-text">放头部</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%94%BE%E5%B0%BE%E9%83%A8"><span class="toc-text">放尾部</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Element"><span class="toc-text">Element</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#block-level-element-%E5%9D%97%E7%BA%A7%E5%85%83%E7%B4%A0"><span class="toc-text">block-level element 块级元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#inline-element-%E5%86%85%E8%81%94%E5%85%83%E7%B4%A0"><span class="toc-text">inline element 内联元素</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E8%BF%B0"><span class="toc-text">简述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%A6%E8%BF%B0"><span class="toc-text">详述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#italic-bold-underline%E2%80%A6"><span class="toc-text">italic, bold, underline…</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Empty-elements-%E7%A9%BA%E5%85%83%E7%B4%A0%E5%8F%AA%E6%9C%89-Single-Tag"><span class="toc-text">Empty elements 空元素只有 Single Tag</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Attributes-%E5%B1%9E%E6%80%A7"><span class="toc-text">Attributes 属性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#anchors-%E5%8F%AF%E6%B7%BB%E5%8A%A0%E7%9A%84-attributes"><span class="toc-text">anchors 可添加的 attributes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Boolean-attributes-%E5%B8%83%E5%B0%94%E5%B1%9E%E6%80%A7"><span class="toc-text">Boolean attributes 布尔属性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#syntax-%E8%A7%84%E5%88%99"><span class="toc-text">syntax 规则</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Witespace-in-HTML"><span class="toc-text">Witespace in HTML</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Entity-references-%E5%AE%9E%E4%BD%93%E5%BC%95%E7%94%A8"><span class="toc-text">Entity references 实体引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML-comments-%E6%B3%A8%E9%87%8A"><span class="toc-text">HTML comments 注释</span></a></li></ol></li></ol>
+      </div>
+    </div>
+  </div>
+
+
+        </main>
+        <section id="rightside">
+    
+    <div class="rightside-item">
+        
+        
+         
+        
+        
+            <a id="open-toc" title="目录">
+                <i class="fas fa-list-ul"></i>
+            </a>
+        
+         
+         
+        <a href="javascript:(0)" id="darkmode" title="深色/浅色 ">
+            <i class="fas fa-moon"></i>
+        </a>
+         
+        
+        <a href="#" title="回到顶部">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </div>
+</section>
+         
+
+<footer class="footer" id="footer">
+    <div class="copyright">
+      &copy; 2022
+        <i class="fas fa-fan"></i>
+        殊约
+    </div>
+    <div class="framework-info">
+        <span>框架 </span>
+        <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="footer-separator">|</span>
+        <span>主题 </span>
+        <a href="https://github.com/lete114/hexo-theme-MengD" target="_blank">MengD.(萌典) </a>
+    </div>
+    
+    <div class="custom-text">得不到的永远在骚动，被偏爱的都有恃无恐</div>
+</footer>
+    </div>
+    <div id="mask" onclick="closeAll()"></div>
+    
+    <div class="script">
+        <script src="/js/main.js"></script>
+        
+
+ 
+<script>
+    var originTitle = document.title;
+    var titleTime;
+    document.addEventListener("visibilitychange", function () {
+        if (document.hidden) {
+            document.title = "我藏好了哦~ " + originTitle;
+            clearTimeout(titleTime);
+        } else {
+            document.title = "被你发现啦~ " + originTitle;
+            titleTime = setTimeout(function () {
+                document.title = originTitle;
+            }, 2000);
+        }
+    });
+</script>
+
+
+<script src="/js/lazyload.js"></script>
+
+
+    
+
+
+        
+    <script>
+        getScript('https://cdn.jsdelivr.net/npm/pjax/pjax.min.js',LoadPjax)
+        function LoadPjax() {
+            var pjax = new Pjax({
+                selectors: [
+                    'head title',
+                    'head meta[name="keywords"]',
+                    'head meta[name="description"]',
+                    'main',
+                    '#rightside'
+                ],
+                cache: true,
+                cacheBust: false
+            });
+        }
+
+        // 清除时间
+        var timer = null;
+        // 执行进度条
+        function ProgressStart() {
+            // 设置初始进度
+            var progress = 10;
+            // 创建进度条 及 css样式
+            var div = document.createElement('div');
+            div.className = 'pjax-progress';
+            document.body.prepend(div);
+            // 定义随机数最大值最小值
+            var max = 10, mini = 3;
+            var result = max - mini;
+            // 清除
+            clearInterval(timer);
+            // 0.5秒内累加进度
+            timer = setInterval(function () {
+                // 随机数
+                var num = parseInt(Math.random() * result);
+                var randomResult = num + mini;
+                // 累加
+                progress += randomResult
+                document.getElementsByClassName('pjax-progress')[0].style.width = progress + '%';
+                // 当进度达到95%时停止
+                if (progress > 95) progress = 95
+            }, 500)
+        }
+        // 加载进度条加载完毕
+        function ProgressFinish() {
+            clearInterval(timer);
+            // 页面加载完毕后进度100% 并在0.7秒后删除
+            var progress = document.getElementsByClassName('pjax-progress');
+            progress[0].style.width = '100%';
+            timer = setTimeout(function () {
+                progress[0].parentNode.removeChild(progress[0])
+            }, 700);
+        }
+
+        // 开始 PJAX 执行的函数
+        document.addEventListener('pjax:send', function () {
+            // 执行进度条
+            ProgressStart()
+        });
+        // PJAX 完成之后执行的函数，可以和上面的重载放在一起
+        document.addEventListener('pjax:complete', function () {
+
+            // 加载进度条加载完毕
+            ProgressFinish()
+            // 执行所有方法
+            exeAllFn()
+
+            
+                // 图片懒加载
+                ImgLazyLoad('body img[data-img]', 'data-img')
+            
+
+
+            document.querySelectorAll('script[data-pjax]').forEach(item => {
+                const newScript = document.createElement('script')
+                const content = item.text || item.textContent || item.innerHTML || ''
+                Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+                newScript.appendChild(document.createTextNode(content))
+                item.parentNode.replaceChild(newScript, item)
+            })
+        });
+
+        // Pjax请求错误时，跳转到404页面
+        document.addEventListener('pjax:error', (err) => {
+            if (err.request.status === 404) {
+                pjax.loadUrl('/404.html')
+            }
+        })
+    </script>
+
+    </div>
+</body>
+
+</html>

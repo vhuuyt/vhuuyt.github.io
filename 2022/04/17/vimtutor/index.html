@@ -1,0 +1,551 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+     
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+<title>vimtutor zh | 殊约的小本本</title>
+<meta name="author" content="殊约">
+<meta name="copyright" content="殊约">
+
+<link rel="shortcut icon" href="http://vhuuyt.gitee.io/img/favicon.png"> 
+
+
+    <meta name="keywords" content="编辑器&amp;神,vim">
+
+
+
+     
+    <meta name="description" content="细述移动光标12345	^	k              提示： h 的键位于左边，每次按下就会向左移动。&lt; h		l &gt;              l 的键位于右边，每次按下就会向右移动。	j                    j 键看起来很象一支尖端方向朝下的箭头。	v  进入、退出和保存vim 文件名：进入编辑器:q!：退出编辑器，丢弃改动:wq ：保存(write)文件并退">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vimtutor zh">
+<meta property="og:url" content="http://vhuuyt.gitee.io/2022/04/17/vimtutor/">
+<meta property="og:site_name" content="殊约的小本本">
+<meta property="og:description" content="细述移动光标12345	^	k              提示： h 的键位于左边，每次按下就会向左移动。&lt; h		l &gt;              l 的键位于右边，每次按下就会向右移动。	j                    j 键看起来很象一支尖端方向朝下的箭头。	v  进入、退出和保存vim 文件名：进入编辑器:q!：退出编辑器，丢弃改动:wq ：保存(write)文件并退">
+<meta property="og:locale">
+<meta property="og:image" content="http://vhuuyt.gitee.io/img/kano.webp">
+<meta property="article:published_time" content="2022-04-17T03:00:41.000Z">
+<meta property="article:modified_time" content="2022-04-17T12:16:55.695Z">
+<meta property="article:author" content="殊约">
+<meta property="article:tag" content="编辑器&amp;神">
+<meta property="article:tag" content="vim">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://vhuuyt.gitee.io/img/kano.webp">
+ 
+
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<link href="//cdn.jsdelivr.net" rel="preconnect">
+<link href="http://vhuuyt.gitee.io" rel="prefetch">
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css " rel="stylesheet">
+<link href="/css/main.css " rel="stylesheet">
+<script src="/js/utlis.js"></script>
+ 
+    
+ 
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+     
+    
+ 
+     
+
+<script>
+    var $config = {
+        tocStyle: "visible",
+        CDN:{
+            fancyboxJs: "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js",
+            fancyboxCss: "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"
+        },
+        
+        
+    }
+</script>
+    
+
+
+
+
+  
+
+
+    <div id="body-wrap">
+        <nav id="nav-wrap">
+  <div class="navbar">
+    <div class="bar">
+      <a href="/" class="title">殊约的小本本</a>
+
+      
+      <ul class="menu">
+         
+        <li><a href="/">首页</a></li>
+          
+        <li>
+          <a class="menu-child-hover" href="javascript:void(0);">找文章</a>
+          <ul class="menu-child">
+            
+            <li><a href='/tags'>标签</a></li>
+            
+            <li><a href='/categories'>分类</a></li>
+            
+            <li><a href='/archives'>归档</a></li>
+            
+          </ul>
+        </li>
+          
+        <li><a href="/404">关于我</a></li>
+         
+      </ul>
+      <i class="fas fa-bars open-nav"></i>
+    </div>
+  </div>
+  <div id="mobile-nav">
+    <ul>
+       
+      <li><a href="/">首页</a></li>
+         
+      <li><a href='/tags'>标签</a></li>
+      
+      <li><a href='/categories'>分类</a></li>
+      
+      <li><a href='/archives'>归档</a></li>
+         
+      <li><a href="/404">关于我</a></li>
+       
+    </ul>
+  </div>
+</nav>
+
+
+        <main id="main">
+            
+
+<article id="post">
+  <div class="post-info">
+    <div class="post-title">
+      <h1>vimtutor zh</h1>
+    </div>
+    <div class="post-meta">
+      <div class="post-date">
+        <i class="far fa-calendar-alt fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">
+          发表于
+            2022-04-17 |
+        </span>
+        
+        <i class="fas fa-history fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">
+          更新于
+            2022-04-19
+        </span>
+      </div>
+      <div class="post-meta-wordcount">
+        <i class="far fa-file-word fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">总字数:</span>
+        <span class="word-count">4k | </span>
+        <i class="far fa-clock fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">阅读时长:</span>
+        <span>14分钟</span>
+        
+      </div>
+    </div>
+  </div>
+  <div class="post-content">
+    <h1 id="细述"><a href="#细述" class="headerlink" title="细述"></a>细述</h1><h2 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">	^</span><br><span class="line">	k              提示： h 的键位于左边，每次按下就会向左移动。</span><br><span class="line">&lt; h		l &gt;              l 的键位于右边，每次按下就会向右移动。</span><br><span class="line">	j                    j 键看起来很象一支尖端方向朝下的箭头。</span><br><span class="line">	v</span><br></pre></td></tr></table></figure>
+
+<h2 id="进入、退出和保存"><a href="#进入、退出和保存" class="headerlink" title="进入、退出和保存"></a>进入、退出和保存</h2><p><code>vim 文件名</code>：进入编辑器<br><code>:q!</code>：退出编辑器，丢弃改动<br><code>:wq</code> ：保存(write)文件并退出(quit)<br><code>:w FileName</code>：修改文件名的保存</p>
+<h3 id="v-motion-w-FileName：要保存文件的部分内容"><a href="#v-motion-w-FileName：要保存文件的部分内容" class="headerlink" title="v motion :w FileName：要保存文件的部分内容"></a><code>v motion :w FileName</code>：要保存文件的部分内容</h3><ol>
+<li>移动光标到本行。</li>
+<li>接着按 <code>v</code> 键，将光标移动至下面第五个条目上。您会注意到之间的文本被高亮了。</li>
+<li>然后按 <code>:</code> 字符。您将看到屏幕底部会出现 <code>:&#39;&lt;,&#39;&gt;</code> 。</li>
+<li>现在请输入 <code>w TEST</code>，其中 TEST 是一个未被使用的文件名。确认您看到了<code>:&#39;&lt;,&#39;&gt;w TEST</code> 之后按 [回车] 键。</li>
+<li>这时 Vim 会把选中的行写入到以 TEST 命名的文件中去。使用 <code>:!dir</code> 或 <code>:!ls</code> 确认文件被正确保存。</li>
+</ol>
+<p>提示：按 <code>v</code> 键使 Vim 进入可视模式进行选取。您可以四处移动光标使选取区域变大或变小。接着您可以使用一个操作符对选中文本进行操作。例如，按 <code>d</code> 键会删除选中的文本内容。</p>
+<h3 id="提取和合并文件"><a href="#提取和合并文件" class="headerlink" title="提取和合并文件"></a>提取和合并文件</h3><p>要向当前文件中插入另外的文件的内容，请输入 <code>:r FILENAME</code></p>
+<ol>
+<li>请把光标移动到本行上面一行。<br>特别提示：执行步骤2之后您将看到第五讲第三节的文字，请届时往下移动以再次看到本讲内容。</li>
+<li>接着通过命令 <code>:r TEST</code> 将前面创建的名为 TEST 的文件提取进来。您所提取进来的文件将从光标所在位置处开始置入。</li>
+<li>为了确认文件已经提取成功，移动光标回到原来的位置就可以注意有两份第五讲第三节的内容，一份是原始内容，另外一份是来自文件的副本。</li>
+</ol>
+<p>提示：您还可以读取外部命令的输出。例如，<code>:r !ls</code> 可以读取 <code>ls</code> 命令的输出，并把它放置在光标下面。</p>
+<h2 id="编辑文本"><a href="#编辑文本" class="headerlink" title="编辑文本"></a>编辑文本</h2><p>按下 <code>x</code> 键来删除光标所在位置的字符<br>按下 <code>i</code> 在光标处开始插入文本（原内容后移）<br>按 <code>A(Shift+a)</code> 键，在行尾添加文本</p>
+<h3 id="打开类命令"><a href="#打开类命令" class="headerlink" title="打开类命令"></a>打开类命令</h3><p>输入<code>o</code>将在光标下方（行内位置无关紧要）打开新的一行，并进入插入模式<br>输入大写<code>O</code>在光标上方打开</p>
+<h3 id="附加类命令"><a href="#附加类命令" class="headerlink" title="附加类命令"></a>附加类命令</h3><p>输入<code>a</code>将在光标之后插入文本</p>
+<h3 id="删除类命令"><a href="#删除类命令" class="headerlink" title="删除类命令"></a>删除类命令</h3><p><code>dw</code>：从光标处删除至一个单词的末尾（word后的空格也被删除），标点算一个单词，<br><code>d$</code>：从当前光标删除到行末<br><code>dd</code>：删除整行        <code>2dd</code>：删除两行</p>
+<h3 id="撤销类命令"><a href="#撤销类命令" class="headerlink" title="撤销类命令"></a>撤销类命令</h3><p>输入 <code>u</code> 来撤消最后执行的命令，输入 <code>U</code> 来撤消对整行的修改。<br>多次输入 <code>CTRL-R</code> (先按下 CTRL 键不放开，接着按 R 键)，这样就可以重做被撤消的命令，也就是撤消掉撤消命令。</p>
+<h3 id="置入类命令"><a href="#置入类命令" class="headerlink" title="置入类命令"></a>置入类命令</h3><p>输入 <code>p</code> 将最后一次删除的内容置入光标之后，对 <code>x</code> 生效。（paste ?）<br>会将 <code>dd</code> 删除的一行，置入光标的下一行 </p>
+<h3 id="替换类命令"><a href="#替换类命令" class="headerlink" title="替换类命令"></a>替换类命令</h3><p>输入 <code>r</code> 和一个字符替换光标所在位置的字符(replace)<br>输入 <code>R</code> 可以连续替换多个字符</p>
+<h3 id="更改类命令"><a href="#更改类命令" class="headerlink" title="更改类命令"></a>更改类命令</h3><p><code>ce</code>：改变文本直到一个单词的末尾（<code>ce</code> 命令不仅仅删除了一个单词，也进入了插入模式）<br><code>c [number] motion</code>：motion 动作参数与删除类一致</p>
+<h2 id="复制粘贴文本"><a href="#复制粘贴文本" class="headerlink" title="复制粘贴文本"></a>复制粘贴文本</h2><p><code>y</code>复制文本<code>p</code>粘贴文本(yank)<br>可以把 <code>y</code> 当作操作符来使用；例如 <code>yw</code> 可以用来复制一个单词</p>
+<h2 id="关于命令和对象"><a href="#关于命令和对象" class="headerlink" title="关于命令和对象"></a>关于命令和对象</h2><p>许多改变文本的命令都由一个操作符和一个动作构成。使用删除操作符 d 的删除命令的格式如下：<br><code>d(操作符)  motion(动作)</code></p>
+<p>其中：<br><code>d</code> - 删除操作符<br><code>motion</code> - 操作符的操作对象(在下面列出)<br>一个简短的动作列表：<br><code>w</code> - 从当前光标当前位置直到下一个单词起始处，不包括它的第一个字符<br><code>e</code> - 从当前光标当前位置直到单词末尾，包括最后一个字符<br><code>$</code> - 从当前光标当前位置直到当前行末<br>因此输入 <code>de</code> 会从当前光标位置删除到单词末尾</p>
+<p>特别提示：<br>    对于勇于探索者，请在正常模式下面仅按代表相应动作的键而不使用操作符，您将看到光标的移动正如上面的对象列表所代表的一样。</p>
+<h3 id="使用计数指定动作"><a href="#使用计数指定动作" class="headerlink" title="使用计数指定动作"></a>使用计数指定动作</h3><p>在动作前输入数字，会使它重复那么多次。<br>使用操作符时输入数字可以使它重复那么多次：<code>d number motion</code></p>
+<ol>
+<li>输入 <code>2w</code> 使光标向前移动两个单词。</li>
+<li>输入 <code>3e</code> 使光标向前移动到第三个单词的末尾。</li>
+<li>输入 <code>0</code> (数字零) 移动光标到行首。</li>
+</ol>
+<h2 id="定位及文件状态"><a href="#定位及文件状态" class="headerlink" title="定位及文件状态"></a>定位及文件状态</h2><p><code>Ctrl-g</code>：显示当前编辑文件中光标所在行位置及文件状态信息<br><code>G</code>：光标跳转到文件最后一行<br><code>gg</code>：光标跳转到文件第一行<br><code>numG</code>：返回按下<code>Ctrl-g</code>时所在的行</p>
+<h2 id="搜索类命令"><a href="#搜索类命令" class="headerlink" title="搜索类命令"></a>搜索类命令</h2><p><code>/字符串</code>：在当前文件中查找该字符串<br>        <code>n</code>：查找与上一次相同的字符串<br>        <code>N</code>：反方向查找<br><code>?字符串</code>：逆向查找字符串<br><code>Ctrl-O</code>：回到之前的位置，重复按可以回退更多步<br><code>Ctrl-I</code>：跳转到较新的位置</p>
+<p><code>%</code>：可以查找配对的括号<code>)]&#125;</code>，再按就跳回配对的第一个括号处</p>
+<h2 id="替换命令"><a href="#替换命令" class="headerlink" title="替换命令"></a>替换命令</h2><p><code>:s/old/new [Enter]</code>：只改变光标所在行的第一个匹配串<br><code>:s/old/new/g [Enter]</code>：替换全行的匹配串<br><code>:#,#s/old/new/g</code>：<code>#,#</code>代表替换操作的若干行的首位两行的行号<br><code>:%s/old/new/g</code>：替换整个文件中的每个匹配串<br><code>:%s/old/new/gc</code>：找到整个文件中的每个匹配串，并对每个串提示是否进行替换</p>
+<h2 id="VIM内执行外部命令"><a href="#VIM内执行外部命令" class="headerlink" title="VIM内执行外部命令"></a>VIM内执行外部命令</h2><p><code>:![外部命令]</code>：<code>:!ls</code>、<code>:!dir</code><br>所有的外部命令都可以以这种方式执行，包括带命令行参数的那些<br>所有的 <code>:</code> 命令都必须以敲 <code>[回车]</code> 键结束</p>
+<h2 id="设置类命令的选项"><a href="#设置类命令的选项" class="headerlink" title="设置类命令的选项"></a>设置类命令的选项</h2><p>设置可使查找或者替换可忽略大小写的选项</p>
+<ol>
+<li>要查找单词 ignore 可在正常模式下输入 <code>/ignore [回车]</code>。<br>要重复查找该词，可以重复按 <code>n</code> 键。</li>
+<li>然后设置 ic 选项(Ignore Case，忽略大小写)，请输入： <code>:set ic</code></li>
+<li>现在可以通过键入 <code>n</code> 键再次查找单词 ignore。注意到 Ignore 和 IGNORE 现在也被找到了。</li>
+<li>然后设置 hlsearch 和 incsearch 这两个选项，请输入： <code>:set hls is</code></li>
+<li>现在可以再次输入查找命令，看看会有什么效果： <code>/ignore [回车]</code></li>
+<li>要禁用忽略大小写，请输入： <code>:set noic</code></li>
+</ol>
+<p>提示：要移除匹配项的高亮显示，请输入：  <code>:nohlsearch</code><br>提示：如果您想要仅在一次查找时忽略字母大小写，您可以使用 <code>\c</code>：<code>/ignore\c [回车]</code></p>
+<h2 id="使用在线帮助系统"><a href="#使用在线帮助系统" class="headerlink" title="使用在线帮助系统"></a>使用在线帮助系统</h2><p>Vim 拥有一个细致全面的在线帮助系统。要启动该帮助系统，请选择如下三种方法之一：</p>
+<ul>
+<li>按下 <code>[HELP]</code> 键 (如果键盘上有的话)</li>
+<li>按下 <code>[F1]</code> 键 (如果键盘上有的话)</li>
+<li>输入 <code>:help [回车]</code></li>
+</ul>
+<p>请阅读帮助窗口中的文字以了解帮助是如何工作的。<br>输入 <code>CTRL-W CTRL-W</code>(连输两个哦) 可以使您在窗口之间跳转。<br>输入 <code>:q [回车]</code> 可以关闭帮助窗口。</p>
+<p>提供一个正确的参数给<code>:help</code>命令，您可以找到关于该主题的帮助。请试验以下参数(可别忘了按回车键哦)：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">:<span class="keyword">help</span> <span class="keyword">w</span></span><br><span class="line">:<span class="keyword">help</span> c_CTRL-D</span><br><span class="line">:<span class="keyword">help</span> <span class="keyword">insert</span>-<span class="built_in">index</span></span><br><span class="line">:<span class="keyword">help</span> user-manual</span><br></pre></td></tr></table></figure>
+
+<h2 id="创建启动脚本"><a href="#创建启动脚本" class="headerlink" title="创建启动脚本"></a>创建启动脚本</h2><p>Vim 的功能特性要比 Vi 多得多，但其中大部分都没有缺省启用。为了使用更多的<br>特性，您得创建一个 vimrc 文件。</p>
+<ol>
+<li>开始编辑 vimrc 文件，具体命令取决于您所使用的操作系统：<br><code>:edit ~/.vimrc</code>          这是 Unix 系统所使用的命令<br><code>:edit $VIM/_vimrc</code>       这是 MS-Windows 系统所使用的命令</li>
+<li>接着读取 vimrc 示例文件的内容：<br><code>:r $VIMRUNTIME/vimrc_example.vim</code></li>
+<li>保存文件，命令为：<code>:write</code></li>
+</ol>
+<p>下次您启动 Vim 时，编辑器就会有了语法高亮的功能。<br>您可以把您喜欢的各种设置添加到这个 vimrc 文件中。<br>要了解更多信息请输入 <code>:help vimrc-intro</code></p>
+<h2 id="补全功能"><a href="#补全功能" class="headerlink" title="补全功能"></a>补全功能</h2><p>使用 <code>CTRL-D</code> 和 <code>[TAB]</code> 可以进行命令行补全</p>
+<ol>
+<li>请确保 Vim 不是在以兼容模式运行： <code>:set nocp</code></li>
+<li>查看一下当前目录下已经存在哪些文件，输入：<code>:!ls</code>或者<code>:!dir</code></li>
+<li>现在输入一个目录的起始部分，例如输入：<code>:e</code></li>
+<li>接着按 <code>CTRL-D</code> 键，Vim 会显示以 e 开始的命令的列表。</li>
+<li>然后按 <code>[TAB]</code> 键，Vim 会补全命令为 <code>:edit</code>。</li>
+<li>现在添加一个空格，以及一个已有文件的文件名的起始部分，例如： <code>:edit FIL</code></li>
+<li>接着按 <code>[TAB]</code> 键，Vim 会补全文件名(如果它是惟一匹配的)。</li>
+</ol>
+<p>提示：补全对于许多命令都有效。您只需尝试按 <code>CTRL-D</code> 和 <code>[TAB]</code>。<br>     它对于 <code>:help</code> 命令非常有用。</p>
+<h1 id="vimtutor-zh"><a href="#vimtutor-zh" class="headerlink" title="vimtutor zh"></a><code>vimtutor zh</code></h1><h2 id="第一讲小结"><a href="#第一讲小结" class="headerlink" title="第一讲小结"></a>第一讲小结</h2><ol>
+<li>光标在屏幕文本中的移动既可以用<code>箭头键</code>，也可以使用 <code>hjkl</code> 字母键。<br><code>h</code>(左移) <code>j</code>(下行) <code>k</code>(上行) <code>l</code>(右移)</li>
+<li>欲进入 Vim 编辑器(从命令行提示符)，请输入：<code>vim 文件名 回车</code></li>
+<li>欲退出 Vim 编辑器，请输入 <code>ESC   :q!   回车</code> 放弃所有改动。<br>或者输入 <code>ESC   :wq   回车</code> 保存改动。</li>
+<li>在正常模式下删除光标所在位置的字符，请按： <code>x</code></li>
+<li>欲插入或添加文本，请输入：<br><code>i</code> 输入欲插入文本   <code>ESC</code> 在光标前插入文本<br><code>A</code> 输入欲添加文本   <code>ESC</code> 在一行后添加文本</li>
+</ol>
+<p>特别提示：按下 <code>ESC</code> 键会带您回到正常模式或者撤消一个不想输入或部分完整<br>的命令。</p>
+<h2 id="第二讲小结"><a href="#第二讲小结" class="headerlink" title="第二讲小结"></a>第二讲小结</h2><ol>
+<li>欲从当前光标删除至下一个单词，请输入：<code>dw</code></li>
+<li>欲从当前光标删除至当前行末尾，请输入：<code>d$</code></li>
+<li>欲删除整行，请输入：<code>dd</code></li>
+<li>欲重复一个动作，请在它前面加上一个数字：<code>2w</code></li>
+<li>在正常模式下修改命令的格式是：<br><code>operator   [number]   motion</code></li>
+</ol>
+<p>其中：</p>
+<p><code>operator</code> - 操作符，代表要做的事情，比如 d 代表删除<br><code>[number]</code> - 可以附加的数字，代表动作重复的次数<br><code>motion</code> - 动作，代表在所操作的文本上的移动，例如 <code>w</code> 代表单词(word)，<code>$</code> 代表行末等等。<br>6. 欲移动光标到行首，请按数字0键：<code>0</code><br>7. 欲撤消以前的操作，请输入：<code>u</code> (小写的u)<br>   欲撤消在一行中所做的改动，请输入：<code>U</code> (大写的U)<br>   欲撤消以前的撤消命令，恢复以前的操作结果，请输入：<code>CTRL-R</code></p>
+<h2 id="第三讲小结"><a href="#第三讲小结" class="headerlink" title="第三讲小结"></a>第三讲小结</h2><ol>
+<li>要重新置入已经删除的文本内容，请按小写字母 <code>p</code> 键。该操作可以将已删除的文本内容置于光标之后。如果最后一次删除的是一个整行，那么该行将置于当前光标所在行的下一行。</li>
+<li>要替换光标所在位置的字符，请输入小写的 <code>r</code> 和要替换掉原位置字符的新字符即可。</li>
+<li>更改类命令允许您改变从当前光标所在位置直到动作指示的位置中间的文本。<br>比如输入 <code>ce</code> 可以替换当前光标到单词的末尾的内容；输入 <code>c$</code> 可以替换当前光标到行末的内容。</li>
+<li>更改类命令的格式是：<br><code>c   [number]   motion</code></li>
+</ol>
+<h2 id="第四讲小结"><a href="#第四讲小结" class="headerlink" title="第四讲小结"></a>第四讲小结</h2><ol>
+<li><code>CTRL-G</code> 用于显示当前光标所在位置和文件状态信息。<br><code>G</code> 用于将光标跳转至文件最后一行。<br>先敲入一个行号然后输入大写 <code>G</code> 则是将光标移动至该行号代表的行。<br><code>gg</code> 用于将光标跳转至文件第一行。</li>
+<li>输入 <code>/</code> 然后紧随一个字符串是在当前所编辑的文档中正向查找该字符串。<br>输入 <code>?</code> 然后紧随一个字符串则是在当前所编辑的文档中反向查找该字符串。<br>完成一次查找之后按 <code>n</code> 键是重复上一次的命令，可在同一方向上查找下一个匹配字符串所在；或者按大写 <code>N</code> 向相反方向查找下一匹配字符串所在。<br><code>CTRL-O</code> 带您跳转回较旧的位置，<code>CTRL-I</code> 则带您到较新的位置。</li>
+<li>如果光标当前位置是括号(、)、[、]、{、}，按 <code>%</code> 会将光标移动到配对的括号上。</li>
+<li>在一行内替换头一个字符串 old 为新的字符串 new，请输入  <code>:s/old/new</code><br>在一行内替换所有的字符串 old 为新的字符串 new，请输入  <code>:s/old/new/g</code><br>在两行内替换所有的字符串 old 为新的字符串 new，请输入  <code>:#,#s/old/new/g</code><br>在文件内替换所有的字符串 old 为新的字符串 new，请输入  <code>:%s/old/new/g</code><br>进行全文替换时询问用户确认每个替换需添加 <code>c</code> 标志   <code>:%s/old/new/gc</code></li>
+</ol>
+<h2 id="第五讲小结"><a href="#第五讲小结" class="headerlink" title="第五讲小结"></a>第五讲小结</h2><ol>
+<li><code>:!command</code> 用于执行一个外部命令 <code>command</code>。<br>请看一些实际例子：<br>(MS-DOS)         (Unix)<br><code>:!dir</code>        <code>:!ls</code>            -  用于显示当前目录的内容。<br><code>:!del FILENAME</code>  <code>:!rm FILENAME</code>  -  用于删除名为 FILENAME 的文件。</li>
+<li><code>:w FILENAME</code>  可将当前 VIM 中正在编辑的文件保存到名为 FILENAME 的文件中。</li>
+<li><code>v motion :w FILENAME</code> 可将当前编辑文件中可视模式下选中的内容保存到文件 FILENAME 中。</li>
+<li><code>:r FILENAME</code> 可提取磁盘文件 FILENAME 并将其插入到当前文件的光标位置后面。</li>
+<li><code>:r !dir</code> 可以读取 <code>dir</code> 命令的输出并将其放置到当前文件的光标位置后面。</li>
+</ol>
+<h2 id="第六讲小结"><a href="#第六讲小结" class="headerlink" title="第六讲小结"></a>第六讲小结</h2><ol>
+<li>输入小写的 <code>o</code> 可以在光标下方打开新的一行并进入插入模式。<br>输入大写的 <code>O</code> 可以在光标上方打开新的一行。</li>
+<li>输入小写的 <code>a</code> 可以在光标所在位置之后插入文本。<br>输入大写的 <code>A</code> 可以在光标所在行的行末之后插入文本。</li>
+<li><code>e</code> 命令可以使光标移动到单词末尾。</li>
+<li>操作符 <code>y</code> 复制文本，<code>p</code> 粘贴先前复制的文本。</li>
+<li>输入大写的 <code>R</code> 将进入替换模式，直至按 <code>[ESC]</code> 键回到正常模式。</li>
+<li>输入 <code>:set xxx</code> 可以设置 xxx 选项。一些有用的选项如下：<br><code>&#39;ic&#39; &#39;ignorecase&#39;</code>       查找时忽略字母大小写<br><code>&#39;is&#39; &#39;incsearch&#39;</code>        查找短语时显示部分匹配<br><code>&#39;hls&#39; &#39;hlsearch&#39;</code>        高亮显示所有的匹配短语<br>选项名可以用完整版本，也可以用缩略版本。</li>
+<li>在选项前加上 no 可以关闭选项：<code>:set noic</code></li>
+</ol>
+<h2 id="第七讲小结"><a href="#第七讲小结" class="headerlink" title="第七讲小结"></a>第七讲小结</h2><ol>
+<li>输入 <code>:help</code> 或者按 <code>[F1]</code> 键或 <code>[Help]</code> 键可以打开帮助窗口。</li>
+<li>输入 <code>:help cmd</code> 可以找到关于 cmd 命令的帮助。</li>
+<li>输入 <code>CTRL-W CTRL-W</code>  可以使您在窗口之间跳转。</li>
+<li>输入 <code>:q</code> 以关闭帮助窗口</li>
+<li>您可以创建一个 vimrc 启动脚本文件用来保存您偏好的设置。</li>
+<li>当输入 <code>:</code> 命令时，按 <code>CTRL-D</code> 可以查看可能的补全结果。<br>按 <code>[TAB]</code> 可以使用一个补全。</li>
+</ol>
+
+  </div>
+   
+   
+
+  
+  <div class="post-copyright">
+    <div class="post-copyright-icon"></div>
+      <div class="post-copyright-author">
+          <span class="post-copyright-meta">文章作者: </span>
+            <span class="post-copyright-info">
+              <a href="mailto:vhuuyt@foxmail.com" >殊约</a>
+            </span>
+      </div>
+      <div class="post-copyright-type">
+          <span class="post-copyright-meta">文章链接: </span>
+            <span class="post-copyright-info">
+              <a href="http://vhuuyt.gitee.io/2022/04/17/vimtutor/" >http://vhuuyt.gitee.io/2022/04/17/vimtutor/</a>
+            </span>
+      </div><div class="post-copyright-notice">
+          <span class="post-copyright-meta">版权声明: </span>
+            <span class="post-copyright-info">本博客所有文章除特别声明外，均采用
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/ " target="_blank" >
+                  CC BY-NC-SA 4.0 </a> 许可协议。转载请注明来自
+              <a href="http://vhuuyt.gitee.io/2022/04/17/vimtutor/" target="_blank" >殊约</a>
+              ！</span>
+      </div>
+  </div>
+  
+
+
+ 
+
+  
+    <div class="post-tag">
+        <span>
+            <i class="fa fa-tag"></i>
+             
+            <a href="tags/编辑器-神/"><span>编辑器&amp;神</span></a>
+                
+                    <i class="fas fa-angle-right"></i>
+                
+             
+            <a href="tags/vim/"><span>vim</span></a>
+                
+            
+        </span>
+    </div>
+  
+
+
+
+
+<div class="pagination-post">
+    
+    <a href="/2022/04/19/vscode/">
+      <div class="prev-title"><i class="fas fa-chevron-left"></i>win vscode中搭建c/c++环境</div>
+      <div class="prev-desc">下载准备7z是一个开源免费无广告的解压软件。vscode&amp;amp;MinGW64的安装包(密码：9p2f，MinGW64是我从小熊猫c++里面拿来的)
+安装vscode，并将MinGW64解压到...</div>
+    </a>
+    
+    
+    <a href="/2022/04/13/Ubuntu/">
+      <div class="next-title">Ubuntu的大杂烩<i class="fas fa-chevron-right"></i></div>
+      <div class="next-desc">
+Ubuntu 的安装细节写在知乎了：扔掉win10拥抱ubuntu，这里就是记录一些 Shell 命令
+
+gnome改动❌⬛➖左移1234gsettings set org.gnome.des...</div>
+    </a>
+    
+</div>
+
+</article>
+ 
+
+
+  <div id="toc-wrap">
+    <div id="toc">
+      <div class="toc-title">
+        <div>
+          目录
+            <span class="num">0%</span>
+        </div>
+        <progress class="progress" value="0" max="100"></progress>
+      </div>
+      <div class="toc-list">
+         
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%86%E8%BF%B0"><span class="toc-text">细述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E5%85%89%E6%A0%87"><span class="toc-text">移动光标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E5%85%A5%E3%80%81%E9%80%80%E5%87%BA%E5%92%8C%E4%BF%9D%E5%AD%98"><span class="toc-text">进入、退出和保存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#v-motion-w-FileName%EF%BC%9A%E8%A6%81%E4%BF%9D%E5%AD%98%E6%96%87%E4%BB%B6%E7%9A%84%E9%83%A8%E5%88%86%E5%86%85%E5%AE%B9"><span class="toc-text">v motion :w FileName：要保存文件的部分内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E5%8F%96%E5%92%8C%E5%90%88%E5%B9%B6%E6%96%87%E4%BB%B6"><span class="toc-text">提取和合并文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E6%96%87%E6%9C%AC"><span class="toc-text">编辑文本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%BC%80%E7%B1%BB%E5%91%BD%E4%BB%A4"><span class="toc-text">打开类命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%84%E5%8A%A0%E7%B1%BB%E5%91%BD%E4%BB%A4"><span class="toc-text">附加类命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E7%B1%BB%E5%91%BD%E4%BB%A4"><span class="toc-text">删除类命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%92%A4%E9%94%80%E7%B1%BB%E5%91%BD%E4%BB%A4"><span class="toc-text">撤销类命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%AE%E5%85%A5%E7%B1%BB%E5%91%BD%E4%BB%A4"><span class="toc-text">置入类命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%BF%E6%8D%A2%E7%B1%BB%E5%91%BD%E4%BB%A4"><span class="toc-text">替换类命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9%E7%B1%BB%E5%91%BD%E4%BB%A4"><span class="toc-text">更改类命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4%E6%96%87%E6%9C%AC"><span class="toc-text">复制粘贴文本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%91%BD%E4%BB%A4%E5%92%8C%E5%AF%B9%E8%B1%A1"><span class="toc-text">关于命令和对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%AE%A1%E6%95%B0%E6%8C%87%E5%AE%9A%E5%8A%A8%E4%BD%9C"><span class="toc-text">使用计数指定动作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%96%87%E4%BB%B6%E7%8A%B6%E6%80%81"><span class="toc-text">定位及文件状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2%E7%B1%BB%E5%91%BD%E4%BB%A4"><span class="toc-text">搜索类命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%BF%E6%8D%A2%E5%91%BD%E4%BB%A4"><span class="toc-text">替换命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VIM%E5%86%85%E6%89%A7%E8%A1%8C%E5%A4%96%E9%83%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">VIM内执行外部命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E7%B1%BB%E5%91%BD%E4%BB%A4%E7%9A%84%E9%80%89%E9%A1%B9"><span class="toc-text">设置类命令的选项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%A8%E7%BA%BF%E5%B8%AE%E5%8A%A9%E7%B3%BB%E7%BB%9F"><span class="toc-text">使用在线帮助系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC"><span class="toc-text">创建启动脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%A8%E5%8A%9F%E8%83%BD"><span class="toc-text">补全功能</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vimtutor-zh"><span class="toc-text">vimtutor zh</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E8%AE%B2%E5%B0%8F%E7%BB%93"><span class="toc-text">第一讲小结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E8%AE%B2%E5%B0%8F%E7%BB%93"><span class="toc-text">第二讲小结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E8%AE%B2%E5%B0%8F%E7%BB%93"><span class="toc-text">第三讲小结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E8%AE%B2%E5%B0%8F%E7%BB%93"><span class="toc-text">第四讲小结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E8%AE%B2%E5%B0%8F%E7%BB%93"><span class="toc-text">第五讲小结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E8%AE%B2%E5%B0%8F%E7%BB%93"><span class="toc-text">第六讲小结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E8%AE%B2%E5%B0%8F%E7%BB%93"><span class="toc-text">第七讲小结</span></a></li></ol></li></ol>
+      </div>
+    </div>
+  </div>
+
+
+        </main>
+        <section id="rightside">
+    
+    <div class="rightside-item">
+        
+        
+         
+        
+        
+            <a id="open-toc" title="目录">
+                <i class="fas fa-list-ul"></i>
+            </a>
+        
+         
+         
+        <a href="javascript:(0)" id="darkmode" title="深色/浅色 ">
+            <i class="fas fa-moon"></i>
+        </a>
+         
+        
+        <a href="#" title="回到顶部">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </div>
+</section>
+         
+
+<footer class="footer" id="footer">
+    <div class="copyright">
+      &copy; 2022
+        <i class="fas fa-fan"></i>
+        殊约
+    </div>
+    <div class="framework-info">
+        <span>框架 </span>
+        <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="footer-separator">|</span>
+        <span>主题 </span>
+        <a href="https://github.com/lete114/hexo-theme-MengD" target="_blank">MengD.(萌典) </a>
+    </div>
+    
+    <div class="custom-text">得不到的永远在骚动，被偏爱的都有恃无恐</div>
+</footer>
+    </div>
+    <div id="mask" onclick="closeAll()"></div>
+    
+    <div class="script">
+        <script src="/js/main.js"></script>
+        
+
+ 
+<script>
+    var originTitle = document.title;
+    var titleTime;
+    document.addEventListener("visibilitychange", function () {
+        if (document.hidden) {
+            document.title = "我藏好了哦~ " + originTitle;
+            clearTimeout(titleTime);
+        } else {
+            document.title = "被你发现啦~ " + originTitle;
+            titleTime = setTimeout(function () {
+                document.title = originTitle;
+            }, 2000);
+        }
+    });
+</script>
+
+
+<script src="/js/lazyload.js"></script>
+
+
+    
+
+
+        
+    <script>
+        getScript('https://cdn.jsdelivr.net/npm/pjax/pjax.min.js',LoadPjax)
+        function LoadPjax() {
+            var pjax = new Pjax({
+                selectors: [
+                    'head title',
+                    'head meta[name="keywords"]',
+                    'head meta[name="description"]',
+                    'main',
+                    '#rightside'
+                ],
+                cache: true,
+                cacheBust: false
+            });
+        }
+
+        // 清除时间
+        var timer = null;
+        // 执行进度条
+        function ProgressStart() {
+            // 设置初始进度
+            var progress = 10;
+            // 创建进度条 及 css样式
+            var div = document.createElement('div');
+            div.className = 'pjax-progress';
+            document.body.prepend(div);
+            // 定义随机数最大值最小值
+            var max = 10, mini = 3;
+            var result = max - mini;
+            // 清除
+            clearInterval(timer);
+            // 0.5秒内累加进度
+            timer = setInterval(function () {
+                // 随机数
+                var num = parseInt(Math.random() * result);
+                var randomResult = num + mini;
+                // 累加
+                progress += randomResult
+                document.getElementsByClassName('pjax-progress')[0].style.width = progress + '%';
+                // 当进度达到95%时停止
+                if (progress > 95) progress = 95
+            }, 500)
+        }
+        // 加载进度条加载完毕
+        function ProgressFinish() {
+            clearInterval(timer);
+            // 页面加载完毕后进度100% 并在0.7秒后删除
+            var progress = document.getElementsByClassName('pjax-progress');
+            progress[0].style.width = '100%';
+            timer = setTimeout(function () {
+                progress[0].parentNode.removeChild(progress[0])
+            }, 700);
+        }
+
+        // 开始 PJAX 执行的函数
+        document.addEventListener('pjax:send', function () {
+            // 执行进度条
+            ProgressStart()
+        });
+        // PJAX 完成之后执行的函数，可以和上面的重载放在一起
+        document.addEventListener('pjax:complete', function () {
+
+            // 加载进度条加载完毕
+            ProgressFinish()
+            // 执行所有方法
+            exeAllFn()
+
+            
+                // 图片懒加载
+                ImgLazyLoad('body img[data-img]', 'data-img')
+            
+
+
+            document.querySelectorAll('script[data-pjax]').forEach(item => {
+                const newScript = document.createElement('script')
+                const content = item.text || item.textContent || item.innerHTML || ''
+                Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+                newScript.appendChild(document.createTextNode(content))
+                item.parentNode.replaceChild(newScript, item)
+            })
+        });
+
+        // Pjax请求错误时，跳转到404页面
+        document.addEventListener('pjax:error', (err) => {
+            if (err.request.status === 404) {
+                pjax.loadUrl('/404.html')
+            }
+        })
+    </script>
+
+    </div>
+</body>
+
+</html>

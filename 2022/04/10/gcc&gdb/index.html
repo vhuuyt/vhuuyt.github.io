@@ -1,0 +1,581 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+     
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+<title>gcc&amp;gdb使用 | 殊约的小本本</title>
+<meta name="author" content="殊约">
+<meta name="copyright" content="殊约">
+
+<link rel="shortcut icon" href="http://vhuuyt.gitee.io/img/favicon.png"> 
+
+
+    <meta name="keywords" content="gdb,gcc">
+
+
+
+     
+    <meta name="description" content="GCC一、文件格式因为 gcc 也支持 c++，所以.cpp  .hpp  .cp  .cxx  .c++  .h++ 可用    说明 c后缀 c++后缀    代码文件 .c .cc  .C  .cpp  .c++  .cp  .cxx   头文件 .h .hpp  .h++   预处理后 .i .i   汇编代码 .s  .S .s  .S   目标代码 .o .o   静态链接库 .a .">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gcc&amp;gdb使用">
+<meta property="og:url" content="http://vhuuyt.gitee.io/2022/04/10/gcc&gdb/">
+<meta property="og:site_name" content="殊约的小本本">
+<meta property="og:description" content="GCC一、文件格式因为 gcc 也支持 c++，所以.cpp  .hpp  .cp  .cxx  .c++  .h++ 可用    说明 c后缀 c++后缀    代码文件 .c .cc  .C  .cpp  .c++  .cp  .cxx   头文件 .h .hpp  .h++   预处理后 .i .i   汇编代码 .s  .S .s  .S   目标代码 .o .o   静态链接库 .a .">
+<meta property="og:locale">
+<meta property="og:image" content="http://vhuuyt.gitee.io/img/kano.webp">
+<meta property="article:published_time" content="2022-04-10T08:04:47.000Z">
+<meta property="article:modified_time" content="2022-04-17T11:30:02.749Z">
+<meta property="article:author" content="殊约">
+<meta property="article:tag" content="gdb">
+<meta property="article:tag" content="gcc">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://vhuuyt.gitee.io/img/kano.webp">
+ 
+
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<link href="//cdn.jsdelivr.net" rel="preconnect">
+<link href="http://vhuuyt.gitee.io" rel="prefetch">
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css " rel="stylesheet">
+<link href="/css/main.css " rel="stylesheet">
+<script src="/js/utlis.js"></script>
+ 
+    
+ 
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+     
+    
+ 
+     
+
+<script>
+    var $config = {
+        tocStyle: "visible",
+        CDN:{
+            fancyboxJs: "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js",
+            fancyboxCss: "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"
+        },
+        
+        
+    }
+</script>
+    
+
+
+
+
+  
+
+
+    <div id="body-wrap">
+        <nav id="nav-wrap">
+  <div class="navbar">
+    <div class="bar">
+      <a href="/" class="title">殊约的小本本</a>
+
+      
+      <ul class="menu">
+         
+        <li><a href="/">首页</a></li>
+          
+        <li>
+          <a class="menu-child-hover" href="javascript:void(0);">找文章</a>
+          <ul class="menu-child">
+            
+            <li><a href='/tags'>标签</a></li>
+            
+            <li><a href='/categories'>分类</a></li>
+            
+            <li><a href='/archives'>归档</a></li>
+            
+          </ul>
+        </li>
+          
+        <li><a href="/404">关于我</a></li>
+         
+      </ul>
+      <i class="fas fa-bars open-nav"></i>
+    </div>
+  </div>
+  <div id="mobile-nav">
+    <ul>
+       
+      <li><a href="/">首页</a></li>
+         
+      <li><a href='/tags'>标签</a></li>
+      
+      <li><a href='/categories'>分类</a></li>
+      
+      <li><a href='/archives'>归档</a></li>
+         
+      <li><a href="/404">关于我</a></li>
+       
+    </ul>
+  </div>
+</nav>
+
+
+        <main id="main">
+            
+
+<article id="post">
+  <div class="post-info">
+    <div class="post-title">
+      <h1>gcc&amp;gdb使用</h1>
+    </div>
+    <div class="post-meta">
+      <div class="post-date">
+        <i class="far fa-calendar-alt fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">
+          发表于
+            2022-04-10 |
+        </span>
+        
+        <i class="fas fa-history fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">
+          更新于
+            2022-04-19
+        </span>
+      </div>
+      <div class="post-meta-wordcount">
+        <i class="far fa-file-word fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">总字数:</span>
+        <span class="word-count">1.2k | </span>
+        <i class="far fa-clock fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">阅读时长:</span>
+        <span>4分钟</span>
+        
+      </div>
+    </div>
+  </div>
+  <div class="post-content">
+    <h1 id="GCC"><a href="#GCC" class="headerlink" title="GCC"></a>GCC</h1><h2 id="一、文件格式"><a href="#一、文件格式" class="headerlink" title="一、文件格式"></a>一、文件格式</h2><p>因为 gcc 也支持 c++，所以.cpp  .hpp  .cp  .cxx  .c++  .h++ 可用</p>
+<table>
+<thead>
+<tr>
+<th align="center">说明</th>
+<th align="center">c后缀</th>
+<th align="center">c++后缀</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">代码文件</td>
+<td align="center">.c</td>
+<td align="center">.cc  .C  .cpp  .c++  .cp  .cxx</td>
+</tr>
+<tr>
+<td align="center">头文件</td>
+<td align="center">.h</td>
+<td align="center">.hpp  .h++</td>
+</tr>
+<tr>
+<td align="center">预处理后</td>
+<td align="center">.i</td>
+<td align="center">.i</td>
+</tr>
+<tr>
+<td align="center">汇编代码</td>
+<td align="center">.s  .S</td>
+<td align="center">.s  .S</td>
+</tr>
+<tr>
+<td align="center">目标代码</td>
+<td align="center">.o</td>
+<td align="center">.o</td>
+</tr>
+<tr>
+<td align="center">静态链接库</td>
+<td align="center">.a</td>
+<td align="center">.a</td>
+</tr>
+<tr>
+<td align="center">动态链接库</td>
+<td align="center">.so</td>
+<td align="center">.so</td>
+</tr>
+</tbody></table>
+<h2 id="二、示例"><a href="#二、示例" class="headerlink" title="二、示例"></a>二、示例</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">gcc -E hello.c -o hello.i	<span class="comment"># 预处理</span></span><br><span class="line">gcc -S hello.i -o hello.s	<span class="comment"># 编译</span></span><br><span class="line">gcc -c hello.s -o hello.o	<span class="comment"># 汇编</span></span><br><span class="line">gcc hello.o -o hello		<span class="comment"># 链接</span></span><br><span class="line">gcc hello.c -o hello		<span class="comment"># 一次完成四阶段，不指定输出格式，会默认 a.out</span></span><br><span class="line">gcc hello.c -I [要include的头文件的路径] -o hello</span><br><span class="line">gcc hello.c -L [所需要的lib库文件] -o hello</span><br><span class="line"><span class="comment"># 助记： ESC iso</span></span><br></pre></td></tr></table></figure>
+
+<p>多文件，只需要编译修改部分即可，也可以使用 make 工具来增加效率</p>
+<h2 id="三、基本语法"><a href="#三、基本语法" class="headerlink" title="三、基本语法"></a>三、基本语法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc [选项] [选项 参数]</span><br></pre></td></tr></table></figure>
+
+<h3 id="常用选项和参数"><a href="#常用选项和参数" class="headerlink" title="常用选项和参数"></a>常用选项和参数</h3><table>
+<thead>
+<tr>
+<th align="left">选项和参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">-E</td>
+<td>预处理，预处理之后的代码送往标准输出</td>
+</tr>
+<tr>
+<td align="left">-S</td>
+<td>编译成汇编代码</td>
+</tr>
+<tr>
+<td align="left">-c</td>
+<td>编译成目标文件，不链接库</td>
+</tr>
+<tr>
+<td align="left">-B [目录]</td>
+<td>将 [目录] 添加到编译器的搜索路径中</td>
+</tr>
+<tr>
+<td align="left">-W [warn…]  –Wall</td>
+<td>设置警告，[可选项很多]，–Wall 开启所有的警告</td>
+</tr>
+<tr>
+<td align="left">-U [name]</td>
+<td>取消宏定义 name</td>
+</tr>
+<tr>
+<td align="left">-I [dir…]  (是 i   的大写)</td>
+<td>把 dir 加到<strong>头文件</strong>的搜索路径中，而且 gcc命令<br />会在搜索标准头文件之前先搜索 dir</td>
+</tr>
+<tr>
+<td align="left">-l library  (是 L 的小写)</td>
+<td>在链接时候搜索 library 库</td>
+</tr>
+<tr>
+<td align="left">-L [dir]</td>
+<td>把 dir 加到<strong>库文件</strong>的搜索路径中，而且 gcc 命令<br />会在搜索标准库文件之前先搜索 dir</td>
+</tr>
+<tr>
+<td align="left">–pthread</td>
+<td>过 pthread 库加入对多线程的支持，这为预处理和链接<br />设置了标志。pthread 是 POSIX 指定的标准线程库</td>
+</tr>
+<tr>
+<td align="left">–std=standard</td>
+<td>针对 C 语言，–std=c99 表示编译器遵循 C99 标准</td>
+</tr>
+</tbody></table>
+<h1 id="GDB"><a href="#GDB" class="headerlink" title="GDB"></a>GDB</h1><h2 id="一、简单示例"><a href="#一、简单示例" class="headerlink" title="一、简单示例"></a>一、简单示例</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">gcc -g test.c -o <span class="built_in">test</span> 	<span class="comment"># -g 将调试信息添加到程序里</span></span><br><span class="line">gdb <span class="built_in">test</span> 				<span class="comment"># 进入 GDB，进入后，显示(gdb)。命令在其后输入</span></span><br><span class="line">(gdb)</span><br><span class="line"><span class="comment">### 查看源代码</span></span><br><span class="line">(gdb)l					<span class="comment"># 使用 list(l) 子命令可以一次显示十行源代码</span></span><br><span class="line">(gdb)l 14,20			<span class="comment"># 显示 14 和 20 行</span></span><br><span class="line"><span class="comment">### 设置断点</span></span><br><span class="line">(gdb)<span class="built_in">break</span> 13			<span class="comment"># 设置断点</span></span><br><span class="line">(gdb)<span class="built_in">break</span> func()		<span class="comment"># 函数入口处设置断电</span></span><br><span class="line">(gdb)info <span class="built_in">break</span>			<span class="comment"># 显示断点信息</span></span><br><span class="line"><span class="comment">### 运行调试</span></span><br><span class="line">(gdb)r					<span class="comment"># run(r)</span></span><br><span class="line">(gdb)n					<span class="comment"># next(n) 单步执行下一行</span></span><br><span class="line">(gdb)c					<span class="comment"># continue(c) 继续执行，直到下一个断点或程序结束</span></span><br><span class="line">(gdb)p 变量名			  <span class="comment"># print(p) 查看程序中变量的当前值</span></span><br><span class="line"><span class="comment">### 函数操作</span></span><br><span class="line">(gdb)bt					<span class="comment"># 查看函数的堆栈</span></span><br><span class="line">(gdb)finish				<span class="comment"># 退出函数</span></span><br><span class="line">(gdb)q					<span class="comment"># quit(q) 退出 gdb 工具</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="二、基本语法"><a href="#二、基本语法" class="headerlink" title="二、基本语法"></a>二、基本语法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdb [option] --args prog [arguments]</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-常用的选项和参数"><a href="#1-常用的选项和参数" class="headerlink" title="1.常用的选项和参数"></a>1.常用的选项和参数</h3><table>
+<thead>
+<tr>
+<th>选项和参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>–symbols [file]、-s [file]</td>
+<td>从指定文件中，读取符号表</td>
+</tr>
+<tr>
+<td>–se [file]</td>
+<td>从指定文件中读取符号表信息，并用在可执行文件中</td>
+</tr>
+<tr>
+<td>–core [file]、-c [file]</td>
+<td>调试时 core dump 的 core 文件</td>
+</tr>
+<tr>
+<td>–directory [dir]、-d [dir]</td>
+<td>加入一个源文件的搜索路径（默认PATH所定义的路径）</td>
+</tr>
+</tbody></table>
+<h3 id="2-启动-gdb-的方法"><a href="#2-启动-gdb-的方法" class="headerlink" title="2.启动 gdb 的方法"></a>2.启动 gdb 的方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gdb [programName]</span><br><span class="line">gdb [programName] core <span class="comment"># 用 gdb 工具同时调试一个运行程序和 core 文件，core 是程序非法执行后，core dump 产生的文件</span></span><br><span class="line">gdb [programName] [PID] <span class="comment"># 如果程序是一个服务程序，指定这个服务程序运行时的 PID，gdb 工具会自动 attach 上去，并调试。程序应该存在于 PATH 路径中</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-gdb-命令的子命令"><a href="#3-gdb-命令的子命令" class="headerlink" title="3.gdb 命令的子命令"></a>3.gdb 命令的子命令</h3><p>(gdb)提示符后输入<code>help</code>，会列出 <strong>gdb 子命令</strong>的<strong>所有分类</strong></p>
+<ul>
+<li>aliases：命令别名</li>
+<li>breakpoints：断点定义</li>
+<li>data：数据查看</li>
+<li>files：指定一个文件来查看</li>
+<li>internals：维护命令</li>
+<li>stack：调用栈查看</li>
+<li>status：状态查看</li>
+<li>tracepoints：跟踪程序执行</li>
+</ul>
+<p>输入<code>help</code>后，再输入<code>apropos [分类名]</code>，可查看分类中的子命令用法（apropos /ˌæprəˈpəʊ/ prep.关于，至于）</p>
+<h4 id="3-1常用-gdb-子命令如下"><a href="#3-1常用-gdb-子命令如下" class="headerlink" title="3.1常用 gdb 子命令如下"></a>3.1常用 gdb 子命令如下</h4><ol>
+<li><code>file</code>：<strong>装入</strong>想要调试的可执行文件（仅输<code>gdb</code>进入gdb，再装入调试文件） </li>
+<li><code>kill</code>：<strong>终止</strong>正在调试的文件</li>
+<li><code>list</code>：列出可执行文件源码的一部分</li>
+<li><code>next</code>：执行一行源代码但<strong>不进入</strong>函数内部</li>
+<li><code>step</code>：执行一行源代码并<strong>进入</strong>函数内部</li>
+<li><code>run</code>：执行待调试的程序</li>
+<li><code>quit</code>：终止并退出 gdb 工具</li>
+<li><code>watch</code>：监视一个变量的值，不管它何时被改变</li>
+<li><code>make</code>：不退出 gdb 工具就可以重新生成可执行文件</li>
+<li><code>shell</code>：不离开 gdb 工具就可以执行 UNIX Shell 命令</li>
+<li><code>print [变量名]</code>：显示变量名保存的值</li>
+<li><code>break [NUM]</code>：在第 num 行设置断点</li>
+<li><code>bt</code>：显示所有的调用栈帧。该子命令可用来显示函数的调用顺序</li>
+</ol>
+
+  </div>
+   
+   
+
+  
+  <div class="post-copyright">
+    <div class="post-copyright-icon"></div>
+      <div class="post-copyright-author">
+          <span class="post-copyright-meta">文章作者: </span>
+            <span class="post-copyright-info">
+              <a href="mailto:vhuuyt@foxmail.com" >殊约</a>
+            </span>
+      </div>
+      <div class="post-copyright-type">
+          <span class="post-copyright-meta">文章链接: </span>
+            <span class="post-copyright-info">
+              <a href="http://vhuuyt.gitee.io/2022/04/10/gcc&amp;gdb/" >http://vhuuyt.gitee.io/2022/04/10/gcc&amp;gdb/</a>
+            </span>
+      </div><div class="post-copyright-notice">
+          <span class="post-copyright-meta">版权声明: </span>
+            <span class="post-copyright-info">本博客所有文章除特别声明外，均采用
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/ " target="_blank" >
+                  CC BY-NC-SA 4.0 </a> 许可协议。转载请注明来自
+              <a href="http://vhuuyt.gitee.io/2022/04/10/gcc&amp;gdb/" target="_blank" >殊约</a>
+              ！</span>
+      </div>
+  </div>
+  
+
+
+ 
+
+  
+    <div class="post-tag">
+        <span>
+            <i class="fa fa-tag"></i>
+             
+            <a href="tags/gdb/"><span>gdb</span></a>
+                
+                    <i class="fas fa-angle-right"></i>
+                
+             
+            <a href="tags/gcc/"><span>gcc</span></a>
+                
+            
+        </span>
+    </div>
+  
+
+
+
+
+<div class="pagination-post">
+    
+    <a href="/2022/04/13/Ubuntu/">
+      <div class="prev-title"><i class="fas fa-chevron-left"></i>Ubuntu的大杂烩</div>
+      <div class="prev-desc">
+Ubuntu 的安装细节写在知乎了：扔掉win10拥抱ubuntu，这里就是记录一些 Shell 命令
+
+gnome改动❌⬛➖左移1234gsettings set org.gnome.des...</div>
+    </a>
+    
+    
+    <a href="/2022/04/01/emacs-tutor/">
+      <div class="next-title">emacs-tutor<i class="fas fa-chevron-right"></i></div>
+      <div class="next-desc">
+所有内容都抄录自 Emacs 官方指导文档
+
+简单操作C-x C-c 退出软件C-g 退出正在运行的软件
+C-v 查看下一屏文字M-v 上一屏C-l 重绘屏幕，并将光标所在行置于屏幕的中央，再...</div>
+    </a>
+    
+</div>
+
+</article>
+ 
+
+
+  <div id="toc-wrap">
+    <div id="toc">
+      <div class="toc-title">
+        <div>
+          目录
+            <span class="num">0%</span>
+        </div>
+        <progress class="progress" value="0" max="100"></progress>
+      </div>
+      <div class="toc-list">
+         
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GCC"><span class="toc-text">GCC</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F"><span class="toc-text">一、文件格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%A4%BA%E4%BE%8B"><span class="toc-text">二、示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-text">三、基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E9%80%89%E9%A1%B9%E5%92%8C%E5%8F%82%E6%95%B0"><span class="toc-text">常用选项和参数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GDB"><span class="toc-text">GDB</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%AE%80%E5%8D%95%E7%A4%BA%E4%BE%8B"><span class="toc-text">一、简单示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-text">二、基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%B8%B8%E7%94%A8%E7%9A%84%E9%80%89%E9%A1%B9%E5%92%8C%E5%8F%82%E6%95%B0"><span class="toc-text">1.常用的选项和参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%90%AF%E5%8A%A8-gdb-%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">2.启动 gdb 的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-gdb-%E5%91%BD%E4%BB%A4%E7%9A%84%E5%AD%90%E5%91%BD%E4%BB%A4"><span class="toc-text">3.gdb 命令的子命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1%E5%B8%B8%E7%94%A8-gdb-%E5%AD%90%E5%91%BD%E4%BB%A4%E5%A6%82%E4%B8%8B"><span class="toc-text">3.1常用 gdb 子命令如下</span></a></li></ol></li></ol></li></ol></li></ol>
+      </div>
+    </div>
+  </div>
+
+
+        </main>
+        <section id="rightside">
+    
+    <div class="rightside-item">
+        
+        
+         
+        
+        
+            <a id="open-toc" title="目录">
+                <i class="fas fa-list-ul"></i>
+            </a>
+        
+         
+         
+        <a href="javascript:(0)" id="darkmode" title="深色/浅色 ">
+            <i class="fas fa-moon"></i>
+        </a>
+         
+        
+        <a href="#" title="回到顶部">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </div>
+</section>
+         
+
+<footer class="footer" id="footer">
+    <div class="copyright">
+      &copy; 2022
+        <i class="fas fa-fan"></i>
+        殊约
+    </div>
+    <div class="framework-info">
+        <span>框架 </span>
+        <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="footer-separator">|</span>
+        <span>主题 </span>
+        <a href="https://github.com/lete114/hexo-theme-MengD" target="_blank">MengD.(萌典) </a>
+    </div>
+    
+    <div class="custom-text">得不到的永远在骚动，被偏爱的都有恃无恐</div>
+</footer>
+    </div>
+    <div id="mask" onclick="closeAll()"></div>
+    
+    <div class="script">
+        <script src="/js/main.js"></script>
+        
+
+ 
+<script>
+    var originTitle = document.title;
+    var titleTime;
+    document.addEventListener("visibilitychange", function () {
+        if (document.hidden) {
+            document.title = "我藏好了哦~ " + originTitle;
+            clearTimeout(titleTime);
+        } else {
+            document.title = "被你发现啦~ " + originTitle;
+            titleTime = setTimeout(function () {
+                document.title = originTitle;
+            }, 2000);
+        }
+    });
+</script>
+
+
+<script src="/js/lazyload.js"></script>
+
+
+    
+
+
+        
+    <script>
+        getScript('https://cdn.jsdelivr.net/npm/pjax/pjax.min.js',LoadPjax)
+        function LoadPjax() {
+            var pjax = new Pjax({
+                selectors: [
+                    'head title',
+                    'head meta[name="keywords"]',
+                    'head meta[name="description"]',
+                    'main',
+                    '#rightside'
+                ],
+                cache: true,
+                cacheBust: false
+            });
+        }
+
+        // 清除时间
+        var timer = null;
+        // 执行进度条
+        function ProgressStart() {
+            // 设置初始进度
+            var progress = 10;
+            // 创建进度条 及 css样式
+            var div = document.createElement('div');
+            div.className = 'pjax-progress';
+            document.body.prepend(div);
+            // 定义随机数最大值最小值
+            var max = 10, mini = 3;
+            var result = max - mini;
+            // 清除
+            clearInterval(timer);
+            // 0.5秒内累加进度
+            timer = setInterval(function () {
+                // 随机数
+                var num = parseInt(Math.random() * result);
+                var randomResult = num + mini;
+                // 累加
+                progress += randomResult
+                document.getElementsByClassName('pjax-progress')[0].style.width = progress + '%';
+                // 当进度达到95%时停止
+                if (progress > 95) progress = 95
+            }, 500)
+        }
+        // 加载进度条加载完毕
+        function ProgressFinish() {
+            clearInterval(timer);
+            // 页面加载完毕后进度100% 并在0.7秒后删除
+            var progress = document.getElementsByClassName('pjax-progress');
+            progress[0].style.width = '100%';
+            timer = setTimeout(function () {
+                progress[0].parentNode.removeChild(progress[0])
+            }, 700);
+        }
+
+        // 开始 PJAX 执行的函数
+        document.addEventListener('pjax:send', function () {
+            // 执行进度条
+            ProgressStart()
+        });
+        // PJAX 完成之后执行的函数，可以和上面的重载放在一起
+        document.addEventListener('pjax:complete', function () {
+
+            // 加载进度条加载完毕
+            ProgressFinish()
+            // 执行所有方法
+            exeAllFn()
+
+            
+                // 图片懒加载
+                ImgLazyLoad('body img[data-img]', 'data-img')
+            
+
+
+            document.querySelectorAll('script[data-pjax]').forEach(item => {
+                const newScript = document.createElement('script')
+                const content = item.text || item.textContent || item.innerHTML || ''
+                Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+                newScript.appendChild(document.createTextNode(content))
+                item.parentNode.replaceChild(newScript, item)
+            })
+        });
+
+        // Pjax请求错误时，跳转到404页面
+        document.addEventListener('pjax:error', (err) => {
+            if (err.request.status === 404) {
+                pjax.loadUrl('/404.html')
+            }
+        })
+    </script>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,510 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+     
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+<title>emacs-tutor | 殊约的小本本</title>
+<meta name="author" content="殊约">
+<meta name="copyright" content="殊约">
+
+<link rel="shortcut icon" href="http://vhuuyt.gitee.io/img/favicon.png"> 
+
+
+    <meta name="keywords" content="emacs,编辑器&amp;神">
+
+
+
+     
+    <meta name="description" content="所有内容都抄录自 Emacs 官方指导文档  简单操作C-x C-c 退出软件C-g 退出正在运行的软件 C-v 查看下一屏文字M-v 上一屏C-l 重绘屏幕，并将光标所在行置于屏幕的中央，再按到顶，再按到底 C-previous 上一行C-next 下一行C-backward 回退C-forward 前进 M-f 移动到下一个英文单词，中文是移动到下一个标点符号M-b 前移 C-a 光标移动到">
+<meta property="og:type" content="article">
+<meta property="og:title" content="emacs-tutor">
+<meta property="og:url" content="http://vhuuyt.gitee.io/2022/04/01/emacs-tutor/">
+<meta property="og:site_name" content="殊约的小本本">
+<meta property="og:description" content="所有内容都抄录自 Emacs 官方指导文档  简单操作C-x C-c 退出软件C-g 退出正在运行的软件 C-v 查看下一屏文字M-v 上一屏C-l 重绘屏幕，并将光标所在行置于屏幕的中央，再按到顶，再按到底 C-previous 上一行C-next 下一行C-backward 回退C-forward 前进 M-f 移动到下一个英文单词，中文是移动到下一个标点符号M-b 前移 C-a 光标移动到">
+<meta property="og:locale">
+<meta property="og:image" content="http://vhuuyt.gitee.io/img/kano.webp">
+<meta property="article:published_time" content="2022-04-01T02:55:10.000Z">
+<meta property="article:modified_time" content="2022-04-17T11:35:14.006Z">
+<meta property="article:author" content="殊约">
+<meta property="article:tag" content="emacs">
+<meta property="article:tag" content="编辑器&amp;神">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://vhuuyt.gitee.io/img/kano.webp">
+ 
+
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<link href="//cdn.jsdelivr.net" rel="preconnect">
+<link href="http://vhuuyt.gitee.io" rel="prefetch">
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css " rel="stylesheet">
+<link href="/css/main.css " rel="stylesheet">
+<script src="/js/utlis.js"></script>
+ 
+    
+ 
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+     
+    
+ 
+     
+
+<script>
+    var $config = {
+        tocStyle: "visible",
+        CDN:{
+            fancyboxJs: "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js",
+            fancyboxCss: "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"
+        },
+        
+        
+    }
+</script>
+    
+
+
+
+
+  
+
+
+    <div id="body-wrap">
+        <nav id="nav-wrap">
+  <div class="navbar">
+    <div class="bar">
+      <a href="/" class="title">殊约的小本本</a>
+
+      
+      <ul class="menu">
+         
+        <li><a href="/">首页</a></li>
+          
+        <li>
+          <a class="menu-child-hover" href="javascript:void(0);">找文章</a>
+          <ul class="menu-child">
+            
+            <li><a href='/tags'>标签</a></li>
+            
+            <li><a href='/categories'>分类</a></li>
+            
+            <li><a href='/archives'>归档</a></li>
+            
+          </ul>
+        </li>
+          
+        <li><a href="/404">关于我</a></li>
+         
+      </ul>
+      <i class="fas fa-bars open-nav"></i>
+    </div>
+  </div>
+  <div id="mobile-nav">
+    <ul>
+       
+      <li><a href="/">首页</a></li>
+         
+      <li><a href='/tags'>标签</a></li>
+      
+      <li><a href='/categories'>分类</a></li>
+      
+      <li><a href='/archives'>归档</a></li>
+         
+      <li><a href="/404">关于我</a></li>
+       
+    </ul>
+  </div>
+</nav>
+
+
+        <main id="main">
+            
+
+<article id="post">
+  <div class="post-info">
+    <div class="post-title">
+      <h1>emacs-tutor</h1>
+    </div>
+    <div class="post-meta">
+      <div class="post-date">
+        <i class="far fa-calendar-alt fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">
+          发表于
+            2022-04-01 |
+        </span>
+        
+        <i class="fas fa-history fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">
+          更新于
+            2022-04-19
+        </span>
+      </div>
+      <div class="post-meta-wordcount">
+        <i class="far fa-file-word fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">总字数:</span>
+        <span class="word-count">2.4k | </span>
+        <i class="far fa-clock fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">阅读时长:</span>
+        <span>9分钟</span>
+        
+      </div>
+    </div>
+  </div>
+  <div class="post-content">
+    <blockquote>
+<p>所有内容都抄录自 Emacs 官方指导文档</p>
+</blockquote>
+<h1 id="简单操作"><a href="#简单操作" class="headerlink" title="简单操作"></a>简单操作</h1><p>C-x C-c 退出软件<br>C-g 退出正在运行的软件</p>
+<p>C-v 查看下一屏文字<br>M-v 上一屏<br>C-l 重绘屏幕，并将光标所在行置于屏幕的中央，再按到顶，再按到底</p>
+<p>C-previous 上一行<br>C-next 下一行<br>C-backward 回退<br>C-forward 前进</p>
+<p>M-f 移动到下一个英文单词，中文是移动到下一个标点符号<br>M-b 前移</p>
+<p>C-a 光标移动到一行的头部<br>C-e 一行的尾部  <strong>不会跳行</strong><br>M-a M-e 句子首尾</p>
+<p>M-&lt; 文档最开始<br>M-&gt;文档末尾</p>
+<p>C-u 8 C-f    //C-u后是前缀参数，参数后是要重复执行的命令<br>也有特例，他们将数字参数另作它用，有些命令仅仅将前缀参数作为<br>一个标志，只要给出有一个前缀参数，不管其值为何，他都会改变<br>命令的功能<br>C-v 和 M-v ，给定一个参数时，它将滚动你指定的“行数”，而不是<br>“屏数”。</p>
+<p>C-g 取消数字参数 和 指数到一半的命令</p>
+<p>C-x 1 只保留一个窗格<br>C-x 相关的命令，一般都和“窗格、文件、缓冲区”相关</p>
+<p>enter 键， 会自动根据环境补一些空格<br>C-u 88 * 输入88个*  C-u 88 [backspace] 删除88个*</p>
+<p>[DEL]        删除光标前的一个字符<br>   C-d          删除光标后的一个字符</p>
+<p>M-[DEL]      移除光标前的一个词<br>M-d          移除光标后的一个词</p>
+<p>C-k          移除从光标到“行尾”间的字符<br>M-k          移除从光标到“句尾”间的字符</p>
+<p>C-[spc]/@ 移动位置，再输入 C-w ，之间的文字会被删除<br>C-y yanking 召回前一次移除（对应移除），其他编辑器叫 剪切粘贴<br>C-k 的连续几句，会在一次都召回</p>
+<p>M-y 召回前几次移除的内容</p>
+<p>C-/ 撤销 undo<br>C-_ 也是撤销命令；它的作用跟 C-/ 一样，但是它比较容易多次输入。在<br>某些终端上，输入 C-/ 实际上向 Emacs 发送的是 C-_ 。<br>另外， C-x u 和 C-/ 完全一样，但是按起来有些麻烦。</p>
+<p>数字参数对于 C-/ 、 C-_ 和 C-x u 的意义是执行撤销的重复次数</p>
+<p>C-x C-f 寻找一个文件，C-g 取消。<br>C-x C-s 存储这个文件。第一次存盘的时候 Emacs 会将原文<br>件重命名以备份。重命名的规则通常是在原文件名之后添加一个“~”字符。<br>【对许多人来说，这是一个烦人的特性，关掉文件备份可以用如下命令：<br>  M-x customize-variable [Return] make-backup-files [Return]】</p>
+<p>C-x C-f 找不到就会新建，只有存盘的时候 Emacs 才会真正创建这个文件</p>
+<p>切回上一个文件：再用一次 C-x C-f<br>               C-x b 但是必须输入缓冲区的名称</p>
+<p>C-x C-b 列出缓冲区<br>“<em>Messages</em>”缓冲区也没有对应文件，这个缓冲区里存放的都是在 Emacs 底部<br>出现的消息。</p>
+<p>C-x s 保存多个缓冲区</p>
+<h1 id="命令集扩展"><a href="#命令集扩展" class="headerlink" title="命令集扩展"></a>命令集扩展</h1><p> C-x     字符扩展。  C-x 之后输入另一个字符或者组合键。<br> M-x     命令名扩展。M-x 之后输入一个命令名。</p>
+<pre><code>    C-x C-f         寻找文件。
+    C-x C-s         保存文件。
+    C-x C-b         列出缓冲区。
+    C-x C-c         离开 Emacs。
+    C-x 1           关掉其它所有窗格，只保留一个。
+    C-x u           撤销。
+</code></pre>
+<p>用命令名扩展的命令通常并不常用，或只用在部分模式下。比如<br>replace-string（字符串替换）这个命令，它会把一个字符串替换成另一个。在<br>输入 M-x 之后，Emacs 会在屏幕底端向你询问并等待你输入命令名。如果你想<br>输入“replace-string”，其实只需要敲“repl s[TAB]”就行了，Emacs 会帮你自<br>动补齐。输入完之后按 [Return] 提交。</p>
+<p>字符串替换命令需要两个参数――被替换的字符串和用来替换它的字符串。每个<br>参数的输入都以换行符来结束。</p>
+<p><em><strong><strong><strong><strong><strong>光标之后的范围内，该词已经被替换掉了</strong></strong></strong></strong></strong></em>******</p>
+<p>对于只能显示一个程序的终端，需要挂起<br>C-z 回到 shell 但不杀死 Emacs 的进程<br>fg 或是 emacs 命令，再次回到 eamcs 中</p>
+<p>自动保存文件叫：#[文件名]#，它会在正常保存后被删除<br>不幸发生时，可以打开<strong>原文件</strong>（而不是自动保存文件）<br>输入：M-x recover f le [return]来恢复自动保存文件，提示确认时输入yes[Enter]</p>
+<ul>
+<li>回显区（ECHO AREA）</li>
+</ul>
+<hr>
+<p>如果 Emacs 发现你输入多字符命令的节奏很慢，它会在窗格的下方称为“回显区”<br>的地方给你提示。回显区位于屏幕的最下面一行。</p>
+<h1 id="状态栏"><a href="#状态栏" class="headerlink" title="状态栏"></a>状态栏</h1><p> -:**- TUTOR AL.cn 63% L749 (Fundamental)</p>
+<p>状态栏显示了 Emacs 的状态和你正在编辑的文字的一些信息。</p>
+<p>你应该知道文件名的意思吧？就是你找到的那个文件嘛。-NN%– 显示的是光标在<br>全文中的位置。如果位于文件的开头，那么就显示 –Top– 而不是 –00%–；如<br>果位于文件的末尾，就显示 –Bot–。如果文件很小，一屏就足以显示全部内容，<br>那么状态栏会显示 –All–。<br>“L” 和其后的数字给出了光标所在行的行号。</p>
+<p>最开头的星号（*）表示你已经对文字做过改动。刚刚打开的文件肯定没有被改动<br>过，所以状态栏上显示的不是星号而是短线（-）。</p>
+<p>状态栏上小括号里的内容告诉你当前正在使用的编辑模式。缺省的模式是<br>Fundamental，就是你现在正在使用的这个。它是一种“主模式”。</p>
+<p>Emacs 的主模式林林总总。有用来编辑程序代码的――比如 L sp 模式；也有用<br>来编辑各种自然语言文本的――比如 Text 模式。任何情况下只能应用一个主模<br>式，其名称会显示在状态栏上，也就是现在显示“Fundamental”的地方。</p>
+<p>主模式通常会改变一些命令的行为。比方说，不管编辑什么语言的程序代码，你<br>都可以用一个相同的命令来添加注释。但是在不同的语言中注释的语法往往是不<br>同的，这时不同的主模式就会用各自不同的语法规则来添加注释。主模式都是可<br>以用 M-x 启动的扩展命令，M-x fundamental-mode 就可以切换到 Fundamental<br>模式。</p>
+<p>用 C-h m 可以查看当前主模式的文档。</p>
+<p>自动换行辅助模式：M-x auto-fill-mode [Return]“tab会补全命令”<br>行边界通常被设定为 70 个字符【这里指英文字符】，你可以用 C-x f 命令配合<br>数字参数来重新设定它</p>
+<blockquote>
+<blockquote>
+<p>输入 C-x f 并传递参数 20： C-u 2 0 C-x f。<br> 然后输入一些文字，观察 Emacs 的自动折行动作<br> 最后再用 C-x f 将边界设回 70。</p>
+</blockquote>
+</blockquote>
+<p>如果你在段落的中间做了一些修改，那么自动折行模式不会替你把整个段落重新<br>折行，你需要用 M-q 手动折行。注意，光标必须位于你需要折行的那一段里。</p>
+<blockquote>
+<blockquote>
+<p>移动光标到前一段中，然后输入 M-q。</p>
+</blockquote>
+</blockquote>
+<h1 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h1><p>C-s 向前进搜索，C-r 向后退搜索<br>在渐进式搜索中，按 [DEL] 会“撤回”到最近一次搜索的命中位置。如果之前没<br>有一个命中， [DEL] 会抹去搜索字符串中的最后一个字符<br>enter 会让光标留在搜索结果上，但C-g 会回到搜索开始的位置</p>
+<p>另外，如果你在搜索的时候输入了 control 或者 meta 组合键的话，搜索可能会<br>结束。（也有例外，比如 C-s 和 C-r 这些用于搜索的命令。</p>
+<h1 id="多窗格"><a href="#多窗格" class="headerlink" title="多窗格"></a>多窗格</h1><p>C-l C-l C-x 2<br>C-M-v 滚动下方的窗格（先按哪个都可以的<br>或是先输入[Esc]，再输入C-v，因为[Esc]不是修饰键，而是一个字符键<br>C-M-S-v 向上滚动<br>C-x o 将光标转移到下方的窗格<br>    在下方的窗格中，用 C-v M-v 来滚动</p>
+<p>C-x 4 C-f 紧跟着输入一个文件名，就会在下面打开一个文件，光标也过去了</p>
+<p>***********多窗口<br>M-x make frame<br>M-x delete frame</p>
+<ul>
+<li>递归编辑（RECURS VE ED T NG LEVELS）</li>
+</ul>
+<hr>
+<p>有时候你会进入所谓的“递归编辑”。递归编辑状态由位于状态栏的方括号所指<br>示，其中包含了用小括号来指明的模式名称。比如说，你有时可能会看到<br>[(Fundamental)]，而不是 (Fundamental)。【比如在用 M-% 进行交互式替换的<br>时候你又用了 C-s 进行搜索，这时替换模式并没有结束，但你又进入了搜索模式，<br>这就是所谓的递归编辑。】</p>
+<p>离开递归编辑可以用 ESC ESC ESC。这是一个最通用的“离开”命令，你甚至可<br>以使用它来关掉多余的窗格，或者离开小缓冲。</p>
+<blockquote>
+<blockquote>
+<p>输入 M-x 进入小缓冲；然后输入 ESC ESC ESC 离开。</p>
+</blockquote>
+</blockquote>
+<p>你不能用 C-g 退出递归编辑，因为 C-g 的作用是取消“本层递归编辑之内”的<br>命令和其参数（arguments）。</p>
+
+  </div>
+   
+   
+
+  
+  <div class="post-copyright">
+    <div class="post-copyright-icon"></div>
+      <div class="post-copyright-author">
+          <span class="post-copyright-meta">文章作者: </span>
+            <span class="post-copyright-info">
+              <a href="mailto:vhuuyt@foxmail.com" >殊约</a>
+            </span>
+      </div>
+      <div class="post-copyright-type">
+          <span class="post-copyright-meta">文章链接: </span>
+            <span class="post-copyright-info">
+              <a href="http://vhuuyt.gitee.io/2022/04/01/emacs-tutor/" >http://vhuuyt.gitee.io/2022/04/01/emacs-tutor/</a>
+            </span>
+      </div><div class="post-copyright-notice">
+          <span class="post-copyright-meta">版权声明: </span>
+            <span class="post-copyright-info">本博客所有文章除特别声明外，均采用
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/ " target="_blank" >
+                  CC BY-NC-SA 4.0 </a> 许可协议。转载请注明来自
+              <a href="http://vhuuyt.gitee.io/2022/04/01/emacs-tutor/" target="_blank" >殊约</a>
+              ！</span>
+      </div>
+  </div>
+  
+
+
+ 
+
+  
+    <div class="post-tag">
+        <span>
+            <i class="fa fa-tag"></i>
+             
+            <a href="tags/emacs/"><span>emacs</span></a>
+                
+                    <i class="fas fa-angle-right"></i>
+                
+             
+            <a href="tags/编辑器-神/"><span>编辑器&amp;神</span></a>
+                
+            
+        </span>
+    </div>
+  
+
+
+
+
+<div class="pagination-post">
+    
+    <a href="/2022/04/10/gcc&amp;gdb/">
+      <div class="prev-title"><i class="fas fa-chevron-left"></i>gcc&amp;gdb使用</div>
+      <div class="prev-desc">GCC一、文件格式因为 gcc 也支持 c++，所以.cpp  .hpp  .cp  .cxx  .c++  .h++ 可用
+
+
+
+说明
+c后缀
+c++后缀
+
+
+
+代码文件
+.c
+.cc  .C...</div>
+    </a>
+    
+    
+    <a href="/2022/03/23/HTML-en/">
+      <div class="next-title">HTML英文笔记（暂鸽中）<i class="fas fa-chevron-right"></i></div>
+      <div class="next-desc">
+The web coures is mozilla.
+
+HTML anotomy1234567891011&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;!--the shortest st...</div>
+    </a>
+    
+</div>
+
+</article>
+ 
+
+
+  <div id="toc-wrap">
+    <div id="toc">
+      <div class="toc-title">
+        <div>
+          目录
+            <span class="num">0%</span>
+        </div>
+        <progress class="progress" value="0" max="100"></progress>
+      </div>
+      <div class="toc-list">
+         
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C"><span class="toc-text">简单操作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E9%9B%86%E6%89%A9%E5%B1%95"><span class="toc-text">命令集扩展</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E6%A0%8F"><span class="toc-text">状态栏</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2"><span class="toc-text">搜索</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E7%AA%97%E6%A0%BC"><span class="toc-text">多窗格</span></a></li></ol>
+      </div>
+    </div>
+  </div>
+
+
+        </main>
+        <section id="rightside">
+    
+    <div class="rightside-item">
+        
+        
+         
+        
+        
+            <a id="open-toc" title="目录">
+                <i class="fas fa-list-ul"></i>
+            </a>
+        
+         
+         
+        <a href="javascript:(0)" id="darkmode" title="深色/浅色 ">
+            <i class="fas fa-moon"></i>
+        </a>
+         
+        
+        <a href="#" title="回到顶部">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </div>
+</section>
+         
+
+<footer class="footer" id="footer">
+    <div class="copyright">
+      &copy; 2022
+        <i class="fas fa-fan"></i>
+        殊约
+    </div>
+    <div class="framework-info">
+        <span>框架 </span>
+        <a href="https://hexo.io" target="_blank">Hexo</a>
+        <span class="footer-separator">|</span>
+        <span>主题 </span>
+        <a href="https://github.com/lete114/hexo-theme-MengD" target="_blank">MengD.(萌典) </a>
+    </div>
+    
+    <div class="custom-text">得不到的永远在骚动，被偏爱的都有恃无恐</div>
+</footer>
+    </div>
+    <div id="mask" onclick="closeAll()"></div>
+    
+    <div class="script">
+        <script src="/js/main.js"></script>
+        
+
+ 
+<script>
+    var originTitle = document.title;
+    var titleTime;
+    document.addEventListener("visibilitychange", function () {
+        if (document.hidden) {
+            document.title = "我藏好了哦~ " + originTitle;
+            clearTimeout(titleTime);
+        } else {
+            document.title = "被你发现啦~ " + originTitle;
+            titleTime = setTimeout(function () {
+                document.title = originTitle;
+            }, 2000);
+        }
+    });
+</script>
+
+
+<script src="/js/lazyload.js"></script>
+
+
+    
+
+
+        
+    <script>
+        getScript('https://cdn.jsdelivr.net/npm/pjax/pjax.min.js',LoadPjax)
+        function LoadPjax() {
+            var pjax = new Pjax({
+                selectors: [
+                    'head title',
+                    'head meta[name="keywords"]',
+                    'head meta[name="description"]',
+                    'main',
+                    '#rightside'
+                ],
+                cache: true,
+                cacheBust: false
+            });
+        }
+
+        // 清除时间
+        var timer = null;
+        // 执行进度条
+        function ProgressStart() {
+            // 设置初始进度
+            var progress = 10;
+            // 创建进度条 及 css样式
+            var div = document.createElement('div');
+            div.className = 'pjax-progress';
+            document.body.prepend(div);
+            // 定义随机数最大值最小值
+            var max = 10, mini = 3;
+            var result = max - mini;
+            // 清除
+            clearInterval(timer);
+            // 0.5秒内累加进度
+            timer = setInterval(function () {
+                // 随机数
+                var num = parseInt(Math.random() * result);
+                var randomResult = num + mini;
+                // 累加
+                progress += randomResult
+                document.getElementsByClassName('pjax-progress')[0].style.width = progress + '%';
+                // 当进度达到95%时停止
+                if (progress > 95) progress = 95
+            }, 500)
+        }
+        // 加载进度条加载完毕
+        function ProgressFinish() {
+            clearInterval(timer);
+            // 页面加载完毕后进度100% 并在0.7秒后删除
+            var progress = document.getElementsByClassName('pjax-progress');
+            progress[0].style.width = '100%';
+            timer = setTimeout(function () {
+                progress[0].parentNode.removeChild(progress[0])
+            }, 700);
+        }
+
+        // 开始 PJAX 执行的函数
+        document.addEventListener('pjax:send', function () {
+            // 执行进度条
+            ProgressStart()
+        });
+        // PJAX 完成之后执行的函数，可以和上面的重载放在一起
+        document.addEventListener('pjax:complete', function () {
+
+            // 加载进度条加载完毕
+            ProgressFinish()
+            // 执行所有方法
+            exeAllFn()
+
+            
+                // 图片懒加载
+                ImgLazyLoad('body img[data-img]', 'data-img')
+            
+
+
+            document.querySelectorAll('script[data-pjax]').forEach(item => {
+                const newScript = document.createElement('script')
+                const content = item.text || item.textContent || item.innerHTML || ''
+                Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+                newScript.appendChild(document.createTextNode(content))
+                item.parentNode.replaceChild(newScript, item)
+            })
+        });
+
+        // Pjax请求错误时，跳转到404页面
+        document.addEventListener('pjax:error', (err) => {
+            if (err.request.status === 404) {
+                pjax.loadUrl('/404.html')
+            }
+        })
+    </script>
+
+    </div>
+</body>
+
+</html>
