@@ -28,7 +28,7 @@
 <meta property="og:locale">
 <meta property="og:image" content="http://vhuuyt.gitee.io/img/kano.webp">
 <meta property="article:published_time" content="2022-04-19T07:00:06.000Z">
-<meta property="article:modified_time" content="2022-04-19T07:17:23.185Z">
+<meta property="article:modified_time" content="2022-04-19T09:13:16.155Z">
 <meta property="article:author" content="殊约">
 <meta property="article:tag" content="gcc">
 <meta property="article:tag" content="vscode">
@@ -146,7 +146,7 @@
       <div class="post-meta-wordcount">
         <i class="far fa-file-word fa-fw post-meta-icon"></i>
         <span class="post-meta-label">总字数:</span>
-        <span class="word-count">392 | </span>
+        <span class="word-count">452 | </span>
         <i class="far fa-clock fa-fw post-meta-icon"></i>
         <span class="post-meta-label">阅读时长:</span>
         <span>1分钟</span>
@@ -159,11 +159,19 @@
 <p>安装vscode，并将MinGW64<strong>解压</strong>到一个位置（建议C盘根目录），复制MinGW64里面的bin文件夹的<strong>路径</strong>。</p>
 <h1 id="配置系统变量"><a href="#配置系统变量" class="headerlink" title="配置系统变量"></a>配置系统变量</h1><p>进入<strong>设置</strong>，搜索进入-&gt;<strong>查看高级系统设置</strong>，<strong>高级</strong>-&gt;(右下角)<strong>环境变量</strong>-&gt;选中<strong>系统变量</strong>栏的<em>Path</em>-&gt;点击<strong>编辑</strong>-&gt;<strong>新建</strong>-&gt;粘贴刚才复制的<strong>bin文件夹目录</strong>-&gt;确定返回</p>
 <p><code>win + R</code>键输入<code>cmd</code>进入小黑窗，输入<code>gcc -v</code>查看是否设置成功，返回 gcc 版本信息则成功。</p>
-<h1 id="vscode-配置"><a href="#vscode-配置" class="headerlink" title="vscode 配置"></a>vscode 配置</h1><p>按提示建立工作文件夹后，新建<code>hello.c</code>文件，输入测试程序</p>
+<h1 id="vscode-配置"><a href="#vscode-配置" class="headerlink" title="vscode 配置"></a>vscode 配置</h1><h3 id="新建-hello-c"><a href="#新建-hello-c" class="headerlink" title="新建 hello.c"></a>新建 hello.c</h3><p>按提示<strong>建立工作文件夹</strong>后，新建<code>hello.c</code>文件，输入测试程序</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><em>Terminal</em> -&gt; <em>Confingure Default Build Task</em> -&gt; 选择后缀是 <code>gcc.exe</code> 的一项，自动生成 <code>tasks.json</code>。<code>&quot;args&quot;</code>参数中的路径，去掉其中的汉字，使其变成 <code>$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.exe</code> 即可</p>
-<p>进入 <code>hello.c</code> 文件，按 <code>F5</code>，自动生成 <code>launch.json</code>，点击右下角的 <code>Add configure</code> 选择 “c/c++:(gdb)启动”，之后将 <code>miDebuggerPath</code> 的参数改为 <code>C:/MinGW64/bin/gdb.exe</code>（即你的MinGW64中的gdb.exe路径）</p>
+<h3 id="编译配置"><a href="#编译配置" class="headerlink" title="编译配置"></a>编译配置</h3><ol>
+<li>左侧边栏进入 <code>Extensions</code>，搜索安装 C/C++ 扩展（<strong>紫圈白条的那个</strong>）</li>
+<li><em>Terminal</em> -&gt; <em>Confingure Default Build Task</em> -&gt; 选择<code>GCC(GDB/LLDB)</code>，再选择编译器路径是 <code>C:/MinGW64/bin/gcc.exe</code> 的一项，将自动生成 <code>tasks.json</code>。</li>
+</ol>
+<h3 id="调试配置"><a href="#调试配置" class="headerlink" title="调试配置"></a>调试配置</h3><ol>
+<li>打开 <code>hello.c</code> 文件，按左侧边栏 <code>Run and Debug</code> 按钮，弹出窗口选择<code>GCC(GDB/LLDB)</code>，将自动生成 <code>launch.json</code>。</li>
+<li>点击右下角的 <code>Add configure</code> 选择 <code>c/c++:(gdb)启动</code>。</li>
+<li>之后将<code>&quot;program&quot;</code>参数中的汉字去掉，使其变成 <code>$&#123;fileDirname&#125;\\$&#123;fileBasenameNoExtension&#125;.exe</code> 即可</li>
+<li><code>miDebuggerPath</code> 的参数改为 <code>C:/MinGW64/bin/gdb.exe</code>（即你的MinGW64中的gdb.exe路径）</li>
+</ol>
 <h1 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h1><p><code>Ctrl Shift B</code> 生成<code>.exe</code>可执行文件<br><code>F9</code> 标记断点（鼠标点代码行号前的空白也可）<br><code>F5</code> 进行 Debug<br><code>F11</code> step into 下一步（会<strong>进入函数内部</strong>）<br><code>F10</code> step over 则<strong>不会进入</strong>调用库函数及自定义函数的内部</p>
 
   </div>
@@ -243,7 +251,7 @@
       </div>
       <div class="toc-list">
          
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%87%86%E5%A4%87"><span class="toc-text">下载准备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%B3%BB%E7%BB%9F%E5%8F%98%E9%87%8F"><span class="toc-text">配置系统变量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vscode-%E9%85%8D%E7%BD%AE"><span class="toc-text">vscode 配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-text">快捷键</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%87%86%E5%A4%87"><span class="toc-text">下载准备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%B3%BB%E7%BB%9F%E5%8F%98%E9%87%8F"><span class="toc-text">配置系统变量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vscode-%E9%85%8D%E7%BD%AE"><span class="toc-text">vscode 配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B0%E5%BB%BA-hello-c"><span class="toc-text">新建 hello.c</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E9%85%8D%E7%BD%AE"><span class="toc-text">编译配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E8%AF%95%E9%85%8D%E7%BD%AE"><span class="toc-text">调试配置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-text">快捷键</span></a></li></ol>
       </div>
     </div>
   </div>
