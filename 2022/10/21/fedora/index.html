@@ -14,25 +14,25 @@
 <link rel="shortcut icon" href="http://vhuuyt.gitee.io/img/favicon.png"> 
 
 
-    <meta name="keywords" content="Linux,GNOME,Fedora">
+    <meta name="keywords" content="Linux,Fedora,软件">
 
 
 
      
-    <meta name="description" content="软件篇安装2022&#x2F;10&#x2F;21　　发现了新大陆，原来deb包解压缩之后是这样的。">
+    <meta name="description" content="自己下载包安装的第三方软件结构大概是这样：  可执行文件都在 &#x2F;usr&#x2F;local&#x2F;bin 依赖项在 &#x2F;usr&#x2F;local&#x2F;lib 还有 &#x2F;usr&#x2F;local&#x2F;lib64&#x2F; 软件的资源文件则是在 &#x2F;opt 桌面快捷方式在 &#x2F;usr&#x2F;share&#x2F;applications  当然，也有不老实的软件，bin文件夹里只放了软链接 网易云音乐的安装复制粘贴　　解压了网易云音乐的deb包，也是上述结构，然后就">
 <meta property="og:type" content="article">
 <meta property="og:title" content="fedora">
 <meta property="og:url" content="http://vhuuyt.gitee.io/2022/10/21/fedora/">
 <meta property="og:site_name" content="殊约的小本本">
-<meta property="og:description" content="软件篇安装2022&#x2F;10&#x2F;21　　发现了新大陆，原来deb包解压缩之后是这样的。">
+<meta property="og:description" content="自己下载包安装的第三方软件结构大概是这样：  可执行文件都在 &#x2F;usr&#x2F;local&#x2F;bin 依赖项在 &#x2F;usr&#x2F;local&#x2F;lib 还有 &#x2F;usr&#x2F;local&#x2F;lib64&#x2F; 软件的资源文件则是在 &#x2F;opt 桌面快捷方式在 &#x2F;usr&#x2F;share&#x2F;applications  当然，也有不老实的软件，bin文件夹里只放了软链接 网易云音乐的安装复制粘贴　　解压了网易云音乐的deb包，也是上述结构，然后就">
 <meta property="og:locale">
 <meta property="og:image" content="http://vhuuyt.gitee.io/img/kano.webp">
 <meta property="article:published_time" content="2022-10-21T10:41:50.000Z">
-<meta property="article:modified_time" content="2022-10-21T10:50:44.546Z">
+<meta property="article:modified_time" content="2022-10-21T12:10:34.751Z">
 <meta property="article:author" content="殊约">
 <meta property="article:tag" content="Linux">
-<meta property="article:tag" content="GNOME">
 <meta property="article:tag" content="Fedora">
+<meta property="article:tag" content="软件">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://vhuuyt.gitee.io/img/kano.webp">
  
@@ -143,16 +143,48 @@
       <div class="post-meta-wordcount">
         <i class="far fa-file-word fa-fw post-meta-icon"></i>
         <span class="post-meta-label">总字数:</span>
-        <span class="word-count">27 | </span>
+        <span class="word-count">576 | </span>
         <i class="far fa-clock fa-fw post-meta-icon"></i>
         <span class="post-meta-label">阅读时长:</span>
-        <span>1分钟</span>
+        <span>2分钟</span>
         
       </div>
     </div>
   </div>
   <div class="post-content">
-    <h1 id="软件篇"><a href="#软件篇" class="headerlink" title="软件篇"></a>软件篇</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>2022/10/21<br>　　发现了新大陆，原来deb包解压缩之后是这样的。</p>
+    <p>自己下载包安装的第三方软件结构大概是这样：</p>
+<ul>
+<li>可执行文件都在 <code>/usr/local/bin</code></li>
+<li>依赖项在 <code>/usr/local/lib</code> 还有 <code>/usr/local/lib64/</code></li>
+<li>软件的资源文件则是在 <code>/opt</code></li>
+<li>桌面快捷方式在 <code>/usr/share/applications</code></li>
+</ul>
+<p>当然，也有不老实的软件，<code>bin</code>文件夹里只放了软链接</p>
+<h1 id="网易云音乐的安装复制粘贴"><a href="#网易云音乐的安装复制粘贴" class="headerlink" title="网易云音乐的安装复制粘贴"></a>网易云音乐的<del>安装</del>复制粘贴</h1><p>　　解压了网易云音乐的deb包，也是上述结构，然后就手动安装上了。<code>ar x netease*.deb</code> 之后，直接双击解压，不愧是我，用什么 <code>tar -xzvf net*</code>，最后就是对应位置，疯狂地复制粘贴。</p>
+<h3 id="缺少-libnsl-so-1"><a href="#缺少-libnsl-so-1" class="headerlink" title="缺少 libnsl.so.1"></a>缺少 libnsl.so.1</h3><p><code>sudo dnf install libnsl</code></p>
+<h3 id="图标不显示"><a href="#图标不显示" class="headerlink" title="图标不显示"></a>图标不显示</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/share/applications/netease-cloud-music.desktop</span><br><span class="line">Icon=/usr/share/icons/hicolor/scalable/apps/netease-cloud-music.svg</span><br></pre></td></tr></table></figure>
+
+<h3 id="字体过小"><a href="#字体过小" class="headerlink" title="字体过小"></a>字体过小</h3><p>　　使用编辑器修改 <code>/opt/netease/netease-cloud-music/netease-cloud-music.bash</code> 的内容，在最后一行中添加 <code>--force-device-scale-factor=xxx</code> ，xxx 是字体放大的倍数。修改过后如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">HERE=&quot;$(dirname &quot;$(readlink -f &quot;$&#123;0&#125;&quot;)&quot;)&quot;</span><br><span class="line">export LD_LIBRARY_PATH=&quot;$&#123;HERE&#125;&quot;/libs</span><br><span class="line">export QT_PLUGIN_PATH=&quot;$&#123;HERE&#125;&quot;/plugins </span><br><span class="line">export QT_QPA_PLATFORM_PLUGIN_PATH=&quot;$&#123;HERE&#125;&quot;/plugins/platforms</span><br><span class="line">cd /usr/lib64/ # 需要一个依赖项，改变了一下目录</span><br><span class="line">exec &quot;$&#123;HERE&#125;&quot;/netease-cloud-music --force-device-scale-factor=1.5 $@ # 在这里写</span><br></pre></td></tr></table></figure>
+
+<p>还是官方软件香，就马上卸了 <a target="_blank" rel="noopener" href="https://github.com/darknessomi/musicbox">musicbox</a> 和 mpg123。</p>
+<h1 id="Appimage包的安装"><a href="#Appimage包的安装" class="headerlink" title="Appimage包的安装"></a>Appimage包的安装</h1><p>　　这个就牛了，自带依赖的库，改了权限<code>chmod a+x</code>之后就能执行。放到 <code>/usr/local/bin</code> 里，就不用再设置环境变量了，放 <code>/opt</code> 里不行。</p>
+<p>　　写个 .desktop 文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Name=纯纯写作</span><br><span class="line">Exec=/usr/local/bin/PureWriter</span><br><span class="line">Icon=/opt/icon/PureWriter.png</span><br><span class="line">Type=Application</span><br><span class="line">StartupNotify=true</span><br></pre></td></tr></table></figure>
+
+<h1 id="win10虚拟机"><a href="#win10虚拟机" class="headerlink" title="win10虚拟机"></a>win10虚拟机</h1><ol>
+<li><p>查看是否支持虚拟化<br><code>cat /proc/cpuinfo |egrep &quot;vmx|svm&quot;</code>。<code>vmx</code>表示intel的cpu，<code>svm</code>是amd的cpu</p>
+</li>
+<li><p>安装KVM/QEMU<br><code>sudo dnf -y install bridge-utils libvirt virt-install qemu-kvm</code><br> 查看安装进程<br><code>lsmod |grep kvm</code><br> 安装，KVM的工具包<br><code>sudo dnf -y install virt-top libguestfs-tools</code></p>
+</li>
+<li><p>启动<code>systemctl start libvirtd</code><br>加入开机自启<code>systemctl enable libvirtd</code></p>
+</li>
+<li><p>安装可视化界面<code>sudo dnf -y install virt-manager</code></p>
+</li>
+</ol>
+<h1 id="Typora"><a href="#Typora" class="headerlink" title="Typora"></a>Typora</h1><p>在 <a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/fzug/free/36/x86_64/">FZUG源</a> 能找到一个旧的beta版，永远不会升级，永远不会过期好耶。所以就没添加源，只是<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/fzug/free/36/x86_64/typora-0.10.11-1.fc36.x86_64.rpm">点击下载</a>，然后安装。</p>
+<h1 id="福昕PDF"><a href="#福昕PDF" class="headerlink" title="福昕PDF"></a>福昕PDF</h1><p>链接<a target="_blank" rel="noopener" href="https://www.foxit.com/">在这里</a>，当时是看的<a target="_blank" rel="noopener" href="https://www.linuxcapable.com/how-to-install-foxit-pdf-reader-on-fedora-34-35/">这个教程</a>安装的。</p>
+<p>能插入书签和划线，比自带的那个好用多了。</p>
 
   </div>
    
@@ -196,12 +228,12 @@
                     <i class="fas fa-angle-right"></i>
                 
              
-            <a href="tags/GNOME/"><span>GNOME</span></a>
+            <a href="tags/Fedora/"><span>Fedora</span></a>
                 
                     <i class="fas fa-angle-right"></i>
                 
              
-            <a href="tags/Fedora/"><span>Fedora</span></a>
+            <a href="tags/软件/"><span>软件</span></a>
                 
             
         </span>
@@ -238,7 +270,7 @@ T...</div>
       </div>
       <div class="toc-list">
          
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E7%AF%87"><span class="toc-text">软件篇</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-text">安装</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E7%9A%84%E5%AE%89%E8%A3%85%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4"><span class="toc-text">网易云音乐的安装复制粘贴</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%BA%E5%B0%91-libnsl-so-1"><span class="toc-text">缺少 libnsl.so.1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E6%A0%87%E4%B8%8D%E6%98%BE%E7%A4%BA"><span class="toc-text">图标不显示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E4%BD%93%E8%BF%87%E5%B0%8F"><span class="toc-text">字体过小</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Appimage%E5%8C%85%E7%9A%84%E5%AE%89%E8%A3%85"><span class="toc-text">Appimage包的安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#win10%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-text">win10虚拟机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Typora"><span class="toc-text">Typora</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A6%8F%E6%98%95PDF"><span class="toc-text">福昕PDF</span></a></li></ol>
       </div>
     </div>
   </div>
