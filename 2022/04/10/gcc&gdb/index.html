@@ -1,25 +1,27 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-     
+    
+
+
 
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="content-language" content="zh">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
 <title>gcc&amp;gdb使用 | 殊约的小本本</title>
 <meta name="author" content="殊约">
 <meta name="copyright" content="殊约">
 
-<link rel="shortcut icon" href="http://vhuuyt.github.io/img/favicon.png"> 
+<link rel="shortcut icon" href="/img/favicon.png">
 
 
-    <meta name="keywords" content="gdb,gcc">
+<meta name="keywords" content="gdb,gcc">
 
 
 
-     
-    <meta name="description" content="GCC一、文件格式因为 gcc 也支持 c++，所以.cpp  .hpp  .cp  .cxx  .c++  .h++ 可用    说明 c后缀 c++后缀    代码文件 .c .cc  .C  .cpp  .c++  .cp  .cxx   头文件 .h .hpp  .h++   预处理后 .i .i   汇编代码 .s  .S .s  .S   目标代码 .o .o   静态链接库 .a .">
+
+<meta name="description" content="GCC一、文件格式因为 gcc 也支持 c++，所以.cpp  .hpp  .cp  .cxx  .c++  .h++ 可用    说明 c后缀 c++后缀    代码文件 .c .cc  .C  .cpp  .c++  .cp  .cxx   头文件 .h .hpp  .h++   预处理后 .i .i   汇编代码 .s  .S .s  .S   目标代码 .o .o   静态链接库 .a .">
 <meta property="og:type" content="article">
 <meta property="og:title" content="gcc&amp;gdb使用">
 <meta property="og:url" content="http://vhuuyt.github.io/2022/04/10/gcc&gdb/">
@@ -34,69 +36,71 @@
 <meta property="article:tag" content="gcc">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://vhuuyt.github.io/img/kano.webp">
- 
 
-<meta http-equiv="Cache-Control" content="no-siteapp"/>
-<link href="//cdn.jsdelivr.net" rel="preconnect">
-<link href="http://vhuuyt.github.io" rel="prefetch">
-<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css " rel="stylesheet">
-<link href="/css/main.css " rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link href="/css/main.css" rel="stylesheet">
 <script src="/js/utlis.js"></script>
- 
-    
- 
+<script>
+  (function() {
+    var html = mengd.$query('html')
+    var isDark = localStorage.isDark === 'true'
+    if (isDark) html.setAttribute('theme', 'dark')
+    else html.removeAttribute('theme')
+  })()
+</script>
 
 <meta name="generator" content="Hexo 5.4.2"></head>
 
 <body>
      
     
- 
-     
 
 <script>
-    var $config = {
-        tocStyle: "visible",
-        CDN:{
-            fancyboxJs: "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js",
-            fancyboxCss: "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"
-        },
-        
-        
+  var $config = {
+      CDN: {
+        fancyboxJs: "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js",
+        fancyboxCss: "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"
+      },
+      
+      
     }
 </script>
+
     
 
 
-
-
-  
-
-
     <div id="body-wrap">
-        <nav id="nav-wrap">
+        
+<nav id="nav-wrap">
   <div class="navbar">
     <div class="bar">
       <a href="/" class="title">殊约的小本本</a>
-
       
       <ul class="menu">
          
-        <li><a href="/">首页</a></li>
-          
-        <li>
-          <a class="menu-child-hover" href="javascript:void(0);">找文章</a>
-          <ul class="menu-child">
-            
-            <li><a href='/tags'>标签</a></li>
-            
-            <li><a href='/categories'>分类</a></li>
-            
-            <li><a href='/archives'>归档</a></li>
-            
-          </ul>
-        </li>
          
+        
+          
+            <li><a href="/">首页</a></li>
+           
+         
+        
+          
+          <li>
+            <a class="menu-child-hover" href="javascript:void(0);">找文章</a>
+            <ul class="menu-child">
+              
+              <li><a href='/tags'>标签</a></li>
+              
+              <li><a href='/categories'>分类</a></li>
+              
+              <li><a href='/archives'>归档</a></li>
+              
+            </ul>
+          </li>
+           
+        
       </ul>
       <i class="fas fa-bars open-nav"></i>
     </div>
@@ -104,23 +108,61 @@
   <div id="mobile-nav">
     <ul>
        
-      <li><a href="/">首页</a></li>
          
-      <li><a href='/tags'>标签</a></li>
-      
-      <li><a href='/categories'>分类</a></li>
-      
-      <li><a href='/archives'>归档</a></li>
         
+        
+          <li><a href="/">首页</a></li>
+        
+       
+        
+         
+          <li><a href='/tags'>标签</a></li>
+        
+          <li><a href='/categories'>分类</a></li>
+        
+          <li><a href='/archives'>归档</a></li>
+         
+      
     </ul>
   </div>
 </nav>
 
 
-        <main id="main">
+        <header id="header">
+    <div class="header-author">
+        <a href="/" class="author">
+            <img src="/img/load.gif" data-src="/img/kano.webp" alt="殊约" class="author-avatar">
+            <div class="author-name">
+                殊约
+            </div>
+        </a>
+    </div>
+    <div class="header-description">
+        <p>
+            和你，有个特殊的约定
+        </p>
+        <div class="header-icon">
             
-
-<article id="post">
+            
+                <a href="/404"><i class="fab fa-weixin"></i></a>
+            
+                <a href="/404"><i class="fab fa-qq"></i></a>
+            
+                <a target="_blank" rel="noopener" href="https://weibo.com/vhuuyt"><i class="fab fa-weibo"></i></a>
+            
+                <a href="/404"><i class="fab fa-zhihu"></i></a>
+            
+                <a href="/404"><i class="fab fa-bilibili"></i></a>
+            
+                <a href="mailto:vhuuyt@foxmail.com"><i class="fa fa-envelope"></i></a>
+            
+                <a target="_blank" rel="noopener" href="https://github.com/vhuuyt"><i class="fab fa-github"></i></a>
+            
+        </div>
+    </div>
+</header>
+        <main id="main">
+            <article id="post">
   <div class="post-info">
     <div class="post-title">
       <h1>gcc&amp;gdb使用</h1>
@@ -130,13 +172,13 @@
         <i class="far fa-calendar-alt fa-fw post-meta-icon"></i>
         <span class="post-meta-label">
           发表于
-            2022-04-10 |
+          2022-04-10 |
         </span>
-        
+
         <i class="fas fa-history fa-fw post-meta-icon"></i>
         <span class="post-meta-label">
           更新于
-            2022-10-26
+          2022-04-25
         </span>
       </div>
       <div class="post-meta-wordcount">
@@ -147,9 +189,17 @@
         <span class="post-meta-label">阅读时长:</span>
         <span>4分钟</span>
         
+    | <i class="far fa-eye fa-fw post-meta-icon"></i>
+    
+        <span class="post-meta-label">阅读量:</span>
+        <span id="Discuss-Visitors">0</span>
+    
+
       </div>
     </div>
   </div>
+  
+  
   <div class="post-content">
     <h1 id="GCC"><a href="#GCC" class="headerlink" title="GCC"></a>GCC</h1><h2 id="一、文件格式"><a href="#一、文件格式" class="headerlink" title="一、文件格式"></a>一、文件格式</h2><p>因为 gcc 也支持 c++，所以.cpp  .hpp  .cp  .cxx  .c++  .h++ 可用</p>
 <table>
@@ -312,65 +362,37 @@
 </ol>
 
   </div>
-   
-   
-
+  
+  
   
   <div class="post-copyright">
     <div class="post-copyright-icon"></div>
-      <div class="post-copyright-author">
-          <span class="post-copyright-meta">文章作者: </span>
-            <span class="post-copyright-info">
-              <a href="mailto:vhuuyt@foxmail.com" >殊约</a>
-            </span>
-      </div>
-      <div class="post-copyright-type">
-          <span class="post-copyright-meta">文章链接: </span>
-            <span class="post-copyright-info">
-              <a href="http://vhuuyt.github.io/2022/04/10/gcc&amp;gdb/" >http://vhuuyt.github.io/2022/04/10/gcc&amp;gdb/</a>
-            </span>
-      </div><div class="post-copyright-notice">
-          <span class="post-copyright-meta">版权声明: </span>
-            <span class="post-copyright-info">本博客所有文章除特别声明外，均采用
-              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/ " target="_blank" >
-                  CC BY-NC-SA 4.0 </a> 许可协议。转载请注明来自
-              <a href="http://vhuuyt.github.io/2022/04/10/gcc&amp;gdb/" target="_blank" >殊约</a>
-              ！</span>
-      </div>
+    <div class="post-copyright-author">
+      <span class="post-copyright-meta">文章作者: </span>
+      <span class="post-copyright-info">
+        <a href="mailto:me@imlete.cn">殊约</a>
+      </span>
+    </div>
+    <div class="post-copyright-type">
+      <span class="post-copyright-meta">文章链接: </span>
+      <span class="post-copyright-info">
+        <a href="http://vhuuyt.github.io/2022/04/10/gcc&amp;gdb/">http://vhuuyt.github.io/2022/04/10/gcc&amp;gdb/</a>
+      </span>
+    </div>
+    <div class="post-copyright-notice">
+      <span class="post-copyright-meta">版权声明: </span>
+      <span class="post-copyright-info">本博客所有文章除特别声明外，均采用||许可协议。转载请注明来自</span>
+    </div>
   </div>
   
 
-
- 
-
   
-    <div class="post-tag">
-        <span>
-            <i class="fa fa-tag"></i>
-             
-            <a href="tags/gdb/"><span>gdb</span></a>
-                
-                    <i class="fas fa-angle-right"></i>
-                
-             
-            <a href="tags/gcc/"><span>gcc</span></a>
-                
-            
-        </span>
-    </div>
-  
-
-
-
-
-<div class="pagination-post">
+  <div class="pagination-post">
     
     <a href="/2022/04/13/Ubuntu/">
       <div class="prev-title"><i class="fas fa-chevron-left"></i>Ubuntu的大杂烩</div>
       <div class="prev-desc">
-Ubuntu 的安装细节写在知乎了：扔掉win10拥抱ubuntu，这里就是记录一些 Shell 命令
-
-gnome改动❌⬛➖左移1234gsettings set org.gnome.des...</div>
+Ubuntu 的安装细节写在知乎了：扔掉win10拥...</div>
     </a>
     
     
@@ -379,61 +401,59 @@ gnome改动❌⬛➖左移1234gsettings set org.gnome.des...</div>
       <div class="next-desc">
 所有内容都抄录自 Emacs 官方指导文档
 
-简单操作C-x C-c 退出软件C-g 退出正在运行的软件
-C-v 查看下一屏文字M-v 上一屏C-l 重绘屏幕，并将光标所在行置于屏幕的中央，再...</div>
+简单操...</div>
     </a>
     
-</div>
+  </div>
+  
+    <div class="comment-head" id="直达评论">
+        <hr>
+        <div class="comment-headline">
+            <i class="fas fa-comments fa-fw"></i>
+            <span>评论</span>
+        </div>
+        
+            <div id="Discuss-Comments"></div>
+<script>
+  function LoadDiscuss() {
+    mengd.getScript('https://cdn.jsdelivr.net/npm/discuss@latest/dist/Discuss.js', function() {
+      Discuss.init(Object.assign({
+        el: '#Discuss-Comments',
+        serverURLs: '',
+      } , {"source":"https://cdn.jsdelivr.net/npm/discuss@latest/dist/Discuss.js","serverURLs":null,"path":"location.pathname"}))
+    })
+  }
+  LoadDiscuss()
+</script>
+
+        
+    </div>
 
 </article>
- 
 
 
-  <div id="toc-wrap">
-    <div id="toc">
-      <div class="toc-title">
-        <div>
-          目录
-            <span class="num">0%</span>
-        </div>
-        <progress class="progress" value="0" max="100"></progress>
+
+<div id="toc-wrap">
+  <div id="toc">
+    <div class="toc-title">
+      <div>
+        目录
+        <span class="num">0%</span>
       </div>
-      <div class="toc-list">
-         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GCC"><span class="toc-text">GCC</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F"><span class="toc-text">一、文件格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%A4%BA%E4%BE%8B"><span class="toc-text">二、示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-text">三、基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E9%80%89%E9%A1%B9%E5%92%8C%E5%8F%82%E6%95%B0"><span class="toc-text">常用选项和参数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GDB"><span class="toc-text">GDB</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%AE%80%E5%8D%95%E7%A4%BA%E4%BE%8B"><span class="toc-text">一、简单示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-text">二、基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%B8%B8%E7%94%A8%E7%9A%84%E9%80%89%E9%A1%B9%E5%92%8C%E5%8F%82%E6%95%B0"><span class="toc-text">1.常用的选项和参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%90%AF%E5%8A%A8-gdb-%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">2.启动 gdb 的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-gdb-%E5%91%BD%E4%BB%A4%E7%9A%84%E5%AD%90%E5%91%BD%E4%BB%A4"><span class="toc-text">3.gdb 命令的子命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1%E5%B8%B8%E7%94%A8-gdb-%E5%AD%90%E5%91%BD%E4%BB%A4%E5%A6%82%E4%B8%8B"><span class="toc-text">3.1常用 gdb 子命令如下</span></a></li></ol></li></ol></li></ol></li></ol>
-      </div>
+      <progress class="progress" value="0" max="100"></progress>
+    </div>
+    <div class="toc-list">
+      
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GCC"><span class="toc-text">GCC</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F"><span class="toc-text">一、文件格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%A4%BA%E4%BE%8B"><span class="toc-text">二、示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-text">三、基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E9%80%89%E9%A1%B9%E5%92%8C%E5%8F%82%E6%95%B0"><span class="toc-text">常用选项和参数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GDB"><span class="toc-text">GDB</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%AE%80%E5%8D%95%E7%A4%BA%E4%BE%8B"><span class="toc-text">一、简单示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-text">二、基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%B8%B8%E7%94%A8%E7%9A%84%E9%80%89%E9%A1%B9%E5%92%8C%E5%8F%82%E6%95%B0"><span class="toc-text">1.常用的选项和参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%90%AF%E5%8A%A8-gdb-%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">2.启动 gdb 的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-gdb-%E5%91%BD%E4%BB%A4%E7%9A%84%E5%AD%90%E5%91%BD%E4%BB%A4"><span class="toc-text">3.gdb 命令的子命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1%E5%B8%B8%E7%94%A8-gdb-%E5%AD%90%E5%91%BD%E4%BB%A4%E5%A6%82%E4%B8%8B"><span class="toc-text">3.1常用 gdb 子命令如下</span></a></li></ol></li></ol></li></ol></li></ol>
     </div>
   </div>
-
+</div>
 
         </main>
-        <section id="rightside">
-    
-     
-    <div class="rightside-btn">
-        
-        
-        <a harf="javascript:"id="darkmode" title="深色/浅色">
-            <i class="fas fa-moon"></i>
-        </a>
-        
     </div>
-    
+    <section id="rightside">
     <div class="rightside-item">
-        
-            
-            
-            <a harf="javascript:"id="darkmode" title="深色/浅色">
-                <i class="fas fa-moon"></i>
-            </a>
-            
-        
-        
-         
-        <a href="javascript:" id="settings" title="设置">
-            <i class="fas fa-cog fa-spin"></i>
-        </a>
-        
+
          
         
         
@@ -441,159 +461,103 @@ C-v 查看下一屏文字M-v 上一屏C-l 重绘屏幕，并将光标所在行�
                 <i class="fas fa-list-ul"></i>
             </a>
         
+
+
          
          
-        <a href="javascript:(0)" id="darkmode" title="深色/浅色 ">
+        <a href="javascript:void(0);" id="darkmode" title="深色/浅色 ">
             <i class="fas fa-moon"></i>
         </a>
          
+
+
         
+            <a href="#直达评论" title="直达评论">
+                <i class="fas fa-comments"></i>
+            </a>
+        
+
+
         <a href="#" title="回到顶部">
             <i class="fas fa-arrow-up"></i>
         </a>
     </div>
 </section>
-         
+    
 
 <footer class="footer" id="footer">
-    <div class="copyright">
-      &copy; 2022
-        <i class="fas fa-fan"></i>
-        殊约
-    </div>
-    <div class="framework-info">
-        <span>框架 </span>
-        <a href="https://hexo.io" target="_blank">Hexo</a>
-        <span class="footer-separator">|</span>
-        <span>主题 </span>
-        <a href="https://github.com/lete114/hexo-theme-MengD" target="_blank">MengD.(萌典) </a>
-    </div>
-    
-    <div class="custom-text">得不到的永远在骚动，被偏爱的都有恃无恐</div>
+  <div class="copyright">
+    &copy; 2022
+    <i class="fas fa-fan"></i>
+    殊约
+  </div>
+  <div class="framework-info">
+    <span>框架</span>
+    <a href="https://hexo.io" target="_blank">Hexo</a>
+    <span class="footer-separator">|</span>
+    <span>主题 </span>
+    <a href="https://github.com/lete114/hexo-theme-MengD" target="_blank">MengD.(萌典) </a>
+  </div>
+  <div class="custom-text">得不到的永远在骚动，被偏爱的都有恃无恐</div>
 </footer>
-    </div>
     <div id="mask" onclick="closeAll()"></div>
     
-    <div class="script">
-        <script src="/js/main.js"></script>
-        
-
- 
+    <script src="/js/main.js"></script>
+    
 <script>
-    var originTitle = document.title;
-    var titleTime;
-    document.addEventListener("visibilitychange", function () {
-        if (document.hidden) {
-            document.title = "我藏好了哦~ " + originTitle;
-            clearTimeout(titleTime);
-        } else {
-            document.title = "被你发现啦~ " + originTitle;
-            titleTime = setTimeout(function () {
-                document.title = originTitle;
-            }, 2000);
-        }
-    });
+  var originTitle = document.title;
+  var titleTime;
+  document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
+      document.title = "我藏好了哦~ " + originTitle;
+      clearTimeout(titleTime);
+    } else {
+      document.title = "被你发现啦~ " + originTitle;
+      titleTime = setTimeout(function() {
+        document.title = originTitle;
+      }, 2000);
+    }
+  });
 </script>
+
 
 
 <script src="/js/lazyload.js"></script>
 
 
-    
 
 
-        
-    <script>
-        getScript('https://cdn.jsdelivr.net/npm/pjax/pjax.min.js',LoadPjax)
-        function LoadPjax() {
-            var pjax = new Pjax({
-                selectors: [
-                    'head title',
-                    'head meta[name="keywords"]',
-                    'head meta[name="description"]',
-                    'main',
-                    '#rightside'
-                ],
-                cache: true,
-                cacheBust: false
-            });
-        }
-
-        // 清除时间
-        var timer = null;
-        // 执行进度条
-        function ProgressStart() {
-            // 设置初始进度
-            var progress = 10;
-            // 创建进度条 及 css样式
-            var div = document.createElement('div');
-            div.className = 'pjax-progress';
-            document.body.prepend(div);
-            // 定义随机数最大值最小值
-            var max = 10, mini = 3;
-            var result = max - mini;
-            // 清除
-            clearInterval(timer);
-            // 0.5秒内累加进度
-            timer = setInterval(function () {
-                // 随机数
-                var num = parseInt(Math.random() * result);
-                var randomResult = num + mini;
-                // 累加
-                progress += randomResult
-                document.getElementsByClassName('pjax-progress')[0].style.width = progress + '%';
-                // 当进度达到95%时停止
-                if (progress > 95) progress = 95
-            }, 500)
-        }
-        // 加载进度条加载完毕
-        function ProgressFinish() {
-            clearInterval(timer);
-            // 页面加载完毕后进度100% 并在0.7秒后删除
-            var progress = document.getElementsByClassName('pjax-progress');
-            progress[0].style.width = '100%';
-            timer = setTimeout(function () {
-                progress[0].parentNode.removeChild(progress[0])
-            }, 700);
-        }
-
-        // 开始 PJAX 执行的函数
-        document.addEventListener('pjax:send', function () {
-            // 执行进度条
-            ProgressStart()
-        });
-        // PJAX 完成之后执行的函数，可以和上面的重载放在一起
-        document.addEventListener('pjax:complete', function () {
-
-            // 加载进度条加载完毕
-            ProgressFinish()
-            // 执行所有方法
-            exeAllFn()
-
-            
-                // 图片懒加载
-                ImgLazyLoad('body img[data-img]', 'data-img')
-            
+<script>
+  function loadCardLink() {
+    cardLink.server = 'https://cardlink-server.deta.dev/?url='
+    cardLink(mengd.$queryAll('#post>.post-content a[target=_blank]'))
+  }
+  mengd.getScript('/third-party/js/cardlink.js', loadCardLink)
+</script>
 
 
-            document.querySelectorAll('script[data-pjax]').forEach(item => {
-                const newScript = document.createElement('script')
-                const content = item.text || item.textContent || item.innerHTML || ''
-                Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
-                newScript.appendChild(document.createTextNode(content))
-                item.parentNode.replaceChild(newScript, item)
-            })
-        });
 
-        // Pjax请求错误时，跳转到404页面
-        document.addEventListener('pjax:error', (err) => {
-            if (err.request.status === 404) {
-                pjax.loadUrl('/404.html')
-            }
-        })
-    </script>
 
-    </div>
+
+
+
+
+
+<script>
+  mengd.getScript('/third-party/js/prefetch-page.js', () => {
+    const requestIdleCa = requestIdleCallback
+    if (requestIdleCa) {
+      requestIdleCa(() => {
+        prefetch({"delay":1000,"threshold":25})
+      })
+    } else {
+      setTimeout(() => {
+        prefetch({"delay":1000,"threshold":25})
+      }, 3000);
+    }
+  })
+</script>
+
 </body>
 
 </html>

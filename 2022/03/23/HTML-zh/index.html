@@ -1,25 +1,27 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-     
+    
+
+
 
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="content-language" content="zh">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
 <title>HTML入门笔记（暂鸽中） | 殊约的小本本</title>
 <meta name="author" content="殊约">
 <meta name="copyright" content="殊约">
 
-<link rel="shortcut icon" href="http://vhuuyt.github.io/img/favicon.png"> 
+<link rel="shortcut icon" href="/img/favicon.png">
 
 
-    <meta name="keywords" content="HTML,前端入门">
+<meta name="keywords" content="HTML,前端入门">
 
 
 
-     
-    <meta name="description" content="HTML 课程：mozilla  HTML文档剖析(anotomy)1234567891011&lt;!DOCTYPE html&gt;&lt;!--最短有效的文档声明--&gt;&lt;html&gt;  &lt;head&gt;&lt;!--容器container，不会外显，内容包括你想在搜索结果中出现的关键字和页面描述，CSS样式，字符集声明等--&gt;    &lt;meta char">
+
+<meta name="description" content="HTML 课程：mozilla  HTML文档剖析(anotomy)1234567891011&lt;!DOCTYPE html&gt;&lt;!--最短有效的文档声明--&gt;&lt;html&gt;  &lt;head&gt;&lt;!--容器container，不会外显，内容包括你想在搜索结果中出现的关键字和页面描述，CSS样式，字符集声明等--&gt;    &lt;meta char">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTML入门笔记（暂鸽中）">
 <meta property="og:url" content="http://vhuuyt.github.io/2022/03/23/HTML-zh/">
@@ -34,69 +36,71 @@
 <meta property="article:tag" content="前端入门">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://vhuuyt.github.io/img/kano.webp">
- 
 
-<meta http-equiv="Cache-Control" content="no-siteapp"/>
-<link href="//cdn.jsdelivr.net" rel="preconnect">
-<link href="http://vhuuyt.github.io" rel="prefetch">
-<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css " rel="stylesheet">
-<link href="/css/main.css " rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link href="/css/main.css" rel="stylesheet">
 <script src="/js/utlis.js"></script>
- 
-    
- 
+<script>
+  (function() {
+    var html = mengd.$query('html')
+    var isDark = localStorage.isDark === 'true'
+    if (isDark) html.setAttribute('theme', 'dark')
+    else html.removeAttribute('theme')
+  })()
+</script>
 
 <meta name="generator" content="Hexo 5.4.2"></head>
 
 <body>
      
     
- 
-     
 
 <script>
-    var $config = {
-        tocStyle: "visible",
-        CDN:{
-            fancyboxJs: "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js",
-            fancyboxCss: "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"
-        },
-        
-        
+  var $config = {
+      CDN: {
+        fancyboxJs: "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js",
+        fancyboxCss: "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"
+      },
+      
+      
     }
 </script>
+
     
 
 
-
-
-  
-
-
     <div id="body-wrap">
-        <nav id="nav-wrap">
+        
+<nav id="nav-wrap">
   <div class="navbar">
     <div class="bar">
       <a href="/" class="title">殊约的小本本</a>
-
       
       <ul class="menu">
          
-        <li><a href="/">首页</a></li>
-          
-        <li>
-          <a class="menu-child-hover" href="javascript:void(0);">找文章</a>
-          <ul class="menu-child">
-            
-            <li><a href='/tags'>标签</a></li>
-            
-            <li><a href='/categories'>分类</a></li>
-            
-            <li><a href='/archives'>归档</a></li>
-            
-          </ul>
-        </li>
          
+        
+          
+            <li><a href="/">首页</a></li>
+           
+         
+        
+          
+          <li>
+            <a class="menu-child-hover" href="javascript:void(0);">找文章</a>
+            <ul class="menu-child">
+              
+              <li><a href='/tags'>标签</a></li>
+              
+              <li><a href='/categories'>分类</a></li>
+              
+              <li><a href='/archives'>归档</a></li>
+              
+            </ul>
+          </li>
+           
+        
       </ul>
       <i class="fas fa-bars open-nav"></i>
     </div>
@@ -104,23 +108,61 @@
   <div id="mobile-nav">
     <ul>
        
-      <li><a href="/">首页</a></li>
          
-      <li><a href='/tags'>标签</a></li>
-      
-      <li><a href='/categories'>分类</a></li>
-      
-      <li><a href='/archives'>归档</a></li>
         
+        
+          <li><a href="/">首页</a></li>
+        
+       
+        
+         
+          <li><a href='/tags'>标签</a></li>
+        
+          <li><a href='/categories'>分类</a></li>
+        
+          <li><a href='/archives'>归档</a></li>
+         
+      
     </ul>
   </div>
 </nav>
 
 
-        <main id="main">
+        <header id="header">
+    <div class="header-author">
+        <a href="/" class="author">
+            <img src="/img/load.gif" data-src="/img/kano.webp" alt="殊约" class="author-avatar">
+            <div class="author-name">
+                殊约
+            </div>
+        </a>
+    </div>
+    <div class="header-description">
+        <p>
+            和你，有个特殊的约定
+        </p>
+        <div class="header-icon">
             
-
-<article id="post">
+            
+                <a href="/404"><i class="fab fa-weixin"></i></a>
+            
+                <a href="/404"><i class="fab fa-qq"></i></a>
+            
+                <a target="_blank" rel="noopener" href="https://weibo.com/vhuuyt"><i class="fab fa-weibo"></i></a>
+            
+                <a href="/404"><i class="fab fa-zhihu"></i></a>
+            
+                <a href="/404"><i class="fab fa-bilibili"></i></a>
+            
+                <a href="mailto:vhuuyt@foxmail.com"><i class="fa fa-envelope"></i></a>
+            
+                <a target="_blank" rel="noopener" href="https://github.com/vhuuyt"><i class="fab fa-github"></i></a>
+            
+        </div>
+    </div>
+</header>
+        <main id="main">
+            <article id="post">
   <div class="post-info">
     <div class="post-title">
       <h1>HTML入门笔记（暂鸽中）</h1>
@@ -130,13 +172,13 @@
         <i class="far fa-calendar-alt fa-fw post-meta-icon"></i>
         <span class="post-meta-label">
           发表于
-            2022-03-23 |
+          2022-03-23 |
         </span>
-        
+
         <i class="fas fa-history fa-fw post-meta-icon"></i>
         <span class="post-meta-label">
           更新于
-            2022-10-26
+          2022-04-13
         </span>
       </div>
       <div class="post-meta-wordcount">
@@ -147,9 +189,17 @@
         <span class="post-meta-label">阅读时长:</span>
         <span>14分钟</span>
         
+    | <i class="far fa-eye fa-fw post-meta-icon"></i>
+    
+        <span class="post-meta-label">阅读量:</span>
+        <span id="Discuss-Visitors">0</span>
+    
+
       </div>
     </div>
   </div>
+  
+  
   <div class="post-content">
     <blockquote>
 <p>HTML 课程：<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started">mozilla</a></p>
@@ -268,125 +318,96 @@
 
 
   </div>
-   
-   
-
+  
+  
   
   <div class="post-copyright">
     <div class="post-copyright-icon"></div>
-      <div class="post-copyright-author">
-          <span class="post-copyright-meta">文章作者: </span>
-            <span class="post-copyright-info">
-              <a href="mailto:vhuuyt@foxmail.com" >殊约</a>
-            </span>
-      </div>
-      <div class="post-copyright-type">
-          <span class="post-copyright-meta">文章链接: </span>
-            <span class="post-copyright-info">
-              <a href="http://vhuuyt.github.io/2022/03/23/HTML-zh/" >http://vhuuyt.github.io/2022/03/23/HTML-zh/</a>
-            </span>
-      </div><div class="post-copyright-notice">
-          <span class="post-copyright-meta">版权声明: </span>
-            <span class="post-copyright-info">本博客所有文章除特别声明外，均采用
-              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/ " target="_blank" >
-                  CC BY-NC-SA 4.0 </a> 许可协议。转载请注明来自
-              <a href="http://vhuuyt.github.io/2022/03/23/HTML-zh/" target="_blank" >殊约</a>
-              ！</span>
-      </div>
+    <div class="post-copyright-author">
+      <span class="post-copyright-meta">文章作者: </span>
+      <span class="post-copyright-info">
+        <a href="mailto:me@imlete.cn">殊约</a>
+      </span>
+    </div>
+    <div class="post-copyright-type">
+      <span class="post-copyright-meta">文章链接: </span>
+      <span class="post-copyright-info">
+        <a href="http://vhuuyt.github.io/2022/03/23/HTML-zh/">http://vhuuyt.github.io/2022/03/23/HTML-zh/</a>
+      </span>
+    </div>
+    <div class="post-copyright-notice">
+      <span class="post-copyright-meta">版权声明: </span>
+      <span class="post-copyright-info">本博客所有文章除特别声明外，均采用||许可协议。转载请注明来自</span>
+    </div>
   </div>
   
 
-
- 
-
   
-    <div class="post-tag">
-        <span>
-            <i class="fa fa-tag"></i>
-             
-            <a href="tags/HTML/"><span>HTML</span></a>
-                
-                    <i class="fas fa-angle-right"></i>
-                
-             
-            <a href="tags/前端入门/"><span>前端入门</span></a>
-                
-            
-        </span>
-    </div>
-  
-
-
-
-
-<div class="pagination-post">
+  <div class="pagination-post">
     
     <a href="/2022/03/23/HTML-en/">
       <div class="prev-title"><i class="fas fa-chevron-left"></i>HTML英文笔记（暂鸽中）</div>
       <div class="prev-desc">
-The web coures is mozilla.
-
-HTML anotomy1234567891011&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;!--the shortest st...</div>
+The web coures is mozilla....</div>
     </a>
     
     
     <a href="/2022/03/20/start/">
       <div class="next-title">第一天，就记录一下吧<i class="fas fa-chevron-right"></i></div>
       <div class="next-desc">Commandnodesource
-1234567891011sudo apt-get install git-core# Using Ubuntucurl -fsSL https://deb....</div>
+123456789...</div>
     </a>
     
-</div>
+  </div>
+  
+    <div class="comment-head" id="直达评论">
+        <hr>
+        <div class="comment-headline">
+            <i class="fas fa-comments fa-fw"></i>
+            <span>评论</span>
+        </div>
+        
+            <div id="Discuss-Comments"></div>
+<script>
+  function LoadDiscuss() {
+    mengd.getScript('https://cdn.jsdelivr.net/npm/discuss@latest/dist/Discuss.js', function() {
+      Discuss.init(Object.assign({
+        el: '#Discuss-Comments',
+        serverURLs: '',
+      } , {"source":"https://cdn.jsdelivr.net/npm/discuss@latest/dist/Discuss.js","serverURLs":null,"path":"location.pathname"}))
+    })
+  }
+  LoadDiscuss()
+</script>
+
+        
+    </div>
 
 </article>
- 
 
 
-  <div id="toc-wrap">
-    <div id="toc">
-      <div class="toc-title">
-        <div>
-          目录
-            <span class="num">0%</span>
-        </div>
-        <progress class="progress" value="0" max="100"></progress>
+
+<div id="toc-wrap">
+  <div id="toc">
+    <div class="toc-title">
+      <div>
+        目录
+        <span class="num">0%</span>
       </div>
-      <div class="toc-list">
-         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HTML%E6%96%87%E6%A1%A3%E5%89%96%E6%9E%90-anotomy"><span class="toc-text">HTML文档剖析(anotomy)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E8%AF%AD%E8%A8%80-primary-language"><span class="toc-text">主要语言 primary language</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lt-head-gt-%E9%87%8C%E6%9C%89%E5%95%A5"><span class="toc-text">&lt;head&gt; 里有啥</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lt-title-gt-%E6%A0%87%E9%A2%98"><span class="toc-text">&lt;title&gt; 标题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lt-meta-gt-%E5%85%83%E6%95%B0%E6%8D%AE"><span class="toc-text">&lt;meta&gt; 元数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81"><span class="toc-text">字符编码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%9C%E8%80%85%E5%92%8C%E6%8F%8F%E8%BF%B0"><span class="toc-text">作者和描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%96%E9%93%BE%E4%BC%98%E5%8C%96%E6%98%BE%E7%A4%BA-proprietary-metadata"><span class="toc-text">外链优化显示 proprietary metadata</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#custom-icons"><span class="toc-text">custom icons</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Applying-CSS-and-JavaScript-to-HTML"><span class="toc-text">Applying CSS and JavaScript to HTML</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS"><span class="toc-text">CSS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JavaScript"><span class="toc-text">JavaScript</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%94%BE%E5%A4%B4%E9%83%A8"><span class="toc-text">放头部</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%94%BE%E5%B0%BE%E9%83%A8"><span class="toc-text">放尾部</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Element"><span class="toc-text">Element</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#block-level-element-%E5%9D%97%E7%BA%A7%E5%85%83%E7%B4%A0"><span class="toc-text">block-level element 块级元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#inline-element-%E5%86%85%E8%81%94%E5%85%83%E7%B4%A0"><span class="toc-text">inline element 内联元素</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E8%BF%B0"><span class="toc-text">简述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%A6%E8%BF%B0"><span class="toc-text">详述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#italic-bold-underline%E2%80%A6"><span class="toc-text">italic, bold, underline…</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Empty-elements-%E7%A9%BA%E5%85%83%E7%B4%A0%E5%8F%AA%E6%9C%89-Single-Tag"><span class="toc-text">Empty elements 空元素只有 Single Tag</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Attributes-%E5%B1%9E%E6%80%A7"><span class="toc-text">Attributes 属性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#anchors-%E5%8F%AF%E6%B7%BB%E5%8A%A0%E7%9A%84-attributes"><span class="toc-text">anchors 可添加的 attributes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Boolean-attributes-%E5%B8%83%E5%B0%94%E5%B1%9E%E6%80%A7"><span class="toc-text">Boolean attributes 布尔属性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#syntax-%E8%A7%84%E5%88%99"><span class="toc-text">syntax 规则</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Witespace-in-HTML"><span class="toc-text">Witespace in HTML</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Entity-references-%E5%AE%9E%E4%BD%93%E5%BC%95%E7%94%A8"><span class="toc-text">Entity references 实体引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML-comments-%E6%B3%A8%E9%87%8A"><span class="toc-text">HTML comments 注释</span></a></li></ol></li></ol>
-      </div>
+      <progress class="progress" value="0" max="100"></progress>
+    </div>
+    <div class="toc-list">
+      
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HTML%E6%96%87%E6%A1%A3%E5%89%96%E6%9E%90-anotomy"><span class="toc-text">HTML文档剖析(anotomy)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E8%AF%AD%E8%A8%80-primary-language"><span class="toc-text">主要语言 primary language</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lt-head-gt-%E9%87%8C%E6%9C%89%E5%95%A5"><span class="toc-text">&lt;head&gt; 里有啥</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lt-title-gt-%E6%A0%87%E9%A2%98"><span class="toc-text">&lt;title&gt; 标题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lt-meta-gt-%E5%85%83%E6%95%B0%E6%8D%AE"><span class="toc-text">&lt;meta&gt; 元数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81"><span class="toc-text">字符编码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%9C%E8%80%85%E5%92%8C%E6%8F%8F%E8%BF%B0"><span class="toc-text">作者和描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%96%E9%93%BE%E4%BC%98%E5%8C%96%E6%98%BE%E7%A4%BA-proprietary-metadata"><span class="toc-text">外链优化显示 proprietary metadata</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#custom-icons"><span class="toc-text">custom icons</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Applying-CSS-and-JavaScript-to-HTML"><span class="toc-text">Applying CSS and JavaScript to HTML</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS"><span class="toc-text">CSS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JavaScript"><span class="toc-text">JavaScript</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%94%BE%E5%A4%B4%E9%83%A8"><span class="toc-text">放头部</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%94%BE%E5%B0%BE%E9%83%A8"><span class="toc-text">放尾部</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Element"><span class="toc-text">Element</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#block-level-element-%E5%9D%97%E7%BA%A7%E5%85%83%E7%B4%A0"><span class="toc-text">block-level element 块级元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#inline-element-%E5%86%85%E8%81%94%E5%85%83%E7%B4%A0"><span class="toc-text">inline element 内联元素</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E8%BF%B0"><span class="toc-text">简述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%A6%E8%BF%B0"><span class="toc-text">详述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#italic-bold-underline%E2%80%A6"><span class="toc-text">italic, bold, underline…</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Empty-elements-%E7%A9%BA%E5%85%83%E7%B4%A0%E5%8F%AA%E6%9C%89-Single-Tag"><span class="toc-text">Empty elements 空元素只有 Single Tag</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Attributes-%E5%B1%9E%E6%80%A7"><span class="toc-text">Attributes 属性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#anchors-%E5%8F%AF%E6%B7%BB%E5%8A%A0%E7%9A%84-attributes"><span class="toc-text">anchors 可添加的 attributes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Boolean-attributes-%E5%B8%83%E5%B0%94%E5%B1%9E%E6%80%A7"><span class="toc-text">Boolean attributes 布尔属性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#syntax-%E8%A7%84%E5%88%99"><span class="toc-text">syntax 规则</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Witespace-in-HTML"><span class="toc-text">Witespace in HTML</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Entity-references-%E5%AE%9E%E4%BD%93%E5%BC%95%E7%94%A8"><span class="toc-text">Entity references 实体引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML-comments-%E6%B3%A8%E9%87%8A"><span class="toc-text">HTML comments 注释</span></a></li></ol></li></ol>
     </div>
   </div>
-
+</div>
 
         </main>
-        <section id="rightside">
-    
-     
-    <div class="rightside-btn">
-        
-        
-        <a harf="javascript:"id="darkmode" title="深色/浅色">
-            <i class="fas fa-moon"></i>
-        </a>
-        
     </div>
-    
+    <section id="rightside">
     <div class="rightside-item">
-        
-            
-            
-            <a harf="javascript:"id="darkmode" title="深色/浅色">
-                <i class="fas fa-moon"></i>
-            </a>
-            
-        
-        
-         
-        <a href="javascript:" id="settings" title="设置">
-            <i class="fas fa-cog fa-spin"></i>
-        </a>
-        
+
          
         
         
@@ -394,159 +415,103 @@ HTML anotomy1234567891011&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;!--the shortest st
                 <i class="fas fa-list-ul"></i>
             </a>
         
+
+
          
          
-        <a href="javascript:(0)" id="darkmode" title="深色/浅色 ">
+        <a href="javascript:void(0);" id="darkmode" title="深色/浅色 ">
             <i class="fas fa-moon"></i>
         </a>
          
+
+
         
+            <a href="#直达评论" title="直达评论">
+                <i class="fas fa-comments"></i>
+            </a>
+        
+
+
         <a href="#" title="回到顶部">
             <i class="fas fa-arrow-up"></i>
         </a>
     </div>
 </section>
-         
+    
 
 <footer class="footer" id="footer">
-    <div class="copyright">
-      &copy; 2022
-        <i class="fas fa-fan"></i>
-        殊约
-    </div>
-    <div class="framework-info">
-        <span>框架 </span>
-        <a href="https://hexo.io" target="_blank">Hexo</a>
-        <span class="footer-separator">|</span>
-        <span>主题 </span>
-        <a href="https://github.com/lete114/hexo-theme-MengD" target="_blank">MengD.(萌典) </a>
-    </div>
-    
-    <div class="custom-text">得不到的永远在骚动，被偏爱的都有恃无恐</div>
+  <div class="copyright">
+    &copy; 2022
+    <i class="fas fa-fan"></i>
+    殊约
+  </div>
+  <div class="framework-info">
+    <span>框架</span>
+    <a href="https://hexo.io" target="_blank">Hexo</a>
+    <span class="footer-separator">|</span>
+    <span>主题 </span>
+    <a href="https://github.com/lete114/hexo-theme-MengD" target="_blank">MengD.(萌典) </a>
+  </div>
+  <div class="custom-text">得不到的永远在骚动，被偏爱的都有恃无恐</div>
 </footer>
-    </div>
     <div id="mask" onclick="closeAll()"></div>
     
-    <div class="script">
-        <script src="/js/main.js"></script>
-        
-
- 
+    <script src="/js/main.js"></script>
+    
 <script>
-    var originTitle = document.title;
-    var titleTime;
-    document.addEventListener("visibilitychange", function () {
-        if (document.hidden) {
-            document.title = "我藏好了哦~ " + originTitle;
-            clearTimeout(titleTime);
-        } else {
-            document.title = "被你发现啦~ " + originTitle;
-            titleTime = setTimeout(function () {
-                document.title = originTitle;
-            }, 2000);
-        }
-    });
+  var originTitle = document.title;
+  var titleTime;
+  document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
+      document.title = "我藏好了哦~ " + originTitle;
+      clearTimeout(titleTime);
+    } else {
+      document.title = "被你发现啦~ " + originTitle;
+      titleTime = setTimeout(function() {
+        document.title = originTitle;
+      }, 2000);
+    }
+  });
 </script>
+
 
 
 <script src="/js/lazyload.js"></script>
 
 
-    
 
 
-        
-    <script>
-        getScript('https://cdn.jsdelivr.net/npm/pjax/pjax.min.js',LoadPjax)
-        function LoadPjax() {
-            var pjax = new Pjax({
-                selectors: [
-                    'head title',
-                    'head meta[name="keywords"]',
-                    'head meta[name="description"]',
-                    'main',
-                    '#rightside'
-                ],
-                cache: true,
-                cacheBust: false
-            });
-        }
-
-        // 清除时间
-        var timer = null;
-        // 执行进度条
-        function ProgressStart() {
-            // 设置初始进度
-            var progress = 10;
-            // 创建进度条 及 css样式
-            var div = document.createElement('div');
-            div.className = 'pjax-progress';
-            document.body.prepend(div);
-            // 定义随机数最大值最小值
-            var max = 10, mini = 3;
-            var result = max - mini;
-            // 清除
-            clearInterval(timer);
-            // 0.5秒内累加进度
-            timer = setInterval(function () {
-                // 随机数
-                var num = parseInt(Math.random() * result);
-                var randomResult = num + mini;
-                // 累加
-                progress += randomResult
-                document.getElementsByClassName('pjax-progress')[0].style.width = progress + '%';
-                // 当进度达到95%时停止
-                if (progress > 95) progress = 95
-            }, 500)
-        }
-        // 加载进度条加载完毕
-        function ProgressFinish() {
-            clearInterval(timer);
-            // 页面加载完毕后进度100% 并在0.7秒后删除
-            var progress = document.getElementsByClassName('pjax-progress');
-            progress[0].style.width = '100%';
-            timer = setTimeout(function () {
-                progress[0].parentNode.removeChild(progress[0])
-            }, 700);
-        }
-
-        // 开始 PJAX 执行的函数
-        document.addEventListener('pjax:send', function () {
-            // 执行进度条
-            ProgressStart()
-        });
-        // PJAX 完成之后执行的函数，可以和上面的重载放在一起
-        document.addEventListener('pjax:complete', function () {
-
-            // 加载进度条加载完毕
-            ProgressFinish()
-            // 执行所有方法
-            exeAllFn()
-
-            
-                // 图片懒加载
-                ImgLazyLoad('body img[data-img]', 'data-img')
-            
+<script>
+  function loadCardLink() {
+    cardLink.server = 'https://cardlink-server.deta.dev/?url='
+    cardLink(mengd.$queryAll('#post>.post-content a[target=_blank]'))
+  }
+  mengd.getScript('/third-party/js/cardlink.js', loadCardLink)
+</script>
 
 
-            document.querySelectorAll('script[data-pjax]').forEach(item => {
-                const newScript = document.createElement('script')
-                const content = item.text || item.textContent || item.innerHTML || ''
-                Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
-                newScript.appendChild(document.createTextNode(content))
-                item.parentNode.replaceChild(newScript, item)
-            })
-        });
 
-        // Pjax请求错误时，跳转到404页面
-        document.addEventListener('pjax:error', (err) => {
-            if (err.request.status === 404) {
-                pjax.loadUrl('/404.html')
-            }
-        })
-    </script>
 
-    </div>
+
+
+
+
+
+<script>
+  mengd.getScript('/third-party/js/prefetch-page.js', () => {
+    const requestIdleCa = requestIdleCallback
+    if (requestIdleCa) {
+      requestIdleCa(() => {
+        prefetch({"delay":1000,"threshold":25})
+      })
+    } else {
+      setTimeout(() => {
+        prefetch({"delay":1000,"threshold":25})
+      }, 3000);
+    }
+  })
+</script>
+
 </body>
 
 </html>

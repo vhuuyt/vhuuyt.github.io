@@ -1,25 +1,27 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-     
+    
+
+
 
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="content-language" content="zh">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
 <title>vimtutor zh | 殊约的小本本</title>
 <meta name="author" content="殊约">
 <meta name="copyright" content="殊约">
 
-<link rel="shortcut icon" href="http://vhuuyt.github.io/img/favicon.png"> 
+<link rel="shortcut icon" href="/img/favicon.png">
 
 
-    <meta name="keywords" content="编辑器&amp;神,vim">
+<meta name="keywords" content="编辑器&amp;神,vim">
 
 
 
-     
-    <meta name="description" content="细述移动光标12345	^	k              提示： h 的键位于左边，每次按下就会向左移动。&lt; h		l &gt;              l 的键位于右边，每次按下就会向右移动。	j                    j 键看起来很象一支尖端方向朝下的箭头。	v  进入、退出和保存vim 文件名：进入编辑器:q!：退出编辑器，丢弃改动:wq ：保存(write)文件并退">
+
+<meta name="description" content="细述移动光标12345	^	k              提示： h 的键位于左边，每次按下就会向左移动。&lt; h		l &gt;              l 的键位于右边，每次按下就会向右移动。	j                    j 键看起来很象一支尖端方向朝下的箭头。	v  进入、退出和保存vim 文件名：进入编辑器:q!：退出编辑器，丢弃改动:wq ：保存(write)文件并退">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vimtutor zh">
 <meta property="og:url" content="http://vhuuyt.github.io/2022/04/17/vimtutor/">
@@ -34,69 +36,71 @@
 <meta property="article:tag" content="vim">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://vhuuyt.github.io/img/kano.webp">
- 
 
-<meta http-equiv="Cache-Control" content="no-siteapp"/>
-<link href="//cdn.jsdelivr.net" rel="preconnect">
-<link href="http://vhuuyt.github.io" rel="prefetch">
-<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css " rel="stylesheet">
-<link href="/css/main.css " rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link href="/css/main.css" rel="stylesheet">
 <script src="/js/utlis.js"></script>
- 
-    
- 
+<script>
+  (function() {
+    var html = mengd.$query('html')
+    var isDark = localStorage.isDark === 'true'
+    if (isDark) html.setAttribute('theme', 'dark')
+    else html.removeAttribute('theme')
+  })()
+</script>
 
 <meta name="generator" content="Hexo 5.4.2"></head>
 
 <body>
      
     
- 
-     
 
 <script>
-    var $config = {
-        tocStyle: "visible",
-        CDN:{
-            fancyboxJs: "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js",
-            fancyboxCss: "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"
-        },
-        
-        
+  var $config = {
+      CDN: {
+        fancyboxJs: "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js",
+        fancyboxCss: "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"
+      },
+      
+      
     }
 </script>
+
     
 
 
-
-
-  
-
-
     <div id="body-wrap">
-        <nav id="nav-wrap">
+        
+<nav id="nav-wrap">
   <div class="navbar">
     <div class="bar">
       <a href="/" class="title">殊约的小本本</a>
-
       
       <ul class="menu">
          
-        <li><a href="/">首页</a></li>
-          
-        <li>
-          <a class="menu-child-hover" href="javascript:void(0);">找文章</a>
-          <ul class="menu-child">
-            
-            <li><a href='/tags'>标签</a></li>
-            
-            <li><a href='/categories'>分类</a></li>
-            
-            <li><a href='/archives'>归档</a></li>
-            
-          </ul>
-        </li>
          
+        
+          
+            <li><a href="/">首页</a></li>
+           
+         
+        
+          
+          <li>
+            <a class="menu-child-hover" href="javascript:void(0);">找文章</a>
+            <ul class="menu-child">
+              
+              <li><a href='/tags'>标签</a></li>
+              
+              <li><a href='/categories'>分类</a></li>
+              
+              <li><a href='/archives'>归档</a></li>
+              
+            </ul>
+          </li>
+           
+        
       </ul>
       <i class="fas fa-bars open-nav"></i>
     </div>
@@ -104,23 +108,61 @@
   <div id="mobile-nav">
     <ul>
        
-      <li><a href="/">首页</a></li>
          
-      <li><a href='/tags'>标签</a></li>
-      
-      <li><a href='/categories'>分类</a></li>
-      
-      <li><a href='/archives'>归档</a></li>
         
+        
+          <li><a href="/">首页</a></li>
+        
+       
+        
+         
+          <li><a href='/tags'>标签</a></li>
+        
+          <li><a href='/categories'>分类</a></li>
+        
+          <li><a href='/archives'>归档</a></li>
+         
+      
     </ul>
   </div>
 </nav>
 
 
-        <main id="main">
+        <header id="header">
+    <div class="header-author">
+        <a href="/" class="author">
+            <img src="/img/load.gif" data-src="/img/kano.webp" alt="殊约" class="author-avatar">
+            <div class="author-name">
+                殊约
+            </div>
+        </a>
+    </div>
+    <div class="header-description">
+        <p>
+            和你，有个特殊的约定
+        </p>
+        <div class="header-icon">
             
-
-<article id="post">
+            
+                <a href="/404"><i class="fab fa-weixin"></i></a>
+            
+                <a href="/404"><i class="fab fa-qq"></i></a>
+            
+                <a target="_blank" rel="noopener" href="https://weibo.com/vhuuyt"><i class="fab fa-weibo"></i></a>
+            
+                <a href="/404"><i class="fab fa-zhihu"></i></a>
+            
+                <a href="/404"><i class="fab fa-bilibili"></i></a>
+            
+                <a href="mailto:vhuuyt@foxmail.com"><i class="fa fa-envelope"></i></a>
+            
+                <a target="_blank" rel="noopener" href="https://github.com/vhuuyt"><i class="fab fa-github"></i></a>
+            
+        </div>
+    </div>
+</header>
+        <main id="main">
+            <article id="post">
   <div class="post-info">
     <div class="post-title">
       <h1>vimtutor zh</h1>
@@ -130,13 +172,13 @@
         <i class="far fa-calendar-alt fa-fw post-meta-icon"></i>
         <span class="post-meta-label">
           发表于
-            2022-04-17 |
+          2022-04-17 |
         </span>
-        
+
         <i class="fas fa-history fa-fw post-meta-icon"></i>
         <span class="post-meta-label">
           更新于
-            2022-10-26
+          2022-04-25
         </span>
       </div>
       <div class="post-meta-wordcount">
@@ -147,9 +189,17 @@
         <span class="post-meta-label">阅读时长:</span>
         <span>14分钟</span>
         
+    | <i class="far fa-eye fa-fw post-meta-icon"></i>
+    
+        <span class="post-meta-label">阅读量:</span>
+        <span id="Discuss-Visitors">0</span>
+    
+
       </div>
     </div>
   </div>
+  
+  
   <div class="post-content">
     <h1 id="细述"><a href="#细述" class="headerlink" title="细述"></a>细述</h1><h2 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">	^</span><br><span class="line">	k              提示： h 的键位于左边，每次按下就会向左移动。</span><br><span class="line">&lt; h		l &gt;              l 的键位于右边，每次按下就会向右移动。</span><br><span class="line">	j                    j 键看起来很象一支尖端方向朝下的箭头。</span><br><span class="line">	v</span><br></pre></td></tr></table></figure>
 
@@ -285,126 +335,95 @@
 </ol>
 
   </div>
-   
-   
-
+  
+  
   
   <div class="post-copyright">
     <div class="post-copyright-icon"></div>
-      <div class="post-copyright-author">
-          <span class="post-copyright-meta">文章作者: </span>
-            <span class="post-copyright-info">
-              <a href="mailto:vhuuyt@foxmail.com" >殊约</a>
-            </span>
-      </div>
-      <div class="post-copyright-type">
-          <span class="post-copyright-meta">文章链接: </span>
-            <span class="post-copyright-info">
-              <a href="http://vhuuyt.github.io/2022/04/17/vimtutor/" >http://vhuuyt.github.io/2022/04/17/vimtutor/</a>
-            </span>
-      </div><div class="post-copyright-notice">
-          <span class="post-copyright-meta">版权声明: </span>
-            <span class="post-copyright-info">本博客所有文章除特别声明外，均采用
-              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/ " target="_blank" >
-                  CC BY-NC-SA 4.0 </a> 许可协议。转载请注明来自
-              <a href="http://vhuuyt.github.io/2022/04/17/vimtutor/" target="_blank" >殊约</a>
-              ！</span>
-      </div>
+    <div class="post-copyright-author">
+      <span class="post-copyright-meta">文章作者: </span>
+      <span class="post-copyright-info">
+        <a href="mailto:me@imlete.cn">殊约</a>
+      </span>
+    </div>
+    <div class="post-copyright-type">
+      <span class="post-copyright-meta">文章链接: </span>
+      <span class="post-copyright-info">
+        <a href="http://vhuuyt.github.io/2022/04/17/vimtutor/">http://vhuuyt.github.io/2022/04/17/vimtutor/</a>
+      </span>
+    </div>
+    <div class="post-copyright-notice">
+      <span class="post-copyright-meta">版权声明: </span>
+      <span class="post-copyright-info">本博客所有文章除特别声明外，均采用||许可协议。转载请注明来自</span>
+    </div>
   </div>
   
 
-
- 
-
   
-    <div class="post-tag">
-        <span>
-            <i class="fa fa-tag"></i>
-             
-            <a href="tags/编辑器-神/"><span>编辑器&amp;神</span></a>
-                
-                    <i class="fas fa-angle-right"></i>
-                
-             
-            <a href="tags/vim/"><span>vim</span></a>
-                
-            
-        </span>
-    </div>
-  
-
-
-
-
-<div class="pagination-post">
+  <div class="pagination-post">
     
     <a href="/2022/04/19/vscode/">
       <div class="prev-title"><i class="fas fa-chevron-left"></i>win vscode中搭建c/c++环境</div>
-      <div class="prev-desc">下载准备7z是一个开源免费无广告的解压软件。vscode&amp;amp;MinGW64的安装包(密码：9p2f，MinGW64是我从小熊猫c++里面拿来的)
-
-啊啊啊，吹爆了，Cygwin能安装好多L...</div>
+      <div class="prev-desc">下载准备7z是一个开源免费无广告的解压软件。vscod...</div>
     </a>
     
     
     <a href="/2022/04/13/Ubuntu/">
       <div class="next-title">Ubuntu的大杂烩<i class="fas fa-chevron-right"></i></div>
       <div class="next-desc">
-Ubuntu 的安装细节写在知乎了：扔掉win10拥抱ubuntu，这里就是记录一些 Shell 命令
-
-gnome改动❌⬛➖左移1234gsettings set org.gnome.des...</div>
+Ubuntu 的安装细节写在知乎了：扔掉win10拥...</div>
     </a>
     
-</div>
+  </div>
+  
+    <div class="comment-head" id="直达评论">
+        <hr>
+        <div class="comment-headline">
+            <i class="fas fa-comments fa-fw"></i>
+            <span>评论</span>
+        </div>
+        
+            <div id="Discuss-Comments"></div>
+<script>
+  function LoadDiscuss() {
+    mengd.getScript('https://cdn.jsdelivr.net/npm/discuss@latest/dist/Discuss.js', function() {
+      Discuss.init(Object.assign({
+        el: '#Discuss-Comments',
+        serverURLs: '',
+      } , {"source":"https://cdn.jsdelivr.net/npm/discuss@latest/dist/Discuss.js","serverURLs":null,"path":"location.pathname"}))
+    })
+  }
+  LoadDiscuss()
+</script>
+
+        
+    </div>
 
 </article>
- 
 
 
-  <div id="toc-wrap">
-    <div id="toc">
-      <div class="toc-title">
-        <div>
-          目录
-            <span class="num">0%</span>
-        </div>
-        <progress class="progress" value="0" max="100"></progress>
+
+<div id="toc-wrap">
+  <div id="toc">
+    <div class="toc-title">
+      <div>
+        目录
+        <span class="num">0%</span>
       </div>
-      <div class="toc-list">
-         
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%86%E8%BF%B0"><span class="toc-text">细述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E5%85%89%E6%A0%87"><span class="toc-text">移动光标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E5%85%A5%E3%80%81%E9%80%80%E5%87%BA%E5%92%8C%E4%BF%9D%E5%AD%98"><span class="toc-text">进入、退出和保存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#v-motion-w-FileName%EF%BC%9A%E8%A6%81%E4%BF%9D%E5%AD%98%E6%96%87%E4%BB%B6%E7%9A%84%E9%83%A8%E5%88%86%E5%86%85%E5%AE%B9"><span class="toc-text">v motion :w FileName：要保存文件的部分内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E5%8F%96%E5%92%8C%E5%90%88%E5%B9%B6%E6%96%87%E4%BB%B6"><span class="toc-text">提取和合并文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E6%96%87%E6%9C%AC"><span class="toc-text">编辑文本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%BC%80%E7%B1%BB%E5%91%BD%E4%BB%A4"><span class="toc-text">打开类命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%84%E5%8A%A0%E7%B1%BB%E5%91%BD%E4%BB%A4"><span class="toc-text">附加类命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E7%B1%BB%E5%91%BD%E4%BB%A4"><span class="toc-text">删除类命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%92%A4%E9%94%80%E7%B1%BB%E5%91%BD%E4%BB%A4"><span class="toc-text">撤销类命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%AE%E5%85%A5%E7%B1%BB%E5%91%BD%E4%BB%A4"><span class="toc-text">置入类命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%BF%E6%8D%A2%E7%B1%BB%E5%91%BD%E4%BB%A4"><span class="toc-text">替换类命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9%E7%B1%BB%E5%91%BD%E4%BB%A4"><span class="toc-text">更改类命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4%E6%96%87%E6%9C%AC"><span class="toc-text">复制粘贴文本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%91%BD%E4%BB%A4%E5%92%8C%E5%AF%B9%E8%B1%A1"><span class="toc-text">关于命令和对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%AE%A1%E6%95%B0%E6%8C%87%E5%AE%9A%E5%8A%A8%E4%BD%9C"><span class="toc-text">使用计数指定动作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%96%87%E4%BB%B6%E7%8A%B6%E6%80%81"><span class="toc-text">定位及文件状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2%E7%B1%BB%E5%91%BD%E4%BB%A4"><span class="toc-text">搜索类命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%BF%E6%8D%A2%E5%91%BD%E4%BB%A4"><span class="toc-text">替换命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VIM%E5%86%85%E6%89%A7%E8%A1%8C%E5%A4%96%E9%83%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">VIM内执行外部命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E7%B1%BB%E5%91%BD%E4%BB%A4%E7%9A%84%E9%80%89%E9%A1%B9"><span class="toc-text">设置类命令的选项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%A8%E7%BA%BF%E5%B8%AE%E5%8A%A9%E7%B3%BB%E7%BB%9F"><span class="toc-text">使用在线帮助系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC"><span class="toc-text">创建启动脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%A8%E5%8A%9F%E8%83%BD"><span class="toc-text">补全功能</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vimtutor-zh"><span class="toc-text">vimtutor zh</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E8%AE%B2%E5%B0%8F%E7%BB%93"><span class="toc-text">第一讲小结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E8%AE%B2%E5%B0%8F%E7%BB%93"><span class="toc-text">第二讲小结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E8%AE%B2%E5%B0%8F%E7%BB%93"><span class="toc-text">第三讲小结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E8%AE%B2%E5%B0%8F%E7%BB%93"><span class="toc-text">第四讲小结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E8%AE%B2%E5%B0%8F%E7%BB%93"><span class="toc-text">第五讲小结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E8%AE%B2%E5%B0%8F%E7%BB%93"><span class="toc-text">第六讲小结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E8%AE%B2%E5%B0%8F%E7%BB%93"><span class="toc-text">第七讲小结</span></a></li></ol></li></ol>
-      </div>
+      <progress class="progress" value="0" max="100"></progress>
+    </div>
+    <div class="toc-list">
+      
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%86%E8%BF%B0"><span class="toc-text">细述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E5%85%89%E6%A0%87"><span class="toc-text">移动光标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E5%85%A5%E3%80%81%E9%80%80%E5%87%BA%E5%92%8C%E4%BF%9D%E5%AD%98"><span class="toc-text">进入、退出和保存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#v-motion-w-FileName%EF%BC%9A%E8%A6%81%E4%BF%9D%E5%AD%98%E6%96%87%E4%BB%B6%E7%9A%84%E9%83%A8%E5%88%86%E5%86%85%E5%AE%B9"><span class="toc-text">v motion :w FileName：要保存文件的部分内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E5%8F%96%E5%92%8C%E5%90%88%E5%B9%B6%E6%96%87%E4%BB%B6"><span class="toc-text">提取和合并文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E6%96%87%E6%9C%AC"><span class="toc-text">编辑文本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%BC%80%E7%B1%BB%E5%91%BD%E4%BB%A4"><span class="toc-text">打开类命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%84%E5%8A%A0%E7%B1%BB%E5%91%BD%E4%BB%A4"><span class="toc-text">附加类命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E7%B1%BB%E5%91%BD%E4%BB%A4"><span class="toc-text">删除类命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%92%A4%E9%94%80%E7%B1%BB%E5%91%BD%E4%BB%A4"><span class="toc-text">撤销类命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%AE%E5%85%A5%E7%B1%BB%E5%91%BD%E4%BB%A4"><span class="toc-text">置入类命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%BF%E6%8D%A2%E7%B1%BB%E5%91%BD%E4%BB%A4"><span class="toc-text">替换类命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9%E7%B1%BB%E5%91%BD%E4%BB%A4"><span class="toc-text">更改类命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4%E6%96%87%E6%9C%AC"><span class="toc-text">复制粘贴文本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%91%BD%E4%BB%A4%E5%92%8C%E5%AF%B9%E8%B1%A1"><span class="toc-text">关于命令和对象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%AE%A1%E6%95%B0%E6%8C%87%E5%AE%9A%E5%8A%A8%E4%BD%9C"><span class="toc-text">使用计数指定动作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%BD%8D%E5%8F%8A%E6%96%87%E4%BB%B6%E7%8A%B6%E6%80%81"><span class="toc-text">定位及文件状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2%E7%B1%BB%E5%91%BD%E4%BB%A4"><span class="toc-text">搜索类命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%BF%E6%8D%A2%E5%91%BD%E4%BB%A4"><span class="toc-text">替换命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VIM%E5%86%85%E6%89%A7%E8%A1%8C%E5%A4%96%E9%83%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">VIM内执行外部命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E7%B1%BB%E5%91%BD%E4%BB%A4%E7%9A%84%E9%80%89%E9%A1%B9"><span class="toc-text">设置类命令的选项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%9C%A8%E7%BA%BF%E5%B8%AE%E5%8A%A9%E7%B3%BB%E7%BB%9F"><span class="toc-text">使用在线帮助系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC"><span class="toc-text">创建启动脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%A8%E5%8A%9F%E8%83%BD"><span class="toc-text">补全功能</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vimtutor-zh"><span class="toc-text">vimtutor zh</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E8%AE%B2%E5%B0%8F%E7%BB%93"><span class="toc-text">第一讲小结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E8%AE%B2%E5%B0%8F%E7%BB%93"><span class="toc-text">第二讲小结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E8%AE%B2%E5%B0%8F%E7%BB%93"><span class="toc-text">第三讲小结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E8%AE%B2%E5%B0%8F%E7%BB%93"><span class="toc-text">第四讲小结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E8%AE%B2%E5%B0%8F%E7%BB%93"><span class="toc-text">第五讲小结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E8%AE%B2%E5%B0%8F%E7%BB%93"><span class="toc-text">第六讲小结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E8%AE%B2%E5%B0%8F%E7%BB%93"><span class="toc-text">第七讲小结</span></a></li></ol></li></ol>
     </div>
   </div>
-
+</div>
 
         </main>
-        <section id="rightside">
-    
-     
-    <div class="rightside-btn">
-        
-        
-        <a harf="javascript:"id="darkmode" title="深色/浅色">
-            <i class="fas fa-moon"></i>
-        </a>
-        
     </div>
-    
+    <section id="rightside">
     <div class="rightside-item">
-        
-            
-            
-            <a harf="javascript:"id="darkmode" title="深色/浅色">
-                <i class="fas fa-moon"></i>
-            </a>
-            
-        
-        
-         
-        <a href="javascript:" id="settings" title="设置">
-            <i class="fas fa-cog fa-spin"></i>
-        </a>
-        
+
          
         
         
@@ -412,159 +431,103 @@ gnome改动❌⬛➖左移1234gsettings set org.gnome.des...</div>
                 <i class="fas fa-list-ul"></i>
             </a>
         
+
+
          
          
-        <a href="javascript:(0)" id="darkmode" title="深色/浅色 ">
+        <a href="javascript:void(0);" id="darkmode" title="深色/浅色 ">
             <i class="fas fa-moon"></i>
         </a>
          
+
+
         
+            <a href="#直达评论" title="直达评论">
+                <i class="fas fa-comments"></i>
+            </a>
+        
+
+
         <a href="#" title="回到顶部">
             <i class="fas fa-arrow-up"></i>
         </a>
     </div>
 </section>
-         
+    
 
 <footer class="footer" id="footer">
-    <div class="copyright">
-      &copy; 2022
-        <i class="fas fa-fan"></i>
-        殊约
-    </div>
-    <div class="framework-info">
-        <span>框架 </span>
-        <a href="https://hexo.io" target="_blank">Hexo</a>
-        <span class="footer-separator">|</span>
-        <span>主题 </span>
-        <a href="https://github.com/lete114/hexo-theme-MengD" target="_blank">MengD.(萌典) </a>
-    </div>
-    
-    <div class="custom-text">得不到的永远在骚动，被偏爱的都有恃无恐</div>
+  <div class="copyright">
+    &copy; 2022
+    <i class="fas fa-fan"></i>
+    殊约
+  </div>
+  <div class="framework-info">
+    <span>框架</span>
+    <a href="https://hexo.io" target="_blank">Hexo</a>
+    <span class="footer-separator">|</span>
+    <span>主题 </span>
+    <a href="https://github.com/lete114/hexo-theme-MengD" target="_blank">MengD.(萌典) </a>
+  </div>
+  <div class="custom-text">得不到的永远在骚动，被偏爱的都有恃无恐</div>
 </footer>
-    </div>
     <div id="mask" onclick="closeAll()"></div>
     
-    <div class="script">
-        <script src="/js/main.js"></script>
-        
-
- 
+    <script src="/js/main.js"></script>
+    
 <script>
-    var originTitle = document.title;
-    var titleTime;
-    document.addEventListener("visibilitychange", function () {
-        if (document.hidden) {
-            document.title = "我藏好了哦~ " + originTitle;
-            clearTimeout(titleTime);
-        } else {
-            document.title = "被你发现啦~ " + originTitle;
-            titleTime = setTimeout(function () {
-                document.title = originTitle;
-            }, 2000);
-        }
-    });
+  var originTitle = document.title;
+  var titleTime;
+  document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
+      document.title = "我藏好了哦~ " + originTitle;
+      clearTimeout(titleTime);
+    } else {
+      document.title = "被你发现啦~ " + originTitle;
+      titleTime = setTimeout(function() {
+        document.title = originTitle;
+      }, 2000);
+    }
+  });
 </script>
+
 
 
 <script src="/js/lazyload.js"></script>
 
 
-    
 
 
-        
-    <script>
-        getScript('https://cdn.jsdelivr.net/npm/pjax/pjax.min.js',LoadPjax)
-        function LoadPjax() {
-            var pjax = new Pjax({
-                selectors: [
-                    'head title',
-                    'head meta[name="keywords"]',
-                    'head meta[name="description"]',
-                    'main',
-                    '#rightside'
-                ],
-                cache: true,
-                cacheBust: false
-            });
-        }
-
-        // 清除时间
-        var timer = null;
-        // 执行进度条
-        function ProgressStart() {
-            // 设置初始进度
-            var progress = 10;
-            // 创建进度条 及 css样式
-            var div = document.createElement('div');
-            div.className = 'pjax-progress';
-            document.body.prepend(div);
-            // 定义随机数最大值最小值
-            var max = 10, mini = 3;
-            var result = max - mini;
-            // 清除
-            clearInterval(timer);
-            // 0.5秒内累加进度
-            timer = setInterval(function () {
-                // 随机数
-                var num = parseInt(Math.random() * result);
-                var randomResult = num + mini;
-                // 累加
-                progress += randomResult
-                document.getElementsByClassName('pjax-progress')[0].style.width = progress + '%';
-                // 当进度达到95%时停止
-                if (progress > 95) progress = 95
-            }, 500)
-        }
-        // 加载进度条加载完毕
-        function ProgressFinish() {
-            clearInterval(timer);
-            // 页面加载完毕后进度100% 并在0.7秒后删除
-            var progress = document.getElementsByClassName('pjax-progress');
-            progress[0].style.width = '100%';
-            timer = setTimeout(function () {
-                progress[0].parentNode.removeChild(progress[0])
-            }, 700);
-        }
-
-        // 开始 PJAX 执行的函数
-        document.addEventListener('pjax:send', function () {
-            // 执行进度条
-            ProgressStart()
-        });
-        // PJAX 完成之后执行的函数，可以和上面的重载放在一起
-        document.addEventListener('pjax:complete', function () {
-
-            // 加载进度条加载完毕
-            ProgressFinish()
-            // 执行所有方法
-            exeAllFn()
-
-            
-                // 图片懒加载
-                ImgLazyLoad('body img[data-img]', 'data-img')
-            
+<script>
+  function loadCardLink() {
+    cardLink.server = 'https://cardlink-server.deta.dev/?url='
+    cardLink(mengd.$queryAll('#post>.post-content a[target=_blank]'))
+  }
+  mengd.getScript('/third-party/js/cardlink.js', loadCardLink)
+</script>
 
 
-            document.querySelectorAll('script[data-pjax]').forEach(item => {
-                const newScript = document.createElement('script')
-                const content = item.text || item.textContent || item.innerHTML || ''
-                Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
-                newScript.appendChild(document.createTextNode(content))
-                item.parentNode.replaceChild(newScript, item)
-            })
-        });
 
-        // Pjax请求错误时，跳转到404页面
-        document.addEventListener('pjax:error', (err) => {
-            if (err.request.status === 404) {
-                pjax.loadUrl('/404.html')
-            }
-        })
-    </script>
 
-    </div>
+
+
+
+
+
+<script>
+  mengd.getScript('/third-party/js/prefetch-page.js', () => {
+    const requestIdleCa = requestIdleCallback
+    if (requestIdleCa) {
+      requestIdleCa(() => {
+        prefetch({"delay":1000,"threshold":25})
+      })
+    } else {
+      setTimeout(() => {
+        prefetch({"delay":1000,"threshold":25})
+      }, 3000);
+    }
+  })
+</script>
+
 </body>
 
 </html>
