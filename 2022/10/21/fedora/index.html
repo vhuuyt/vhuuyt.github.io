@@ -11,7 +11,7 @@
 <meta name="author" content="殊约">
 <meta name="copyright" content="殊约">
 
-<link rel="shortcut icon" href="http://vhuuyt.gitee.io/img/favicon.png"> 
+<link rel="shortcut icon" href="http://vhuuyt.github.io/img/favicon.png"> 
 
 
     <meta name="keywords" content="Linux,Fedora,软件">
@@ -22,24 +22,24 @@
     <meta name="description" content="自己下载包安装的第三方软件结构大概是这样：  可执行文件都在 &#x2F;usr&#x2F;local&#x2F;bin 依赖项在 &#x2F;usr&#x2F;local&#x2F;lib 还有 &#x2F;usr&#x2F;local&#x2F;lib64&#x2F; 软件的资源文件则是在 &#x2F;opt 桌面快捷方式在 &#x2F;usr&#x2F;share&#x2F;applications  当然，也有不老实的软件，bin文件夹里只放了软链接 网易云音乐的安装复制粘贴　　解压了网易云音乐的deb包，也是上述结构，然后就">
 <meta property="og:type" content="article">
 <meta property="og:title" content="fedora">
-<meta property="og:url" content="http://vhuuyt.gitee.io/2022/10/21/fedora/">
+<meta property="og:url" content="http://vhuuyt.github.io/2022/10/21/fedora/">
 <meta property="og:site_name" content="殊约的小本本">
 <meta property="og:description" content="自己下载包安装的第三方软件结构大概是这样：  可执行文件都在 &#x2F;usr&#x2F;local&#x2F;bin 依赖项在 &#x2F;usr&#x2F;local&#x2F;lib 还有 &#x2F;usr&#x2F;local&#x2F;lib64&#x2F; 软件的资源文件则是在 &#x2F;opt 桌面快捷方式在 &#x2F;usr&#x2F;share&#x2F;applications  当然，也有不老实的软件，bin文件夹里只放了软链接 网易云音乐的安装复制粘贴　　解压了网易云音乐的deb包，也是上述结构，然后就">
 <meta property="og:locale">
-<meta property="og:image" content="http://vhuuyt.gitee.io/img/kano.webp">
+<meta property="og:image" content="http://vhuuyt.github.io/img/kano.webp">
 <meta property="article:published_time" content="2022-10-21T10:41:50.000Z">
-<meta property="article:modified_time" content="2022-10-21T12:10:34.751Z">
+<meta property="article:modified_time" content="2022-10-22T00:47:02.788Z">
 <meta property="article:author" content="殊约">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Fedora">
 <meta property="article:tag" content="软件">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://vhuuyt.gitee.io/img/kano.webp">
+<meta name="twitter:image" content="http://vhuuyt.github.io/img/kano.webp">
  
 
 <meta http-equiv="Cache-Control" content="no-siteapp"/>
 <link href="//cdn.jsdelivr.net" rel="preconnect">
-<link href="http://vhuuyt.gitee.io" rel="prefetch">
+<link href="http://vhuuyt.github.io" rel="prefetch">
 <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css " rel="stylesheet">
 <link href="/css/main.css " rel="stylesheet">
 <script src="/js/utlis.js"></script>
@@ -137,13 +137,13 @@
         <i class="fas fa-history fa-fw post-meta-icon"></i>
         <span class="post-meta-label">
           更新于
-            2022-10-21
+            2022-10-26
         </span>
       </div>
       <div class="post-meta-wordcount">
         <i class="far fa-file-word fa-fw post-meta-icon"></i>
         <span class="post-meta-label">总字数:</span>
-        <span class="word-count">576 | </span>
+        <span class="word-count">599 | </span>
         <i class="far fa-clock fa-fw post-meta-icon"></i>
         <span class="post-meta-label">阅读时长:</span>
         <span>2分钟</span>
@@ -168,6 +168,9 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">HERE=&quot;$(dirname &quot;$(readlink -f &quot;$&#123;0&#125;&quot;)&quot;)&quot;</span><br><span class="line">export LD_LIBRARY_PATH=&quot;$&#123;HERE&#125;&quot;/libs</span><br><span class="line">export QT_PLUGIN_PATH=&quot;$&#123;HERE&#125;&quot;/plugins </span><br><span class="line">export QT_QPA_PLATFORM_PLUGIN_PATH=&quot;$&#123;HERE&#125;&quot;/plugins/platforms</span><br><span class="line">cd /usr/lib64/ # 需要一个依赖项，改变了一下目录</span><br><span class="line">exec &quot;$&#123;HERE&#125;&quot;/netease-cloud-music --force-device-scale-factor=1.5 $@ # 在这里写</span><br></pre></td></tr></table></figure>
 
 <p>还是官方软件香，就马上卸了 <a target="_blank" rel="noopener" href="https://github.com/darknessomi/musicbox">musicbox</a> 和 mpg123。</p>
+<h1 id="qq音乐-deb转rpm"><a href="#qq音乐-deb转rpm" class="headerlink" title="qq音乐 deb转rpm"></a>qq音乐 deb转rpm</h1><p>学聪明了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install -y alien rpmrebuild</span><br><span class="line">sudo alien -r qqmusic*.deb</span><br><span class="line">sudo rpm -i qqmusic*.rpmr</span><br></pre></td></tr></table></figure>
+
 <h1 id="Appimage包的安装"><a href="#Appimage包的安装" class="headerlink" title="Appimage包的安装"></a>Appimage包的安装</h1><p>　　这个就牛了，自带依赖的库，改了权限<code>chmod a+x</code>之后就能执行。放到 <code>/usr/local/bin</code> 里，就不用再设置环境变量了，放 <code>/opt</code> 里不行。</p>
 <p>　　写个 .desktop 文件：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Name=纯纯写作</span><br><span class="line">Exec=/usr/local/bin/PureWriter</span><br><span class="line">Icon=/opt/icon/PureWriter.png</span><br><span class="line">Type=Application</span><br><span class="line">StartupNotify=true</span><br></pre></td></tr></table></figure>
@@ -202,14 +205,14 @@
       <div class="post-copyright-type">
           <span class="post-copyright-meta">文章链接: </span>
             <span class="post-copyright-info">
-              <a href="http://vhuuyt.gitee.io/2022/10/21/fedora/" >http://vhuuyt.gitee.io/2022/10/21/fedora/</a>
+              <a href="http://vhuuyt.github.io/2022/10/21/fedora/" >http://vhuuyt.github.io/2022/10/21/fedora/</a>
             </span>
       </div><div class="post-copyright-notice">
           <span class="post-copyright-meta">版权声明: </span>
             <span class="post-copyright-info">本博客所有文章除特别声明外，均采用
               <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/ " target="_blank" >
                   CC BY-NC-SA 4.0 </a> 许可协议。转载请注明来自
-              <a href="http://vhuuyt.gitee.io/2022/10/21/fedora/" target="_blank" >殊约</a>
+              <a href="http://vhuuyt.github.io/2022/10/21/fedora/" target="_blank" >殊约</a>
               ！</span>
       </div>
   </div>
@@ -270,7 +273,7 @@ T...</div>
       </div>
       <div class="toc-list">
          
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E7%9A%84%E5%AE%89%E8%A3%85%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4"><span class="toc-text">网易云音乐的安装复制粘贴</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%BA%E5%B0%91-libnsl-so-1"><span class="toc-text">缺少 libnsl.so.1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E6%A0%87%E4%B8%8D%E6%98%BE%E7%A4%BA"><span class="toc-text">图标不显示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E4%BD%93%E8%BF%87%E5%B0%8F"><span class="toc-text">字体过小</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Appimage%E5%8C%85%E7%9A%84%E5%AE%89%E8%A3%85"><span class="toc-text">Appimage包的安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#win10%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-text">win10虚拟机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Typora"><span class="toc-text">Typora</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A6%8F%E6%98%95PDF"><span class="toc-text">福昕PDF</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E7%9A%84%E5%AE%89%E8%A3%85%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4"><span class="toc-text">网易云音乐的安装复制粘贴</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%BA%E5%B0%91-libnsl-so-1"><span class="toc-text">缺少 libnsl.so.1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E6%A0%87%E4%B8%8D%E6%98%BE%E7%A4%BA"><span class="toc-text">图标不显示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E4%BD%93%E8%BF%87%E5%B0%8F"><span class="toc-text">字体过小</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#qq%E9%9F%B3%E4%B9%90-deb%E8%BD%ACrpm"><span class="toc-text">qq音乐 deb转rpm</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Appimage%E5%8C%85%E7%9A%84%E5%AE%89%E8%A3%85"><span class="toc-text">Appimage包的安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#win10%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-text">win10虚拟机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Typora"><span class="toc-text">Typora</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A6%8F%E6%98%95PDF"><span class="toc-text">福昕PDF</span></a></li></ol>
       </div>
     </div>
   </div>
@@ -279,8 +282,23 @@ T...</div>
         </main>
         <section id="rightside">
     
+     
+    <div class="rightside-btn">
+        
+        
+        <a harf="javascript:"id="darkmode" title="深色/浅色">
+            <i class="fas fa-moon"></i>
+        </a>
+        
+    </div>
+    
     <div class="rightside-item">
         
+        
+         
+        <a href="javascript:" id="settings" title="设置">
+            <i class="fas fa-cog fa-spin"></i>
+        </a>
         
          
         
