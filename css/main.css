@@ -92,7 +92,7 @@
   word-break: break-all;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 0;
+  -webkit-line-clamp: ;
 }
 .post-item .post-meta-wrap {
   color: #999;
@@ -515,7 +515,7 @@ figure.highlight pre {
   color: #eff;
 }
 figure.highlight table::-webkit-scrollbar-thumb {
-  background: #121212;
+  background: #1a2226;
 }
 figure.highlight pre .deletion {
   color: #bf42bf;
@@ -527,7 +527,7 @@ figure.highlight pre .meta {
   color: #c792ea;
 }
 figure.highlight pre .comment {
-  color: #969896;
+  color: #546e7a;
 }
 figure.highlight pre .variable,
 figure.highlight pre .attribute,
@@ -632,24 +632,6 @@ figure.highlight {
   width: 100%;
   font-weight: bold;
   padding: 0px 16px;
-  padding: 0px 70px;
-  text-indent: 15px;
-  float: left;
-}
-.code-block::after {
-  content: ' ';
-  position: absolute;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
-  background: #fc625d;
-  width: 12px;
-  height: 12px;
-  top: 0;
-  left: 20px;
-  margin-top: 13px;
-  -webkit-box-shadow: 20px 0px #fdbc40, 40px 0px #35cd4b;
-  box-shadow: 20px 0px #fdbc40, 40px 0px #35cd4b;
-  z-index: 3;
 }
 .show-btn {
   position: sticky;
@@ -660,7 +642,7 @@ figure.highlight {
   height: 2rem;
   text-align: center;
   color: #fff;
-  background-image: linear-gradient(transparent 0, #212121 80%);
+  background-image: linear-gradient(transparent 0, #263238 80%);
   z-index: 1;
 }
 .show-btn i {
@@ -727,8 +709,8 @@ footer .third-party .cdn img {
   --navbar-bg: #fff;
   --title-color: #2f2f2f;
   --link-bg: #f8f9fa;
-  --code-bg: #212121;
-  --code-wrap-bg: #1c1c1c;
+  --code-bg: #263238;
+  --code-wrap-bg: #222d32;
   --blockquote-color: #6a737d;
   --color-block: #f9f9f9;
   --adorn: #f0f0f0;
