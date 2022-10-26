@@ -37,7 +37,7 @@
 <meta name="twitter:image" content="http://vhuuyt.github.io/img/kano.webp">
 
 
-<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link href="/third-party/fontawesome-free/css/all.min.css" rel="stylesheet">
 <link href="/css/main.css" rel="stylesheet">
 <script src="/js/utlis.js"></script>
 <script>
@@ -58,8 +58,8 @@
 <script>
   var $config = {
       CDN: {
-        fancyboxJs: "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js",
-        fancyboxCss: "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"
+        fancyboxJs: "/third-party/js/fancybox.js",
+        fancyboxCss: "/third-party/css/fancybox.css"
       },
       
       
@@ -429,13 +429,24 @@
       <div class="prev-title"><i class="fas fa-chevron-left"></i>fedora</div>
       <div class="prev-desc">自己下载包安装的第三方软件结构大概是这样：
 
-可执行文...</div>
+可执行文件都在 /usr/local/bin
+依赖项在 /usr/local/lib 还有 /usr/local/lib64/
+软件的资源文件则是在 /opt
+桌面快捷方式在 /usr/share/applications
+
+当然，也有不老实的软件，bin文件夹里只放...</div>
     </a>
     
     
     <a href="/2022/04/28/JustForFun/">
       <div class="next-title">传记：乐者为王<i class="fas fa-chevron-right"></i></div>
-      <div class="next-desc">epub格式的话，好像翻译问题少了许多，（链接密码：6...</div>
+      <div class="next-desc">epub格式的话，好像翻译问题少了许多，（链接密码：6gl6）链接里还有一个人的自传，哈哈哈。
+由软件 Linux 之父李纳斯 · 托沃兹自述
+[ 美 ] 李纳斯 • 托沃兹 / 大卫 • 戴蒙
+王秋海 译
+中国青年出版社
+前言：生活的意义( 性、战争、 Linux)
+背景：这本书开始写于一辆黑色的福特牌汽车上。...</div>
     </a>
     
   </div>
