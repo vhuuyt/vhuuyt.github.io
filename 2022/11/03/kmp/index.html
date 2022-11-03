@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="content-language" content="zh">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+<title>Knuth、Morris、Pratt算法 | 殊约的小本本</title>
+<meta name="author" content="殊约">
+<meta name="copyright" content="殊约">
+
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<meta name="keywords" content="kmp">
+
+
+
+
+<meta name="description" content="基本概念前缀：除最后一个字符以外，字符串的所有头部子串后缀：除第一个字符以外，字符串的所有尾部子串部分匹配值：字符串的前缀和后缀的最长相等前后缀长度 原理计算模式串的部分匹配值(Partial Match)的表    p 0 1 2 3 4    pattern a b c a c   PM 0 0 0 1 0   模式串p位置，与主串当前位置s的字符不匹配时，子串（模式串）需要向后移动的位数 &#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Knuth、Morris、Pratt算法">
+<meta property="og:url" content="http://vhuuyt.github.io/2022/11/03/kmp/">
+<meta property="og:site_name" content="殊约的小本本">
+<meta property="og:description" content="基本概念前缀：除最后一个字符以外，字符串的所有头部子串后缀：除第一个字符以外，字符串的所有尾部子串部分匹配值：字符串的前缀和后缀的最长相等前后缀长度 原理计算模式串的部分匹配值(Partial Match)的表    p 0 1 2 3 4    pattern a b c a c   PM 0 0 0 1 0   模式串p位置，与主串当前位置s的字符不匹配时，子串（模式串）需要向后移动的位数 &#x3D;">
+<meta property="og:locale">
+<meta property="og:image" content="http://vhuuyt.github.io/img/kano.webp">
+<meta property="article:published_time" content="2022-11-02T16:01:12.000Z">
+<meta property="article:modified_time" content="2022-11-03T10:12:20.125Z">
+<meta property="article:author" content="殊约">
+<meta property="article:tag" content="kmp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://vhuuyt.github.io/img/kano.webp">
+
+
+<link href="/third-party/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link href="/css/main.css" rel="stylesheet">
+<script src="/js/utlis.js"></script>
+<script>
+  (function() {
+    var html = mengd.$query('html')
+    var isDark = localStorage.isDark === 'true'
+    if (isDark) html.setAttribute('theme', 'dark')
+    else html.removeAttribute('theme')
+  })()
+</script>
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+     
+    
+
+<script>
+  var $config = {
+      CDN: {
+        fancyboxJs: "/third-party/js/fancybox.js",
+        fancyboxCss: "/third-party/css/fancybox.css"
+      },
+      
+      
+    }
+</script>
+
+    
+
+
+    <div id="body-wrap">
+        
+<nav id="nav-wrap">
+  <div class="navbar">
+    <div class="bar">
+      <a href="/" class="title">殊约的小本本</a>
+      
+      <ul class="menu">
+         
+         
+        
+          
+            <li><a href="/">首页</a></li>
+           
+         
+        
+          
+          <li>
+            <a class="menu-child-hover" href="javascript:void(0);">找文章</a>
+            <ul class="menu-child">
+              
+              <li><a href='/tags'>标签</a></li>
+              
+              <li><a href='/categories'>分类</a></li>
+              
+              <li><a href='/archives'>归档</a></li>
+              
+            </ul>
+          </li>
+           
+        
+      </ul>
+      <i class="fas fa-bars open-nav"></i>
+    </div>
+  </div>
+  <div id="mobile-nav">
+    <ul>
+       
+         
+        
+        
+          <li><a href="/">首页</a></li>
+        
+       
+        
+         
+          <li><a href='/tags'>标签</a></li>
+        
+          <li><a href='/categories'>分类</a></li>
+        
+          <li><a href='/archives'>归档</a></li>
+         
+      
+    </ul>
+  </div>
+</nav>
+
+
+        <header id="header">
+    <div class="header-author">
+        <a href="/" class="author">
+            <img src="/img/kano.webp" alt="殊约" class="author-avatar">
+            <div class="author-name">
+                殊约
+            </div>
+        </a>
+    </div>
+    <div class="header-description">
+        <p>
+            和你，有个特殊的约定
+        </p>
+        <div class="header-icon">
+            
+            
+                <a href="/404"><i class="fab fa-weixin"></i></a>
+            
+                <a href="/404"><i class="fab fa-qq"></i></a>
+            
+                <a href="/404"><i class="fab fa-weibo"></i></a>
+            
+                <a href="/404"><i class="fab fa-zhihu"></i></a>
+            
+                <a href="/404"><i class="fab fa-bilibili"></i></a>
+            
+                <a href="mailto:vhuuyt@foxmail.com"><i class="fa fa-envelope"></i></a>
+            
+                <a target="_blank" rel="noopener" href="https://github.com/vhuuyt"><i class="fab fa-github"></i></a>
+            
+        </div>
+    </div>
+</header>
+        <main id="main">
+            <article id="post">
+  <div class="post-info">
+    <div class="post-title">
+      <h1>Knuth、Morris、Pratt算法</h1>
+    </div>
+    <div class="post-meta">
+      <div class="post-date">
+        <i class="far fa-calendar-alt fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">
+          发表于
+          2022-11-03 |
+        </span>
+
+        <i class="fas fa-history fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">
+          更新于
+          2022-11-03
+        </span>
+      </div>
+      <div class="post-meta-wordcount">
+        <i class="far fa-file-word fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">总字数:</span>
+        <span class="word-count">686 | </span>
+        <i class="far fa-clock fa-fw post-meta-icon"></i>
+        <span class="post-meta-label">阅读时长:</span>
+        <span>2分钟</span>
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="post-content">
+    <h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p><strong>前缀</strong>：除最后一个字符以外，字符串的所有头部子串<br><strong>后缀</strong>：除第一个字符以外，字符串的所有尾部子串<br><strong>部分匹配值</strong>：字符串的前缀和后缀的最长相等前后缀长度</p>
+<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>计算模式串的部分匹配值(Partial Match)的表</p>
+<table>
+<thead>
+<tr>
+<th align="center"><code>p</code></th>
+<th align="center">0</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">pattern</td>
+<td align="center">a</td>
+<td align="center">b</td>
+<td align="center">c</td>
+<td align="center">a</td>
+<td align="center">c</td>
+</tr>
+<tr>
+<td align="center"><strong>PM</strong></td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+</tr>
+</tbody></table>
+<p>模式串<code>p</code>位置，与主串当前位置<code>s</code>的字符不匹配时，<br>子串（模式串）需要向后移动的位数 = 已匹配的字符数 - 对应的部分匹配值<br>即：<code>Move = p - PM[p-1]​</code></p>
+<table>
+<thead>
+<tr>
+<th align="center"><code>s</code></th>
+<th align="center">0</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+<th align="center">5</th>
+<th align="center">6</th>
+<th align="center">7</th>
+<th align="center">8</th>
+<th align="center">9</th>
+<th align="center">10</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">主串</td>
+<td align="center">a</td>
+<td align="center">b</td>
+<td align="center">a</td>
+<td align="center">b</td>
+<td align="center">c</td>
+<td align="center">a</td>
+<td align="center">b</td>
+<td align="center">c</td>
+<td align="center">a</td>
+<td align="center">c</td>
+<td align="center">b</td>
+</tr>
+<tr>
+<td align="center">第一次匹配</td>
+<td align="center">a</td>
+<td align="center">b</td>
+<td align="center"><del>c</del></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">第二次匹配</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">a</td>
+<td align="center">b</td>
+<td align="center">c</td>
+<td align="center">a</td>
+<td align="center"><del>c</del></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">匹配成功</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">a</td>
+<td align="center">b</td>
+<td align="center">c</td>
+<td align="center">a</td>
+<td align="center">c</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p>以第二次匹配为例，主串的ｂ与模式串的ｃ不匹配，<br>已匹配的 &#39;abca&#39; 的前缀ａ和后缀ａ为最长公共元素，已知ａ与ｂ、ｃ均不同，与后缀ａ相同，故ａ与主串ｂ、ｃ无须再重复比较，直接将子串移动<code>Move</code>个位置，用子串前缀后面的元素与主串匹配失败的元素开始比较即可。</p>
+<h1 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h1><h2 id="next数组"><a href="#next数组" class="headerlink" title="next数组"></a>next数组</h2><p><code>p</code>位置匹配失败，要查看<code>PM[p-1]</code>，不方便，于是将<strong>PM表</strong>右移一位，得到<strong>next数组</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center"><code>p</code></th>
+<th align="center">0</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">pattern</td>
+<td align="center">a</td>
+<td align="center">b</td>
+<td align="center">c</td>
+<td align="center">a</td>
+<td align="center">c</td>
+</tr>
+<tr>
+<td align="center"><strong>next</strong></td>
+<td align="center">-1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+</tr>
+</tbody></table>
+<p>注意：</p>
+<ol>
+<li>若是第一个元素匹配失败，需要将模式串右移一位，所以第一个元素右移后的空缺用-1填充。</li>
+<li>最后一个元素溢出，但最后一个元素的部分匹配值时给下一个元素使用的，显然没有下一个元素，故可以舍去。</li>
+</ol>
+<p>此时：<code>Move = p-next[p]</code></p>
+<h2 id="程序表述"><a href="#程序表述" class="headerlink" title="程序表述"></a>程序表述</h2><p>计算机编程实现前述的模式串右移<code>Move</code>个位置过程，表达为指针<code>p</code>回退到新的位置，即：<code>p = p-Move = p-(p-next[p]) = next[p]</code></p>
+<p><code>next[p]</code>的含义：在子串的第<code>p</code>个字符与主串发成失配时，跳到子串的<code>next[p]</code>位置重新与主串当前位置进行比较</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">BuildMatch</span> <span class="params">(<span class="type">char</span>* pattern, <span class="type">int</span>* match)</span> &#123;</span><br><span class="line">    <span class="type">int</span> m = <span class="built_in">strlen</span>(pattern);</span><br><span class="line">    match[<span class="number">0</span>] = <span class="number">-1</span>;	<span class="comment">// 第一个字符就不匹配时，matchp_1+1 = 0，主串指针后移一位，子串指针仍然在 0 位置</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> p = <span class="number">1</span>; p &lt; m; p++) &#123;</span><br><span class="line">        <span class="type">int</span> matchp_1 = match[p<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">getnext</span> <span class="params">(<span class="type">char</span> *substr, <span class="type">int</span> next[])</span> &#123;</span><br><span class="line">	<span class="type">int</span> i=<span class="number">1</span>, j=<span class="number">0</span>;	<span class="comment">// 串从数组下标1的位置开始存储，因此i初值为1</span></span><br><span class="line">    next[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; substr.length)</span><br><span class="line">    &#123;</span><br><span class="line">    	<span class="keyword">if</span> (j == <span class="number">0</span> || substr.ch[i] == substr.ch[j])&#123;</span><br><span class="line">            ++i; ++j;</span><br><span class="line">            next[i] = j;</span><br><span class="line">        &#125;<span class="keyword">else</span> j = next[j];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="nextval数组"><a href="#nextval数组" class="headerlink" title="nextval数组"></a>nextval数组</h2><h1 id="C语言实现"><a href="#C语言实现" class="headerlink" title="C语言实现"></a>C语言实现</h1><h2 id="构建部分匹配值-Partical-Match-表"><a href="#构建部分匹配值-Partical-Match-表" class="headerlink" title="构建部分匹配值(Partical Match)表"></a>构建部分匹配值(Partical Match)表</h2>
+  </div>
+  
+  
+  
+  <div class="post-copyright">
+    <div class="post-copyright-icon"></div>
+    <div class="post-copyright-author">
+      <span class="post-copyright-meta">文章作者: </span>
+      <span class="post-copyright-info">
+        <a href="mailto:vhuuyt@foxmail.com">殊约</a>
+      </span>
+    </div>
+    <div class="post-copyright-type">
+      <span class="post-copyright-meta">文章链接: </span>
+      <span class="post-copyright-info">
+        <a href="http://vhuuyt.github.io/2022/11/03/kmp/">http://vhuuyt.github.io/2022/11/03/kmp/</a>
+      </span>
+    </div>
+    <div class="post-copyright-notice">
+      <span class="post-copyright-meta">版权声明: </span>
+      <span class="post-copyright-info">本博客所有文章除特别声明外，均采用||许可协议。转载请注明来自 <a href="http://vhuuyt.github.io/" target="_blank">殊约的小本本</a> !</span>
+    </div>
+  </div>
+  
+
+  
+  <div class="pagination-post">
+    
+    <a href="/2022/11/03/virtuous/">
+      <div class="prev-title"><i class="fas fa-chevron-left"></i>不妨停下脚步，看看风景</div>
+      <div class="prev-desc">　　刚刚听歌的时候，被推荐了一个视频：一双大白腿引发的争议风波-哔哩哔哩，看着，即没有思绪万千，也没有潸然泪下，却是感觉那浮躁、焦虑的心好像变得平静了许多。　　　　行善的 up 让许多人拾起了记...</div>
+    </a>
+    
+    
+    <a href="/2022/10/21/fedora/">
+      <div class="next-title">fedora<i class="fas fa-chevron-right"></i></div>
+      <div class="next-desc">自己下载包安装的第三方软件结构大概是这样：
+
+可执行文件都在 /usr/local/bin
+依赖项在 /usr/local/lib 还有 /usr/local/lib64/
+软件的资源文件则是在...</div>
+    </a>
+    
+  </div>
+  
+</article>
+
+
+
+<div id="toc-wrap">
+  <div id="toc">
+    <div class="toc-title">
+      <div>
+        目录
+        <span class="num">0%</span>
+      </div>
+      <progress class="progress" value="0" max="100"></progress>
+    </div>
+    <div class="toc-list">
+      
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%94%B9%E8%BF%9B"><span class="toc-text">改进</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#next%E6%95%B0%E7%BB%84"><span class="toc-text">next数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E8%A1%A8%E8%BF%B0"><span class="toc-text">程序表述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nextval%E6%95%B0%E7%BB%84"><span class="toc-text">nextval数组</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0"><span class="toc-text">C语言实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA%E9%83%A8%E5%88%86%E5%8C%B9%E9%85%8D%E5%80%BC-Partical-Match-%E8%A1%A8"><span class="toc-text">构建部分匹配值(Partical Match)表</span></a></li></ol></li></ol>
+    </div>
+  </div>
+</div>
+
+        </main>
+    </div>
+    <section id="rightside">
+    <div class="rightside-item">
+
+         
+        
+        
+            <a id="open-toc" title="目录">
+                <i class="fas fa-list-ul"></i>
+            </a>
+        
+
+
+         
+         
+        <a href="javascript:void(0);" id="darkmode" title="深色/浅色 ">
+            <i class="fas fa-moon"></i>
+        </a>
+         
+
+
+        
+
+
+        <a href="#" title="回到顶部">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </div>
+</section>
+    
+
+<footer class="footer" id="footer">
+  <div class="copyright">
+    &copy; 2022
+    <i class="fas fa-fan"></i>
+    殊约
+  </div>
+  <div class="framework-info">
+    <span>框架</span>
+    <a href="https://hexo.io" target="_blank">Hexo</a>
+    <span class="footer-separator">|</span>
+    <span>主题 </span>
+    <a href="https://github.com/lete114/hexo-theme-MengD" target="_blank">MengD.(萌典) </a>
+  </div>
+  <div class="custom-text">得不到的永远在骚动，被偏爱的都有恃无恐</div>
+</footer>
+    <div id="mask" onclick="closeAll()"></div>
+    
+    <script src="/js/main.js"></script>
+    
+<script>
+  var originTitle = document.title;
+  var titleTime;
+  document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
+      document.title = "我藏好了哦~ " + originTitle;
+      clearTimeout(titleTime);
+    } else {
+      document.title = "被你发现啦~ " + originTitle;
+      titleTime = setTimeout(function() {
+        document.title = originTitle;
+      }, 2000);
+    }
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  mengd.getScript('/third-party/js/prefetch-page.js', () => {
+    const requestIdleCa = requestIdleCallback
+    if (requestIdleCa) {
+      requestIdleCa(() => {
+        prefetch({"delay":1000,"threshold":25})
+      })
+    } else {
+      setTimeout(() => {
+        prefetch({"delay":1000,"threshold":25})
+      }, 3000);
+    }
+  })
+</script>
+
+</body>
+
+</html>
