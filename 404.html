@@ -16,7 +16,7 @@
 <link rel="shortcut icon" href="/img/favicon.png">
 
 
-<meta name="keywords" content="HTML,前端入门,隐入尘烟,Linus,传记,自学,遗愿清单,Ubuntu,Linux,GNOME,资源下载,迷茫,云服务器,emacs,编辑器&amp;神,小镇做题家,Fedora,软件,gdb,gcc,kmp,李开复,信,爱情？,Dijkstra,Floyd,最短路径,笨笨笨,白费力,vim,知足常乐,vscode,gcc环境搭建">
+<meta name="keywords" content="HTML,前端入门,Linus,传记,隐入尘烟,自学,Ubuntu,Linux,GNOME,遗愿清单,资源下载,迷茫,云服务器,emacs,编辑器&amp;神,English,Small-town swot,小镇做题家,kmp,gdb,gcc,Fedora,软件,李开复,信,爱情？,Dijkstra,Floyd,最短路径,笨笨笨,白费力,vim,知足常乐,vscode,gcc环境搭建">
 
 
 
@@ -32,25 +32,27 @@
 <meta property="article:author" content="殊约">
 <meta property="article:tag" content="HTML">
 <meta property="article:tag" content="前端入门">
-<meta property="article:tag" content="隐入尘烟">
 <meta property="article:tag" content="Linus">
 <meta property="article:tag" content="传记">
+<meta property="article:tag" content="隐入尘烟">
 <meta property="article:tag" content="自学">
-<meta property="article:tag" content="遗愿清单">
 <meta property="article:tag" content="Ubuntu">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="GNOME">
+<meta property="article:tag" content="遗愿清单">
 <meta property="article:tag" content="资源下载">
 <meta property="article:tag" content="迷茫">
 <meta property="article:tag" content="云服务器">
 <meta property="article:tag" content="emacs">
 <meta property="article:tag" content="编辑器&amp;神">
+<meta property="article:tag" content="English">
+<meta property="article:tag" content="Small-town swot">
 <meta property="article:tag" content="小镇做题家">
-<meta property="article:tag" content="Fedora">
-<meta property="article:tag" content="软件">
+<meta property="article:tag" content="kmp">
 <meta property="article:tag" content="gdb">
 <meta property="article:tag" content="gcc">
-<meta property="article:tag" content="kmp">
+<meta property="article:tag" content="Fedora">
+<meta property="article:tag" content="软件">
 <meta property="article:tag" content="李开复">
 <meta property="article:tag" content="信">
 <meta property="article:tag" content="爱情？">
@@ -111,20 +113,20 @@
          
         
           
-            <li><a href="/">首页</a></li>
+            <li><a href="/">Home</a></li>
            
          
         
           
           <li>
-            <a class="menu-child-hover" href="javascript:void(0);">找文章</a>
+            <a class="menu-child-hover" href="javascript:void(0);">Find</a>
             <ul class="menu-child">
               
-              <li><a href='/tags'>标签</a></li>
+              <li><a href='/tags'>Tags</a></li>
               
-              <li><a href='/categories'>分类</a></li>
+              <li><a href='/categories'>Categories</a></li>
               
-              <li><a href='/archives'>归档</a></li>
+              <li><a href='/archives'>Archives</a></li>
               
             </ul>
           </li>
@@ -132,7 +134,14 @@
          
         
           
-            <li><a target="_blank" rel="noopener" href="https://vhuuyt.gitee.io/um/">音乐解锁</a></li>
+          <li>
+            <a class="menu-child-hover" href="javascript:void(0);">Utilities</a>
+            <ul class="menu-child">
+              
+              <li><a target="_blank" rel="noopener" href='https://vhuuyt.gitee.io/um/'>Unlock-music</a></li>
+              
+            </ul>
+          </li>
            
         
       </ul>
@@ -145,22 +154,22 @@
          
         
         
-          <li><a href="/">首页</a></li>
+          <li><a href="/">Home</a></li>
         
        
         
          
-          <li><a href='/tags'>标签</a></li>
+          <li><a href='/tags'>Tags</a></li>
         
-          <li><a href='/categories'>分类</a></li>
+          <li><a href='/categories'>Categories</a></li>
         
-          <li><a href='/archives'>归档</a></li>
+          <li><a href='/archives'>Archives</a></li>
          
        
         
-        
-          <li><a target="_blank" rel="noopener" href="https://vhuuyt.gitee.io/um/">音乐解锁</a></li>
-        
+         
+          <li><a target="_blank" rel="noopener" href='https://vhuuyt.gitee.io/um/'>Unlock-music</a></li>
+         
       
     </ul>
   </div>
@@ -386,10 +395,10 @@
   var titleTime;
   document.addEventListener("visibilitychange", function() {
     if (document.hidden) {
-      document.title = "我藏好了哦~ " + originTitle;
+      document.title = "Bye~ " + originTitle;
       clearTimeout(titleTime);
     } else {
-      document.title = "被你发现啦~ " + originTitle;
+      document.title = "Hello~ " + originTitle;
       titleTime = setTimeout(function() {
         document.title = originTitle;
       }, 2000);

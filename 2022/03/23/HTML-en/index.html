@@ -82,20 +82,20 @@
          
         
           
-            <li><a href="/">首页</a></li>
+            <li><a href="/">Home</a></li>
            
          
         
           
           <li>
-            <a class="menu-child-hover" href="javascript:void(0);">找文章</a>
+            <a class="menu-child-hover" href="javascript:void(0);">Find</a>
             <ul class="menu-child">
               
-              <li><a href='/tags'>标签</a></li>
+              <li><a href='/tags'>Tags</a></li>
               
-              <li><a href='/categories'>分类</a></li>
+              <li><a href='/categories'>Categories</a></li>
               
-              <li><a href='/archives'>归档</a></li>
+              <li><a href='/archives'>Archives</a></li>
               
             </ul>
           </li>
@@ -103,7 +103,14 @@
          
         
           
-            <li><a target="_blank" rel="noopener" href="https://vhuuyt.gitee.io/um/">音乐解锁</a></li>
+          <li>
+            <a class="menu-child-hover" href="javascript:void(0);">Utilities</a>
+            <ul class="menu-child">
+              
+              <li><a target="_blank" rel="noopener" href='https://vhuuyt.gitee.io/um/'>Unlock-music</a></li>
+              
+            </ul>
+          </li>
            
         
       </ul>
@@ -116,22 +123,22 @@
          
         
         
-          <li><a href="/">首页</a></li>
+          <li><a href="/">Home</a></li>
         
        
         
          
-          <li><a href='/tags'>标签</a></li>
+          <li><a href='/tags'>Tags</a></li>
         
-          <li><a href='/categories'>分类</a></li>
+          <li><a href='/categories'>Categories</a></li>
         
-          <li><a href='/archives'>归档</a></li>
+          <li><a href='/archives'>Archives</a></li>
          
        
         
-        
-          <li><a target="_blank" rel="noopener" href="https://vhuuyt.gitee.io/um/">音乐解锁</a></li>
-        
+         
+          <li><a target="_blank" rel="noopener" href='https://vhuuyt.gitee.io/um/'>Unlock-music</a></li>
+         
       
     </ul>
   </div>
@@ -444,10 +451,10 @@ HTML文档剖析(anotomy)1234567891011&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;!--�
   var titleTime;
   document.addEventListener("visibilitychange", function() {
     if (document.hidden) {
-      document.title = "我藏好了哦~ " + originTitle;
+      document.title = "Bye~ " + originTitle;
       clearTimeout(titleTime);
     } else {
-      document.title = "被你发现啦~ " + originTitle;
+      document.title = "Hello~ " + originTitle;
       titleTime = setTimeout(function() {
         document.title = originTitle;
       }, 2000);

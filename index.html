@@ -79,20 +79,20 @@
          
         
           
-            <li><a href="/">首页</a></li>
+            <li><a href="/">Home</a></li>
            
          
         
           
           <li>
-            <a class="menu-child-hover" href="javascript:void(0);">找文章</a>
+            <a class="menu-child-hover" href="javascript:void(0);">Find</a>
             <ul class="menu-child">
               
-              <li><a href='/tags'>标签</a></li>
+              <li><a href='/tags'>Tags</a></li>
               
-              <li><a href='/categories'>分类</a></li>
+              <li><a href='/categories'>Categories</a></li>
               
-              <li><a href='/archives'>归档</a></li>
+              <li><a href='/archives'>Archives</a></li>
               
             </ul>
           </li>
@@ -100,7 +100,14 @@
          
         
           
-            <li><a target="_blank" rel="noopener" href="https://vhuuyt.gitee.io/um/">音乐解锁</a></li>
+          <li>
+            <a class="menu-child-hover" href="javascript:void(0);">Utilities</a>
+            <ul class="menu-child">
+              
+              <li><a target="_blank" rel="noopener" href='https://vhuuyt.gitee.io/um/'>Unlock-music</a></li>
+              
+            </ul>
+          </li>
            
         
       </ul>
@@ -113,22 +120,22 @@
          
         
         
-          <li><a href="/">首页</a></li>
+          <li><a href="/">Home</a></li>
         
        
         
          
-          <li><a href='/tags'>标签</a></li>
+          <li><a href='/tags'>Tags</a></li>
         
-          <li><a href='/categories'>分类</a></li>
+          <li><a href='/categories'>Categories</a></li>
         
-          <li><a href='/archives'>归档</a></li>
+          <li><a href='/archives'>Archives</a></li>
          
        
         
-        
-          <li><a target="_blank" rel="noopener" href="https://vhuuyt.gitee.io/um/">音乐解锁</a></li>
-        
+         
+          <li><a target="_blank" rel="noopener" href='https://vhuuyt.gitee.io/um/'>Unlock-music</a></li>
+         
       
     </ul>
   </div>
@@ -366,6 +373,58 @@
   
   <div class="post-item">
     <div class="post-item-info">
+      <a class="post-title" href="/2022/12/19/false-en/" title="Small-town Swots">
+        
+        Small-town Swots
+        
+      </a>
+      <div class="post-description">
+        
+        ThisessayisreproducedandtranslatedfromtheZhihuuser@Idon’tunderstandyouSmall-townSwot,thistermfirs...
+      </div>
+      <div class="post-meta-wrap">
+        <span class="post-meta-date">
+          <i class="far fa-calendar-alt"></i>
+          <span> 2022.12.19</span>
+        </span>
+        
+        <span class="post-categorie">
+          <i class="fas fa-folder-open"></i>
+          
+          <a href="/categories/copy%E7%9A%84%E6%96%87%E7%AB%A0/">
+            copy的文章
+          </a>
+          
+          
+        </span>
+        
+
+        
+        <span class="post-tag">
+          <i class="fa fa-tag"></i>
+          
+          <a href="/tags/English/">
+            English
+          </a>
+          
+          <i class="fas fa-angle-right"></i>
+          
+          
+          <a href="/tags/Small-town-swot/">
+            Small-town swot
+          </a>
+          
+          
+        </span>
+        
+      </div>
+    </div>
+
+  </div>
+  
+  
+  <div class="post-item">
+    <div class="post-item-info">
       <a class="post-title" href="/2022/12/04/false/" title="小镇做题家">
         
         小镇做题家
@@ -550,51 +609,6 @@
 
   </div>
   
-  
-  <div class="post-item">
-    <div class="post-item-info">
-      <a class="post-title" href="/2022/11/03/virtuous/" title="不妨停下脚步，看看风景">
-        
-        不妨停下脚步，看看风景
-        
-      </a>
-      <div class="post-description">
-        
-        刚刚听歌的时候，被推荐了一个视频：一双大白腿引发的争议风波-哔哩哔哩，看着，即没有思绪万千，也没有潸然泪下，却是感觉那浮躁、焦虑的心好像变得平静了许多。行善的up让许多人拾起了记忆，也让许多人认...
-      </div>
-      <div class="post-meta-wrap">
-        <span class="post-meta-date">
-          <i class="far fa-calendar-alt"></i>
-          <span> 2022.11.03</span>
-        </span>
-        
-        <span class="post-categorie">
-          <i class="fas fa-folder-open"></i>
-          
-          <a href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/">
-            碎碎念
-          </a>
-          
-          
-        </span>
-        
-
-        
-        <span class="post-tag">
-          <i class="fa fa-tag"></i>
-          
-          <a href="/tags/%E7%9F%A5%E8%B6%B3%E5%B8%B8%E4%B9%90/">
-            知足常乐
-          </a>
-          
-          
-        </span>
-        
-      </div>
-    </div>
-
-  </div>
-  
    
 
     <div class="pagination">
@@ -655,10 +669,10 @@
   var titleTime;
   document.addEventListener("visibilitychange", function() {
     if (document.hidden) {
-      document.title = "我藏好了哦~ " + originTitle;
+      document.title = "Bye~ " + originTitle;
       clearTimeout(titleTime);
     } else {
-      document.title = "被你发现啦~ " + originTitle;
+      document.title = "Hello~ " + originTitle;
       titleTime = setTimeout(function() {
         document.title = originTitle;
       }, 2000);
